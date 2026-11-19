@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Class — Formation Bureautique de Master Class</title>
+<title>Master Class — Formation Bureautique Complète avec Interfaces Réelles</title>
 <style>
   :root {
     --primary: #1e3a8a;
@@ -25,7 +25,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
   body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-  /* LOGIN & ADMIN PORTAL */
+  /* ==================== PORTAIL AUTHENTIFICATION ==================== */
   #auth-screen {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #0f172a 100%);
@@ -55,8 +55,8 @@
   }
   .form-group input:focus { outline: none; border-color: var(--primary-light); }
   .btn {
-    padding: 11px 18px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
-    font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 10px 16px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
+    font-size: 0.9rem; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   }
   .btn-primary { background: var(--primary); color: white; width: 100%; }
   .btn-primary:hover { background: #1d4ed8; }
@@ -64,103 +64,198 @@
   .btn-success { background: var(--success); color: white; }
   .btn-danger { background: var(--danger); color: white; }
   .btn-outline { background: white; border: 1.5px solid #cbd5e1; color: var(--text); }
-  .btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+  .btn-sm { padding: 6px 11px; font-size: 0.8rem; }
   .alert { padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 12px; display: none; }
   .alert-error { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
   .alert-success { background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; }
 
-  /* MAIN APP */
+  /* ==================== APPLICATION PRINCIPALE ==================== */
   #app-screen { display: none; flex-direction: column; min-height: 100vh; }
   header.topbar {
-    background: var(--dark); color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100;
+    background: var(--dark); color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; position: sticky; top: 0; z-index: 100;
   }
-  .brand { font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
-  .user-pill { background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .brand { font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+  .user-pill { background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 99px; font-size: 0.83rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   nav.main-nav {
-    background: white; border-bottom: 1px solid #e2e8f0; padding: 8px 24px; display: flex; gap: 8px; overflow-x: auto;
+    background: white; border-bottom: 1px solid #e2e8f0; padding: 8px 20px; display: flex; gap: 8px; overflow-x: auto;
   }
   .nav-item {
-    padding: 9px 15px; border-radius: 8px; border: none; background: transparent; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; font-size: 0.9rem;
+    padding: 8px 14px; border-radius: 8px; border: none; background: transparent; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; font-size: 0.88rem;
   }
   .nav-item:hover { background: #f1f5f9; color: var(--text); }
   .nav-item.active { background: var(--primary); color: white; }
   .nav-item.exam-tab { border: 1.5px solid var(--accent); color: #b45309; }
   .nav-item.exam-tab.active { background: var(--accent); color: #0f172a; }
 
-  main.content { flex: 1; padding: 24px; max-width: 1440px; width: 100%; margin: 0 auto; }
+  main.content { flex: 1; padding: 18px 20px; max-width: 1480px; width: 100%; margin: 0 auto; }
 
-  /* CARDS & GRIDS */
-  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
-  .stat-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid var(--primary); }
-  .stat-card h3 { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .stat-card .val { font-size: 1.8rem; font-weight: 800; margin-top: 6px; color: var(--dark); }
+  /* ==================== GRILLES & CARTES ==================== */
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .stat-card { background: white; padding: 18px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid var(--primary); }
+  .stat-card h3 { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-card .val { font-size: 1.65rem; font-weight: 800; margin-top: 6px; color: var(--dark); }
 
-  /* COURSE + LAB SPLIT */
   .software-header {
-    background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    background: white; padding: 16px 20px; border-radius: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
   .sub-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-  .sub-btn { padding: 8px 14px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: white; font-weight: 700; cursor: pointer; font-size: 0.85rem; }
+  .sub-btn { padding: 8px 14px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: white; font-weight: 700; cursor: pointer; font-size: 0.84rem; }
   .sub-btn.active { background: var(--dark); color: white; border-color: var(--dark); }
 
-  .module-grid { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
-  @media(max-width: 960px){ .module-grid { grid-template-columns: 1fr; } }
-  .sidebar-list { background: white; border-radius: 12px; padding: 14px; max-height: 75vh; overflow-y: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .module-grid { display: grid; grid-template-columns: 290px 1fr; gap: 16px; }
+  @media(max-width: 980px){ .module-grid { grid-template-columns: 1fr; } }
+  .sidebar-list { background: white; border-radius: 12px; padding: 12px; max-height: 82vh; overflow-y: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
   .list-item {
-    padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 8px; cursor: pointer; transition: all 0.15s;
+    padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 8px; cursor: pointer; transition: all 0.15s;
   }
   .list-item:hover { border-color: var(--primary-light); background: #f8fafc; }
   .list-item.active { border-color: var(--primary); background: #eff6ff; }
   .list-item.done { border-left: 4px solid var(--success); }
-  .workspace-panel { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .workspace-panel { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 
-  .lesson-box { line-height: 1.65; font-size: 0.95rem; }
-  .lesson-box h3 { color: var(--primary); margin: 16px 0 8px; font-size: 1.15rem; }
-  .lesson-box ul { margin-left: 20px; margin-bottom: 12px; }
-  .lesson-box li { margin-bottom: 6px; }
-  .step-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; margin-top: 16px; }
+  /* ==================== SIMULATEURS D'INTERFACES LOGICIELLES (STIMULUS VISUEL COMPLET) ==================== */
+  .sim-window {
+    border: 2px solid #94a3b8; border-radius: 10px; overflow: hidden; margin: 16px 0;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.12); background: #f8fafc;
+  }
+  .sim-titlebar {
+    color: white; padding: 7px 14px; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; font-weight: 700;
+  }
+  .sim-win-controls { display: flex; gap: 8px; font-family: monospace; font-size: 0.9rem; }
+  .sim-ribbon-tabs {
+    background: #f1f5f9; border-bottom: 1px solid #cbd5e1; display: flex; gap: 2px; padding: 4px 10px 0; overflow-x: auto;
+  }
+  .sim-rtab {
+    padding: 6px 13px; font-size: 0.8rem; font-weight: 600; color: #334155; cursor: pointer;
+    border-radius: 6px 6px 0 0; border: 1px solid transparent; border-bottom: none; white-space: nowrap;
+  }
+  .sim-rtab:hover { background: #e2e8f0; }
+  .sim-rtab.active { background: white; color: #0f172a; font-weight: 800; border-color: #cbd5e1; }
+  .sim-ribbon-body {
+    background: white; border-bottom: 1px solid #cbd5e1; padding: 8px 12px; display: flex; gap: 14px; flex-wrap: wrap; align-items: stretch;
+  }
+  .sim-group {
+    border-right: 1px solid #e2e8f0; padding-right: 12px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .sim-group:last-child { border-right: none; }
+  .sim-tools-row { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+  .sim-tool-btn {
+    background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 4px 8px; font-size: 0.76rem;
+    cursor: pointer; color: #1e293b; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: all 0.12s;
+  }
+  .sim-tool-btn:hover { background: #e0f2fe; border-color: #38bdf8; }
+  .sim-tool-btn.active-tool { background: #dbeafe; border-color: #2563eb; color: #1e3a8a; font-weight: 800; }
+  .sim-group-label { font-size: 0.68rem; color: #64748b; text-align: center; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.4px; }
 
-  .formula-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-  .formula-bar span { background: #e2e8f0; padding: 6px 10px; border-radius: 6px; font-weight: 800; font-family: monospace; }
-  .formula-bar input, .exam-input {
-    flex: 1; min-width: 200px; padding: 9px 12px; border: 1.5px solid #94a3b8; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.92rem; width: 100%;
+  /* WORD DOCUMENT CANVAS */
+  .word-ruler {
+    background: #e2e8f0; border-bottom: 1px solid #94a3b8; padding: 3px 24px; font-family: monospace; font-size: 0.72rem; color: #475569; letter-spacing: 6px; text-align: center;
+  }
+  .word-canvas-area { background: #cbd5e1; padding: 20px; display: flex; justify-content: center; }
+  .word-page {
+    background: white; width: 100%; max-width: 680px; min-height: 230px; padding: 28px 34px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid #94a3b8; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 0.92rem; line-height: 1.5;
   }
 
-  /* EXAMEN FINAL MASTERCLASS SPLIT (GAUCHE ENONCE / DROITE TRAVAIL) */
-  .exam-split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 20px; }
+  /* EXCEL GRID & FORMULA BAR */
+  .excel-fx-bar {
+    background: #f8fafc; border-bottom: 1px solid #cbd5e1; padding: 5px 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .excel-name-box {
+    background: white; border: 1px solid #94a3b8; padding: 4px 10px; font-family: monospace; font-weight: 800; font-size: 0.85rem; width: 68px; text-align: center; border-radius: 4px;
+  }
+  .excel-fx-input {
+    flex: 1; background: white; border: 1px solid #94a3b8; padding: 5px 10px; font-family: Consolas, monospace; font-size: 0.9rem; border-radius: 4px;
+  }
+  .excel-grid-wrap { overflow-x: auto; background: white; }
+  table.excel-sheet { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  table.excel-sheet th {
+    background: #e2e8f0; border: 1px solid #94a3b8; padding: 4px 8px; text-align: center; font-weight: 700; color: #334155; min-width: 85px;
+  }
+  table.excel-sheet th.row-hdr { min-width: 34px; width: 34px; }
+  table.excel-sheet td {
+    border: 1px solid #cbd5e1; padding: 5px 8px; background: white; cursor: cell; font-family: 'Calibri', sans-serif;
+  }
+  table.excel-sheet td.selected-cell { outline: 2px solid #217346; background: #f0fdf4; font-weight: 700; }
+
+  /* POWERPOINT STUDIO */
+  .ppt-studio { display: grid; grid-template-columns: 145px 1fr; min-height: 250px; background: #e2e8f0; }
+  .ppt-thumbs { background: #f1f5f9; border-right: 1px solid #cbd5e1; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .ppt-thumb {
+    background: white; border: 2px solid #cbd5e1; border-radius: 4px; padding: 8px; font-size: 0.72rem; cursor: pointer;
+  }
+  .ppt-thumb.active { border-color: #d24726; background: #fff7ed; font-weight: 700; }
+  .ppt-stage { padding: 18px; display: flex; align-items: center; justify-content: center; }
+  .ppt-slide-169 {
+    background: white; width: 100%; max-width: 560px; aspect-ratio: 16 / 9; border: 1px solid #94a3b8;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.16); padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  /* ACCESS STUDIO */
+  .access-studio { display: grid; grid-template-columns: 195px 1fr; min-height: 240px; background: white; }
+  .access-nav-pane { background: #fef2f2; border-right: 1px solid #fecaca; padding: 10px; font-size: 0.8rem; }
+  .access-obj-item { padding: 5px 8px; border-radius: 5px; margin-bottom: 4px; cursor: pointer; font-weight: 600; color: #7f1d1d; }
+  .access-obj-item.active { background: #a4373a; color: white; }
+  .access-work-pane { padding: 14px; overflow-x: auto; }
+
+  /* WINDOWS EXPLORER & AZERTY STUDIO */
+  .win-studio { display: grid; grid-template-columns: 180px 1fr; min-height: 210px; background: white; }
+  .win-sidebar { background: #f8fafc; border-right: 1px solid #cbd5e1; padding: 10px; font-size: 0.8rem; }
+  .win-main { padding: 14px; }
+  .azerty-row { display: flex; gap: 4px; justify-content: center; margin-bottom: 4px; flex-wrap: wrap; }
+  .key-cap {
+    padding: 5px 9px; border: 1px solid #94a3b8; border-radius: 5px; background: #f8fafc; font-family: monospace; font-weight: 700; font-size: 0.78rem;
+  }
+  .key-cap.home-key { background: #dbeafe; border-color: #2563eb; color: #1e3a8a; }
+
+  .sim-statusbar {
+    background: #e2e8f0; border-top: 1px solid #cbd5e1; padding: 4px 12px; font-size: 0.75rem; color: #334155; display: flex; justify-content: space-between;
+  }
+
+  /* COURS & VALIDATION */
+  .lesson-box { line-height: 1.6; font-size: 0.93rem; }
+  .lesson-box h3 { color: var(--primary); margin: 12px 0 6px; font-size: 1.08rem; }
+  .lesson-box ul { margin-left: 20px; margin-bottom: 10px; }
+  .step-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .formula-bar { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .formula-bar span { background: #e2e8f0; padding: 6px 10px; border-radius: 6px; font-weight: 800; font-family: monospace; font-size: 0.84rem; }
+  .formula-bar input, .exam-input {
+    flex: 1; min-width: 210px; padding: 9px 12px; border: 1.5px solid #94a3b8; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.92rem; width: 100%;
+  }
+
+  /* EXAMEN FINAL SPLIT */
+  .exam-split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; }
   @media(max-width: 980px){ .exam-split { grid-template-columns: 1fr; } }
-  .exam-enonce { background: #fffbeb; border: 1.5px solid #fcd34d; border-radius: 12px; padding: 20px; }
-  .exam-work { background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 20px; }
+  .exam-enonce { background: #fffbeb; border: 1.5px solid #fcd34d; border-radius: 12px; padding: 18px; }
+  .exam-work { background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 18px; }
 
   /* QCM & CERTIFICAT */
-  .qcm-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; margin-bottom: 14px; }
-  .qcm-opt { display: block; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 8px; cursor: pointer; }
+  .qcm-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 12px; }
+  .qcm-opt { display: block; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 6px; cursor: pointer; }
   .qcm-opt:hover { background: #f8fafc; }
 
-  /* CERTIFICATE DESIGN */
   .cert-wrapper {
-    background: #fff; border: 12px double #1e3a8a; padding: 36px; max-width: 900px; margin: 20px auto;
+    background: #fff; border: 12px double #1e3a8a; padding: 34px; max-width: 900px; margin: 20px auto;
     position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.15); color: #0f172a;
   }
-  .cert-header { text-align: center; border-bottom: 2px solid #f59e0b; padding-bottom: 18px; margin-bottom: 22px; }
-  .cert-title { font-size: 2rem; font-weight: 900; color: #1e3a8a; letter-spacing: 1px; text-transform: uppercase; }
-  .cert-name { font-size: 1.9rem; font-weight: 800; color: #0f172a; border-bottom: 2px solid #cbd5e1; display: inline-block; padding: 4px 28px; margin: 14px 0; }
-  .cert-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 20px 0; text-align: center; }
+  .cert-header { text-align: center; border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 20px; }
+  .cert-title { font-size: 1.95rem; font-weight: 900; color: #1e3a8a; letter-spacing: 1px; text-transform: uppercase; }
+  .cert-name { font-size: 1.85rem; font-weight: 800; color: #0f172a; border-bottom: 2px solid #cbd5e1; display: inline-block; padding: 4px 26px; margin: 12px 0; }
+  .cert-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 18px 0; text-align: center; }
   .cert-score-box { background: #f8fafc; border: 1px solid #cbd5e1; padding: 10px 6px; border-radius: 8px; }
-  .cert-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 28px; padding-top: 16px; border-top: 1px dashed #94a3b8; flex-wrap: wrap; gap: 16px; }
+  .cert-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 24px; padding-top: 14px; border-top: 1px dashed #94a3b8; flex-wrap: wrap; gap: 16px; }
   .qr-box { text-align: center; }
   .sig-box { text-align: center; min-width: 220px; }
 
-  /* COACH BLESSING FLOATING */
+  /* COACH FLOATING */
   #coach-widget {
-    position: fixed; bottom: 20px; right: 20px; width: 320px; background: white; border-radius: 14px;
+    position: fixed; bottom: 18px; right: 18px; width: 310px; background: white; border-radius: 14px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 2px solid var(--primary); z-index: 999; overflow: hidden;
   }
-  .coach-head { background: var(--primary); color: white; padding: 10px 14px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-  .coach-body { padding: 12px; font-size: 0.86rem; max-height: 240px; overflow-y: auto; }
+  .coach-head { background: var(--primary); color: white; padding: 9px 14px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 0.85rem; }
+  .coach-body { padding: 12px; font-size: 0.84rem; max-height: 230px; overflow-y: auto; }
 
-  /* ADMIN TABLE */
-  table.admin-tbl { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85rem; }
+  table.admin-tbl { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.84rem; }
   table.admin-tbl th, table.admin-tbl td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; }
   table.admin-tbl th { background: #1e3a8a; color: white; }
 
@@ -181,13 +276,13 @@
         <span class="badge-gold">FORMATION BUREAUTIQUE DE MASTER CLASS • ÉDITION 2026</span>
         <h1>Master Class</h1>
         <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.5;">
-          Plateforme professionnelle de formation complète et certification sur <strong>Windows, Word, Excel, PowerPoint et Access</strong> (De Débutant Absolu à Expert).
+          Plateforme interactive avec <strong>Interfaces Réelles des Logiciels</strong> (Rubans, Onglets, Règles, Barres de formule, Diapositives & Tables) sur <strong>Windows, Word, Excel, PowerPoint et Access</strong>.
         </p>
         <ul class="feature-list">
-          <li>🔐 <strong>Code Fondateur Exclusif (20261) :</strong> Votre code créateur personnel est actif dès l'ouverture, et seul vous pouvez autoriser de nouveaux codes pour vos élèves.</li>
-          <li>✋ <strong>Validation Manuelle Stricte :</strong> Aucun code tiers ne fonctionne tant que vous ne l'avez pas saisi et accepté explicitement dans l'espace Créateur.</li>
-          <li>💾 <strong>Sauvegarde Automatique Permanente :</strong> Chaque utilisateur conserve son propre espace, son mot de passe, ses jours de connexion, ses cas résolus et ses notes.</li>
-          <li>🎓 <strong>Examen Final Masterclass & Certificat QR :</strong> Évaluation autonome notée sur 100 %, QCM final et Certificat officiel vérifiable (05 044 71 63).</li>
+          <li>🖥️ <strong>Interfaces Logicielles Fidèles :</strong> Chaque cours, exercice et étude de cas intègre le ruban, les onglets et l'espace de travail réel du logiciel.</li>
+          <li>🔐 <strong>Code Fondateur Exclusif (20261) :</strong> Votre code créateur personnel est actif dès l'ouverture, et seul vous pouvez autoriser de nouveaux codes.</li>
+          <li>💾 <strong>Sauvegarde Automatique Permanente :</strong> Chaque utilisateur conserve son propre espace, ses jours de connexion, ses cas résolus et ses notes.</li>
+          <li>🎓 <strong>Examen Final & Certificat QR :</strong> Évaluation autonome notée sur 100 %, QCM final et Certificat officiel vérifiable (05 044 71 63).</li>
         </ul>
       </div>
       <div style="font-size:0.8rem; color:#94a3b8; border-top:1px solid rgba(255,255,255,0.15); padding-top:12px;">
@@ -203,7 +298,6 @@
 
       <div id="auth-alert" class="alert"></div>
 
-      <!-- FORMULAIRE APPRENANT / FONDATEUR (INSCRIPTION / REPRISE AUTOMATIQUE) -->
       <form id="student-form" onsubmit="handleStudentLogin(event)">
         <div class="form-group">
           <label>Nom de famille *</label>
@@ -214,7 +308,7 @@
           <input type="text" id="st-prenom" placeholder="Ex: Blessing" required>
         </div>
         <div class="form-group">
-          <label>Votre Mot de Passe Personnel (choisi par vous) *</label>
+          <label>Votre Mot de Passe Personnel *</label>
           <input type="password" id="st-personal-pwd" placeholder="Créez ou saisissez votre mot de passe" required>
         </div>
         <div class="form-group">
@@ -233,7 +327,6 @@
         <button type="submit" class="btn btn-primary">🚀 Entrer & Sauvegarder Automatiquement</button>
       </form>
 
-      <!-- ESPACE CRÉATEUR / ACCEPTATION & GÉNÉRATION MANUELLE DE CODES -->
       <div id="creator-panel" style="display:none;">
         <div class="form-group">
           <label>Mot de Passe Maître du Créateur *</label>
@@ -289,18 +382,16 @@
   <nav class="main-nav">
     <button class="nav-item active" data-tab="dashboard" onclick="openMainTab('dashboard', this)">🏠 Tableau de Bord</button>
     <button class="nav-item" data-tab="windows" onclick="openMainTab('windows', this)">🪟 Windows & Dactylo</button>
-    <button class="nav-item" data-tab="word" onclick="openMainTab('word', this)">📘 Word (Cours + 10 Cas)</button>
-    <button class="nav-item" data-tab="excel" onclick="openMainTab('excel', this)">📗 Excel (Cours + 6 Projets)</button>
-    <button class="nav-item" data-tab="ppt" onclick="openMainTab('ppt', this)">📙 PowerPoint (Cours + 10 Cas)</button>
-    <button class="nav-item" data-tab="access" onclick="openMainTab('access', this)">📕 Access (Cours + 10 Cas)</button>
+    <button class="nav-item" data-tab="word" onclick="openMainTab('word', this)">📘 Word (Interface + 10 Cas)</button>
+    <button class="nav-item" data-tab="excel" onclick="openMainTab('excel', this)">📗 Excel (Interface + 6 Projets)</button>
+    <button class="nav-item" data-tab="ppt" onclick="openMainTab('ppt', this)">📙 PowerPoint (Interface + 10 Cas)</button>
+    <button class="nav-item" data-tab="access" onclick="openMainTab('access', this)">📕 Access (Interface + 10 Cas)</button>
     <button class="nav-item exam-tab" data-tab="exam" onclick="openMainTab('exam', this)">🎯 Master Class — Examen Final (/100%)</button>
     <button class="nav-item exam-tab" data-tab="qcm" onclick="openMainTab('qcm', this)">📝 QCM & Certificat Officiel</button>
     <button class="nav-item" id="nav-creator-mgr" style="display:none; background:#fef3c7; color:#78350f;" data-tab="creator_mgr" onclick="openMainTab('creator_mgr', this)">🔑 Gestion des Codes Créateur</button>
   </nav>
 
-  <main class="content" id="main-workspace">
-    <!-- Contenu injecté dynamiquement -->
-  </main>
+  <main class="content" id="main-workspace"></main>
 </div>
 
 <!-- COACH BLESSING WIDGET -->
@@ -310,7 +401,7 @@
     <span id="coach-toggle-icon">▼</span>
   </div>
   <div class="coach-body" id="coach-body">
-    <p id="coach-msg" style="margin-bottom:10px; color:#1e293b;">Bienvenue ! Toutes tes actions sont automatiquement sauvegardées sous ton compte personnel.</p>
+    <p id="coach-msg" style="margin-bottom:10px; color:#1e293b;">Bienvenue ! Observe bien les onglets et le ruban de chaque interface logicielle avant de valider ta réponse.</p>
     <div style="display:flex; gap:6px;">
       <button class="btn btn-sm btn-primary" onclick="speakCoach()">🔊 Écouter</button>
       <button class="btn btn-sm btn-outline" onclick="coachTip()">💡 Conseil Pro</button>
@@ -319,23 +410,31 @@
 </div>
 
 <script>
-// ==================== BASE DE DONNÉES PÉDAGOGIQUE COMPLÈTE ====================
+// ==================== BASE DE DONNÉES PÉDAGOGIQUE & INTERFACES ====================
 const CURRICULUM = {
   windows: {
     name: "Windows & Dactylographie",
     color: "#0284c7",
+    docTitle: "Explorateur de fichiers — Poste de Travail & Clavier AZERTY",
+    ribbonTabs: ["Fichier", "Accueil", "Partage", "Affichage", "Outils Système"],
+    ribbonGroups: {
+      "Fichier": [{ label: "Session", tools: ["🔒 Verrouiller (Win+L)", "⚙️ Paramètres (Win+I)"] }],
+      "Accueil": [{ label: "Presse-papiers & Organisation", tools: ["📁 Nouveau dossier (Ctrl+Maj+N)", "📋 Copier (Ctrl+C)", "📌 Coller (Ctrl+V)", "❌ Supprimer (Suppr)"] }],
+      "Partage": [{ label: "Diffusion", tools: ["🗜️ Compresser ZIP", "📧 Envoyer"] }],
+      "Affichage": [{ label: "Disposition", tools: ["🗂️ Détails", "🔍 Aperçu", "👁️ Éléments masqués"] }],
+      "Outils Système": [{ label: "Diagnostic", tools: ["📊 Gestionnaire des tâches (Ctrl+Maj+Échap)", "⚡ Exécuter (Win+R)"] }]
+    },
     courses: [
       {
         title: "Module 1 : Architecture Windows, Bureau & Gestionnaire des tâches",
         content: `<h3>Maîtrise de l'environnement professionnel Windows</h3>
-        <p>Un professionnel maîtrise l'arborescence des fichiers, les raccourcis système et le diagnostic des processus.</p>
         <ul>
           <li><strong>Explorateur de fichiers (Win + E) :</strong> Organisation hiérarchique stricte (Année > Département > Projet).</li>
-          <li><strong>Gestionnaire des tâches (Ctrl + Maj + Échap) :</strong> Permet d'identifier et d'arrêter une application bloquée sans redémarrer le PC.</li>
-          <li><strong>Corbeille & Restauration :</strong> Tout fichier supprimé normalement transite par la Corbeille avant suppression définitive (Maj + Suppr).</li>
+          <li><strong>Gestionnaire des tâches (Ctrl + Maj + Échap) :</strong> Identifier et arrêter une application bloquée sans redémarrer le PC.</li>
         </ul>`,
+        simContext: { activeTab: "Outils Système", folder: "C:\\Entreprise\\Compta_2026", files: ["Bilan_2026.xlsx", "Factures_Clients.docx", "Processus_Bloque.exe (Ne répond pas)"] },
         exercise: {
-          prompt: "Mission Windows : Vous devez créer un dossier nommé Compta_2026 puis ouvrir le Gestionnaire des tâches via son raccourci clavier exact.",
+          prompt: "Mission Windows : Observez le ruban 'Outils Système' de l'Explorateur ci-dessus.",
           question: "Saisissez le raccourci clavier exact pour ouvrir directement le Gestionnaire des tâches sous Windows :",
           expected: "ctrl+maj+echap",
           alt: ["ctrl+shift+esc", "ctrl+maj+esc"]
@@ -344,14 +443,10 @@ const CURRICULUM = {
       {
         title: "Module 2 : Dactylographie Professionnelle AZERTY (Position des 10 doigts)",
         content: `<h3>Positionnement ergonomique sur clavier AZERTY</h3>
-        <p>La frappe rapide sans regarder le clavier repose sur la <strong>ligne de base (QSDF - JKLM)</strong> :</p>
-        <ul>
-          <li><strong>Main gauche :</strong> Auriculaire sur <code>Q</code>, Annulaire sur <code>S</code>, Majeur sur <code>D</code>, Index sur <code>F</code> (repère tactile).</li>
-          <li><strong>Main droite :</strong> Index sur <code>J</code> (repère tactile), Majeur sur <code>K</code>, Annulaire sur <code>L</code>, Auriculaire sur <code>M</code>.</li>
-          <li><strong>Pouces :</strong> Exclusivement dédiés à la barre d'espace.</li>
-        </ul>`,
+        <p>La frappe rapide sans regarder le clavier repose sur la <strong>ligne de base (QSDF - JKLM)</strong> avec repères tactiles sur <strong>F</strong> et <strong>J</strong>.</p>`,
+        simContext: { activeTab: "Accueil", folder: "Atelier Dactylographie AZERTY", showKeyboard: true },
         exercise: {
-          prompt: "Test de frappe AZERTY : Saisissez exactement la phrase de référence sans faute de majuscule ni de ponctuation.",
+          prompt: "Test de frappe AZERTY : Observez les touches repères F et J sur le clavier virtuel ci-dessus.",
           question: "Tapez exactement : L'expertise bureautique exige rigueur et rapidite en 2026.",
           expected: "l'expertise bureautique exige rigueur et rapidite en 2026.",
           alt: ["l'expertise bureautique exige rigueur et rapidité en 2026."]
@@ -362,8 +457,9 @@ const CURRICULUM = {
       {
         id: "win-c1",
         title: "Cas 1 : Audit & Nettoyage Poste Comptable",
-        context: "Le poste de la comptabilité est ralenti par un processus bloqué et des fichiers temporaires dans C:\Temp.",
-        task: "Quelle commande exécuter dans Win + R pour ouvrir directement l'éditeur de configuration système ou nettoyer les fichiers temporaires ?",
+        context: "Le poste de la comptabilité est ralenti par des fichiers temporaires dans C:\\Temp.",
+        task: "Quelle commande exécuter dans Win + R pour ouvrir le dossier des fichiers temporaires ?",
+        simContext: { activeTab: "Outils Système", folder: "C:\\Users\\Compta\\AppData\\Local\\Temp", files: ["~DF892.tmp", "cache_erp.tmp", "log_err.tmp"] },
         question: "Saisissez la commande exacte pour ouvrir le dossier des fichiers temporaires dans Exécuter (Win+R) :",
         expected: "%temp%",
         alt: ["temp"]
@@ -373,6 +469,7 @@ const CURRICULUM = {
         title: "Cas 2 : Sécurisation rapide de poste en entreprise",
         context: "Vous quittez votre bureau en open-space avec des bilans financiers ouverts à l'écran.",
         task: "Appliquez le réflexe de sécurité immédiat pour verrouiller la session Windows.",
+        simContext: { activeTab: "Fichier", folder: "C:\\Direction\\Bilans_Confidentiels", files: ["Bilan_Final_2026.pdf", "Paie_Cadres.xlsx"] },
         question: "Saisissez le raccourci clavier Windows de verrouillage instantané de session :",
         expected: "win+l",
         alt: ["windows+l"]
@@ -382,7 +479,7 @@ const CURRICULUM = {
       {
         id: "ex-win-1",
         title: "Épreuve Pratique Windows : Diagnostic & Arborescence",
-        enonce: "L'entreprise Congo Distribution vous confie la préparation d'un poste neuf. Vous devez : 1) Verrouiller le poste lors de vos pauses, 2) Ouvrir l'explorateur par raccourci, 3) Tuer un processus bloqué sans passer par le menu Démarrer.",
+        enonce: "L'entreprise Congo Distribution vous confie la préparation d'un poste neuf. Vous devez ouvrir l'explorateur par raccourci et lancer le Gestionnaire des tâches.",
         questions: [
           { q: "1. Raccourci pour ouvrir l'Explorateur de fichiers :", ans: "win+e" },
           { q: "2. Raccourci pour ouvrir directement le Gestionnaire des tâches :", ans: "ctrl+maj+echap" }
@@ -392,19 +489,35 @@ const CURRICULUM = {
   },
 
   word: {
-    name: "Microsoft Word (De Zéro à Expert + 10 Cas)",
+    name: "Microsoft Word (Interface Complète + 10 Cas)",
     color: "#2b579a",
+    docTitle: "Document_Officiel_MasterClass.docx — Microsoft Word",
+    ribbonTabs: ["Fichier", "Accueil", "Insertion", "Conception", "Mise en page", "Références", "Publipostage", "Révision", "Affichage"],
+    ribbonGroups: {
+      "Fichier": [{ label: "Gestion", tools: ["💾 Enregistrer sous (F12)", "📄 Exporter PDF", "🖨️ Imprimer"] }],
+      "Accueil": [
+        { label: "Police", tools: ["G (Gras)", "I (Italique)", "S (Souligné)", "🧹 Gomme Magique"] },
+        { label: "Paragraphe", tools: ["⬅️ Gauche", "↔️ Centrer", "➡️ Droite (Ctrl+R)", "📏 Justifier", "🔲 Bordures (Texte/Paragraphe)"] },
+        { label: "Styles", tools: ["Titre 1", "Titre 2", "Normal"] }
+      ],
+      "Insertion": [{ label: "Pages & Éléments", tools: ["📄 Page de garde", "📊 Tableau", "🧬 SmartArt", "🔢 Numéro de page"] }],
+      "Conception": [{ label: "Arrière-plan", tools: ["💧 Filigrane", "🖼️ Bordures de page"] }],
+      "Mise en page": [{ label: "Configuration", tools: ["📏 Marges (2 cm)", "🔄 Orientation (Portrait/Paysage)", "📑 Sauts de section (Page suivante)", "📰 Colonnes"] }],
+      "Références": [{ label: "Structure & Notes", tools: ["📑 Table des matières", "📝 Note de bas de page (Alt+Ctrl+F)", "🏷️ Insérer une légende"] }],
+      "Publipostage": [{ label: "Fusion", tools: ["📋 Sélection des destinataires", "🏷️ Champ de fusion", "🔀 Règles (Si...Alors...Sinon)", "👁️ Aperçu (Maj+F9)"] }],
+      "Révision": [{ label: "Suivi", tools: ["✍️ Suivi des modifications (Ctrl+Maj+E)", "💬 Nouveau commentaire"] }],
+      "Affichage": [{ label: "Repères", tools: ["📐 Règle graduée", "🗺️ Volet Navigation"] }]
+    },
     courses: [
       {
         title: "Partie 1 : Interface, Règle & Formats (.docx / .pdf)",
-        content: `<h3>Anatomie de Word et gestion professionnelle des fichiers</h3>
+        content: `<h3>Anatomie de Word et typographie officielle</h3>
         <ul>
-          <li><strong>Règle graduée :</strong> Onglet Affichage > cocher Règle pour contrôler les marges et tabulations.</li>
-          <li><strong>Enregistrer sous (F12) :</strong> Permet d'exporter un document modifiable <code>.docx</code> en format figé <code>.pdf</code> avant envoi officiel.</li>
           <li><strong>Espace insécable (Ctrl + Maj + Espace) :</strong> Empêche la séparation entre un nombre et son unité (ex: <code>350 000 FCFA</code>).</li>
         </ul>`,
+        simContext: { activeTab: "Accueil", docHtml: `<p style="text-align:right;">Brazzaville, le 19 novembre 2026</p><p><strong>Objet :</strong> <em>Confirmation de rémunération mensuelle</em></p><p>Votre salaire brut mensuel est fixé à <strong>350 000&nbsp;FCFA</strong> (espace insécable actif).</p>` },
         exercise: {
-          prompt: "Exercice 1 : Configuration et typographie officielle.",
+          prompt: "Exercice 1 : Observez la règle graduée et le montant '350 000 FCFA' dans la page Word ci-dessus.",
           question: "Quel raccourci clavier insère un espace insécable entre 350 000 et FCFA ?",
           expected: "ctrl+maj+espace",
           alt: ["ctrl+shift+space"]
@@ -412,14 +525,13 @@ const CURRICULUM = {
       },
       {
         title: "Partie 2 & 3 : Bordures, Gomme Magique & Tabulations",
-        content: `<h3>Encadrements précis et taquets de tabulation</h3>
+        content: `<h3>Encadrements précis et taquets de tabulation dans un tableau</h3>
         <ul>
-          <li><strong>Appliquer à Texte vs Paragraphe :</strong> Pour encadrer un titre au plus près des lettres, choisissez <em>Appliquer à : Texte</em>.</li>
-          <li><strong>Gomme magique :</strong> Le bouton <em>Effacer toute la mise en forme</em> supprime les styles hérités indésirables.</li>
-          <li><strong>Tabulations avec points de suite :</strong> Double-cliquez sur le taquet dans la règle (ex: 14 cm) et activez les pointillés (option 2). Dans un tableau, utilisez <code>Ctrl + Tab</code>.</li>
+          <li><strong>Tabulation dans un tableau :</strong> Utilisez <code>Ctrl + Tab</code> pour atteindre le taquet de tabulation à l'intérieur d'une cellule.</li>
         </ul>`,
+        simContext: { activeTab: "Accueil", docHtml: `<table style="width:100%; border-collapse:collapse;" border="1"><tr><th style="padding:6px; background:#eff6ff;">Désignation</th><th style="padding:6px; background:#eff6ff;">Montant aligné par taquet</th></tr><tr><td style="padding:6px;">Prestation Audit</td><td style="padding:6px;">.......... 450 000 FCFA</td></tr></table>` },
         exercise: {
-          prompt: "Exercice 2 : Alignement dans un tableau Word.",
+          prompt: "Exercice 2 : Observez le tableau Word avec points de suite ci-dessus.",
           question: "Quelle combinaison de touches active un taquet de tabulation à l'intérieur d'une cellule de tableau Word ?",
           expected: "ctrl+tab",
           alt: []
@@ -427,14 +539,13 @@ const CURRICULUM = {
       },
       {
         title: "Partie 4 & 5 : Styles Hiérarchiques, Sommaire & Sauts de Section",
-        content: `<h3>Structuration de longs documents et mise en page mixte</h3>
+        content: `<h3>Mise en page mixte (Portrait / Paysage) et pagination ciblée</h3>
         <ul>
-          <li><strong>Styles Titre 1, Titre 2, Titre 3 :</strong> Indispensables pour générer une Table des matières automatique (Onglet Références).</li>
-          <li><strong>Saut de section (Page suivante) :</strong> Permet d'orienter la page 3 en <strong>Paysage</strong> tout en gardant les pages 1, 2 et 4 en <strong>Portrait</strong>.</li>
-          <li><strong>Pagination ciblée :</strong> Désactivez <em>Lier au précédent</em> dans le pied de page de la Section 3 et démarrez la numérotation à 1.</li>
+          <li><strong>Pagination ciblée :</strong> Désactivez <em>Lier au précédent</em> dans l'en-tête/pied de la Section 3 avant de démarrer à 1.</li>
         </ul>`,
+        simContext: { activeTab: "Mise en page", docHtml: `<div style="border:1px dashed #2b579a; padding:8px; margin-bottom:8px; font-size:0.8rem; color:#2b579a;">--- Saut de section (Page suivante) : Section 3 (Paysage) — Option [Lier au précédent] DÉSACTIVÉE ---</div><p><strong>1. INTRODUCTION GÉNÉRALE</strong> (Style Titre 1 — Page 1 de la Section 3)</p>` },
         exercise: {
-          prompt: "Exercice 3 : Pagination à partir de l'Introduction.",
+          prompt: "Exercice 3 : Observez la bannière de Section 3 dans la page Word ci-dessus.",
           question: "Quelle option du ruban En-tête et pied de page faut-il impérativement désactiver avant de numéroter la Section 3 à partir de 1 ?",
           expected: "lier au precedent",
           alt: ["lier au précédent"]
@@ -444,11 +555,11 @@ const CURRICULUM = {
         title: "Partie 6 : Publipostage Automatisé (Excel vers Word)",
         content: `<h3>Fusion et Publipostage conditionnel</h3>
         <ul>
-          <li><strong>Commutateur numérique :</strong> Ajoutez <code>\# "# ##0"</code> dans le code du champ <code>{ MERGEFIELD MontantDû }</code> (affiché via <code>Maj + F9</code>).</li>
-          <li><strong>Règle Si... Alors... Sinon :</strong> Permet d'adapter automatiquement le paragraphe de relance selon que <code>JoursRetard > 30</code>.</li>
+          <li><strong>Codes de champs (Maj + F9) :</strong> Affiche <code>{ MERGEFIELD MontantDû \\# "# ##0" }</code>.</li>
         </ul>`,
+        simContext: { activeTab: "Publipostage", docHtml: `<p>Cher(e) <code>«Civilité» «Nom»</code>,</p><p>Votre solde impayé s'élève à : <code>{ MERGEFIELD MontantDû \\# "# ##0" } FCFA</code>.</p>` },
         exercise: {
-          prompt: "Exercice 4 : Raccourci des codes de champs Word.",
+          prompt: "Exercice 4 : Observez le champ de fusion dans l'onglet Publipostage ci-dessus.",
           question: "Quel raccourci clavier affiche ou masque le code d'un champ sélectionné dans Word ?",
           expected: "maj+f9",
           alt: ["shift+f9"]
@@ -456,22 +567,22 @@ const CURRICULUM = {
       }
     ],
     cases: [
-      { id: "w1", title: "Cas 1 (RH) : Promesse d'embauche Mlle Clarisse MAMPOUYA", context: "Congo Distribution SA (Brazzaville). Marges 2 cm, bloc destinataire et date alignés à droite (Ctrl+R), Objet en Gras+Italique, espace insécable dans 350 000 FCFA, espacement après 6 pt.", task: "Rédigez la formule d'objet exacte mise en forme ou indiquez le commutateur d'alignement droite.", question: "Saisissez le raccourci d'alignement à droite appliqué au bloc destinataire :", expected: "ctrl+r", alt: [] },
-      { id: "w2", title: "Cas 2 (Direction) : Rapport d'Inspection AGRO-CONGO Loudima", context: "M. Bienvenu TSONDE. Page 1 Garde, Page 2 Sommaire auto, Page 3 Corps (Section 3 déliée) avec champ SECTIONPAGES.", task: "Quel champ Word affiche le nombre total de pages de la section en cours uniquement ?", question: "Saisissez le nom exact du champ Word (en majuscules) :", expected: "sectionpages", alt: [] },
-      { id: "w3", title: "Cas 3 (Commercial) : Publipostage Relances MOUKALA Prestations", context: "Base Clients_Retard.xlsx. Commutateur monétaire sur MontantDû et règle IF si JoursRetard > 30.", task: "Saisissez le commutateur de format monétaire appliqué au champ MontantDû :", question: 'Tapez exactement : \\# "# ##0"', expected: '\\# "# ##0"', alt: ['# ##0'] },
-      { id: "w4", title: "Cas 4 (Logistique) : Fiche d'Inventaire Dépôt TRANS-LOG (50 lignes)", context: "Arsène BADINGA. Tableau de 5 colonnes sur 3 pages. L'en-tête Bleu Nuit (#1A365D) doit se répéter et aucune ligne ne doit être coupée.", task: "Quelle case faut-il décocher dans Propriétés du tableau > Onglet Ligne ?", question: "Saisissez l'option à décocher :", expected: "autoriser le fractionnement des lignes sur plusieurs pages", alt: ["fractionnement des lignes"] },
-      { id: "w5", title: "Cas 5 (RH) : Organigramme Société KIBOSSA Services", context: "Orientation Paysage, SmartArt Hiérarchie. Mme Patricia MIKALA (Secrétariat) doit être placée en poste d'Assistant sous M. Dieudonné KIBOSSA.", task: "Quelle option de disposition SmartArt permet d'insérer le Secrétariat de Direction sous le DG ?", question: "Saisissez l'action SmartArt exacte :", expected: "ajouter un assistant", alt: ["assistant"] },
-      { id: "w6", title: "Cas 6 (Finance) : Note de Cadrage avec Page 3 en Paysage", context: "Pages 1, 2 et 4 en Portrait ; Page 3 (tableau matriciel 7 colonnes) en Paysage avec numérotation continue 1 à 4.", task: "Quel type de saut faut-il insérer à la fin de la page 2 et à la fin de la page 3 ?", question: "Saisissez le type de saut exact :", expected: "saut de section page suivante", alt: ["saut de section"] },
-      { id: "w7", title: "Cas 7 (Marketing) : Dépliant 3 Volets La Marmite de Bacongo", context: "Paysage, marges étroites (1,27 cm), 3 colonnes avec ligne de séparation et habillage d'image Carré (0,2 cm).", task: "Quel raccourci clavier force le passage au volet (colonne) suivant sans sauts de ligne manuels ?", question: "Saisissez le raccourci de saut de colonne :", expected: "ctrl+maj+entree", alt: ["ctrl+maj+entrée", "ctrl+shift+enter"] },
-      { id: "w8", title: "Cas 8 (Secrétariat) : Attestation de Travail SOTRA-CONGO", context: "M. Anselme MBAMA. Filigrane image estompé (100%) et encadrement de page double ligne fine.", task: "Dans quel onglet du ruban Word configure-t-on le Filigrane et les Bordures de page ?", question: "Saisissez le nom de l'onglet :", expected: "conception", alt: ["création"] },
-      { id: "w9", title: "Cas 9 (Juridique) : Contrat de Bail Cabinet MOUKOKO & Associés", context: "Remplacer '20% chaque année sans préavis' par '5% tous les trois ans conformément à la législation en vigueur' avec suivi actif et commentaire marginal.", task: "Quel raccourci clavier active immédiatement le Suivi des modifications ?", question: "Saisissez le raccourci clavier :", expected: "ctrl+maj+e", alt: ["ctrl+shift+e"] },
-      { id: "w10", title: "Cas 10 (Académique) : Mémoire d'Ingénieur Simplice BASSINGA", context: "Mémoire 60 pages sur la rivière Loufoulou. Notes de bas de page automatiques, légendes Figure 1 & 2, renvois croisés et Table des illustrations.", task: "Quel raccourci clavier insère une Note de bas de page automatique ?", question: "Saisissez le raccourci clavier :", expected: "alt+ctrl+f", alt: ["ctrl+alt+f"] }
+      { id: "w1", title: "Cas 1 (RH) : Promesse d'embauche Mlle Clarisse MAMPOUYA", context: "Congo Distribution SA (Brazzaville). Marges 2 cm, bloc destinataire et date alignés à droite (Ctrl+R), Objet en Gras+Italique, espace insécable dans 350 000 FCFA.", task: "Indiquez le raccourci d'alignement à droite appliqué au bloc destinataire.", simContext: { activeTab: "Accueil", docHtml: `<p style="text-align:right;"><strong>CONGO DISTRIBUTION SA</strong><br>Brazzaville, le 19/11/2026</p><p><strong><em>Objet : Promesse d'embauche — Mlle Clarisse MAMPOUYA</em></strong></p><p>Rémunération : 350 000 FCFA.</p>` }, question: "Saisissez le raccourci d'alignement à droite appliqué au bloc destinataire :", expected: "ctrl+r", alt: [] },
+      { id: "w2", title: "Cas 2 (Direction) : Rapport d'Inspection AGRO-CONGO Loudima", context: "M. Bienvenu TSONDE. Page 1 Garde, Page 2 Sommaire auto, Page 3 Corps (Section 3 déliée) avec champ SECTIONPAGES.", task: "Quel champ Word affiche le nombre total de pages de la section en cours uniquement ?", simContext: { activeTab: "Références", docHtml: `<p><strong>RAPPORT D'INSPECTION — AGRO-CONGO LOUDIMA</strong></p><p style="color:#64748b; font-size:0.82rem;">Pied de page Section 3 : Page { PAGE } sur { SECTIONPAGES }</p>` }, question: "Saisissez le nom exact du champ Word (en majuscules) :", expected: "sectionpages", alt: [] },
+      { id: "w3", title: "Cas 3 (Commercial) : Publipostage Relances MOUKALA Prestations", context: "Base Clients_Retard.xlsx. Commutateur monétaire sur MontantDû.", task: "Saisissez le commutateur de format monétaire appliqué au champ MontantDû.", simContext: { activeTab: "Publipostage", docHtml: `<p>Client : <code>«Entreprise»</code> — Montant : <code>{ MERGEFIELD MontantDû \\# "# ##0" } FCFA</code></p>` }, question: 'Tapez exactement : \\# "# ##0"', expected: '\\# "# ##0"', alt: ['# ##0'] },
+      { id: "w4", title: "Cas 4 (Logistique) : Fiche d'Inventaire Dépôt TRANS-LOG (50 lignes)", context: "Tableau de 5 colonnes sur 3 pages. L'en-tête Bleu Nuit (#1A365D) doit se répéter et aucune ligne ne doit être coupée.", task: "Quelle case faut-il décocher dans Propriétés du tableau > Onglet Ligne ?", simContext: { activeTab: "Insertion", docHtml: `<table style="width:100%; border-collapse:collapse;" border="1"><tr style="background:#1A365D; color:white;"><th>Réf</th><th>Article</th><th>Stock</th><th>Emplacement</th><th>État</th></tr><tr><td>TR-01</td><td>Palette Bois</td><td>120</td><td>Zone A</td><td>Conforme</td></tr></table>` }, question: "Saisissez l'option à décocher :", expected: "autoriser le fractionnement des lignes sur plusieurs pages", alt: ["fractionnement des lignes"] },
+      { id: "w5", title: "Cas 5 (RH) : Organigramme Société KIBOSSA Services", context: "Orientation Paysage, SmartArt Hiérarchie. Mme Patricia MIKALA (Secrétariat) placée en poste d'Assistant sous M. Dieudonné KIBOSSA.", task: "Quelle option de disposition SmartArt permet d'insérer le Secrétariat sous le DG ?", simContext: { activeTab: "Insertion", docHtml: `<div style="text-align:center;"><div style="display:inline-block; background:#1e3a8a; color:white; padding:6px 14px; border-radius:6px;">DG : M. Dieudonné KIBOSSA</div><br>├── <span style="background:#fef3c7; padding:4px 10px; border:1px solid #f59e0b; border-radius:4px;">Assistant : Mme Patricia MIKALA</span></div>` }, question: "Saisissez l'action SmartArt exacte :", expected: "ajouter un assistant", alt: ["assistant"] },
+      { id: "w6", title: "Cas 6 (Finance) : Note de Cadrage avec Page 3 en Paysage", context: "Pages 1, 2 et 4 en Portrait ; Page 3 (tableau matriciel) en Paysage.", task: "Quel type de saut faut-il insérer à la fin de la page 2 et à la fin de la page 3 ?", simContext: { activeTab: "Mise en page", docHtml: `<p>Fin de Page 2 (Portrait) ➔ <strong>[Saut de section (Page suivante)]</strong> ➔ Page 3 (Paysage)</p>` }, question: "Saisissez le type de saut exact :", expected: "saut de section page suivante", alt: ["saut de section"] },
+      { id: "w7", title: "Cas 7 (Marketing) : Dépliant 3 Volets La Marmite de Bacongo", context: "Paysage, marges étroites, 3 colonnes avec ligne de séparation.", task: "Quel raccourci clavier force le passage au volet (colonne) suivant ?", simContext: { activeTab: "Mise en page", docHtml: `<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;"><div style="border-right:1px solid #94a3b8; padding-right:6px;">Volet 1 : Entrées</div><div style="border-right:1px solid #94a3b8; padding-right:6px;">Volet 2 : Plats</div><div>Volet 3 : Contact</div></div>` }, question: "Saisissez le raccourci de saut de colonne :", expected: "ctrl+maj+entree", alt: ["ctrl+maj+entrée", "ctrl+shift+enter"] },
+      { id: "w8", title: "Cas 8 (Secrétariat) : Attestation de Travail SOTRA-CONGO", context: "M. Anselme MBAMA. Filigrane image estompé (100%) et encadrement de page double ligne fine.", task: "Dans quel onglet du ruban Word configure-t-on le Filigrane et les Bordures de page ?", simContext: { activeTab: "Conception", docHtml: `<div style="border:3px double #1e3a8a; padding:14px; text-align:center;"><strong>ATTESTATION DE TRAVAIL — SOTRA-CONGO</strong><br><span style="color:#94a3b8;">[Filigrane Estompé 100%]</span></div>` }, question: "Saisissez le nom de l'onglet :", expected: "conception", alt: ["création"] },
+      { id: "w9", title: "Cas 9 (Juridique) : Contrat de Bail Cabinet MOUKOKO & Associés", context: "Révision de clause avec suivi actif et commentaire marginal.", task: "Quel raccourci clavier active immédiatement le Suivi des modifications ?", simContext: { activeTab: "Révision", docHtml: `<p>Article 4 : Révision du loyer <del style="color:red;">20% chaque année</del> <ins style="color:green;">5% tous les trois ans</ins>.</p>` }, question: "Saisissez le raccourci clavier :", expected: "ctrl+maj+e", alt: ["ctrl+shift+e"] },
+      { id: "w10", title: "Cas 10 (Académique) : Mémoire d'Ingénieur Simplice BASSINGA", context: "Mémoire 60 pages sur la rivière Loufoulou. Notes de bas de page automatiques.", task: "Quel raccourci clavier insère une Note de bas de page automatique ?", simContext: { activeTab: "Références", docHtml: `<p>Le bassin versant de la rivière Loufoulou<sup>1</sup> présente un débit régulier.<hr><small><sup>1</sup> Source : Relevés hydrologiques 2026.</small></p>` }, question: "Saisissez le raccourci clavier :", expected: "alt+ctrl+f", alt: ["ctrl+alt+f"] }
     ],
     examTasks: [
       {
         id: "ex-word-1",
         title: "Épreuve Intégrale Word : Dossier Officiel & Publipostage",
-        enonce: "Vous devez produire un rapport officiel de 4 pages dont la page 3 est en Paysage (annexe financière), la numérotation commence à 1 à la page 3, et une campagne de publipostage relance les clients ayant plus de 30 jours de retard.",
+        enonce: "Vous devez produire un rapport officiel de 4 pages dont la page 3 est en Paysage (annexe financière), la numérotation commence à 1 à la page 3, et une campagne de publipostage relance les clients.",
         questions: [
           { q: "1. Type de saut requis avant et après la page 3 Paysage :", ans: "saut de section page suivante" },
           { q: "2. Champ Word affichant le total de pages de la section uniquement :", ans: "sectionpages" },
@@ -482,19 +593,35 @@ const CURRICULUM = {
   },
 
   excel: {
-    name: "Microsoft Excel (De Zéro à Expert + 6 Projets)",
+    name: "Microsoft Excel (Interface Complète + 6 Projets)",
     color: "#217346",
+    docTitle: "Classeur_Gestion_MasterClass.xlsx — Microsoft Excel",
+    ribbonTabs: ["Fichier", "Accueil", "Insertion", "Formules", "Données", "Révision", "Affichage", "Développeur"],
+    ribbonGroups: {
+      "Fichier": [{ label: "Classeur", tools: ["💾 Enregistrer sous (.xlsm / .xlsx)", "🖨️ Zone d'impression"] }],
+      "Accueil": [
+        { label: "Nombre", tools: ["💰 Format FCFA (# ##0)", "📅 Format Date", "% Pourcentage"] },
+        { label: "Style", tools: ["🎨 Mise en forme conditionnelle (MFC)", "📊 Mettre sous forme de tableau (Ctrl+T)"] }
+      ],
+      "Insertion": [{ label: "Tableaux & Graphiques", tools: ["📈 Tableau Croisé Dynamique (TCD)", "🎚️ Insérer un Segment", "📊 Graphique combiné"] }],
+      "Formules": [{ label: "Bibliothèque", tools: ["fx Insérer une fonction", "Σ Somme automatique", "🏷️ Gestionnaire de noms"] }],
+      "Données": [{ label: "Outils de données", tools: ["✅ Validation des données (Liste)", "🔽 Filtrer", "🧹 Supprimer les doublons"] }],
+      "Révision": [{ label: "Protection", tools: ["🔒 Protéger la feuille", "📘 Protéger le classeur"] }],
+      "Affichage": [{ label: "Fenêtre", tools: ["❄️ Figer les volets", "📏 Quadrillage"] }],
+      "Développeur": [{ label: "Code VBA", tools: ["💻 Visual Basic (Alt+F11)", "⏺️ Enregistrer une macro"] }]
+    },
     courses: [
       {
         title: "Partie 1 & 2 : Fondations, Poignée de Recopie, Formats & Dates",
-        content: `<h3>Calculs dynamiques et fonctions temporelles</h3>
-        <ul>
-          <li><strong>Règle d'or :</strong> Toute formule commence obligatoirement par le signe <code>=</code>.</li>
-          <li><strong>Tableaux structurés (Ctrl + T) :</strong> Recopie automatique des formules et extension dynamique.</li>
-          <li><strong>Fonctions de date :</strong> <code>=AUJOURDHUI()</code>, <code>=JOURSEM(B2;2)</code> (1=Lundi à 7=Dimanche), <code>=NOMPROPRE(TEXTE(B2;"mmmm"))</code>.</li>
-        </ul>`,
+        content: `<h3>Calculs dynamiques dans la grille Excel</h3>
+        <p>Observez la grille ci-dessous : <code>C2</code> contient le Prix Unitaire (450 000) et <code>D2</code> la Quantité (2).</p>`,
+        simContext: {
+          activeTab: "Formules", activeCell: "E2", fxPreview: "=C2*D2",
+          headers: ["A (Réf)", "B (Désignation)", "C (PU FCFA)", "D (Qté)", "E (Total FCFA)"],
+          rows: [["ART-1", "Serveur Dell", "450 000", "2", "? (À calculer)"], ["ART-2", "Switch Cisco", "180 000", "3", "540 000"]]
+        },
         exercise: {
-          prompt: "Projet 1 (Facturier Commercial) : L'article ART-1 coûte 450 000 FCFA (C2) pour une quantité de 2 (D2).",
+          prompt: "Projet 1 (Facturier Commercial) : Cliquez ou observez la cellule E2 sélectionnée dans la grille Excel ci-dessus.",
           question: "Saisissez la formule Excel exacte en E2 pour calculer le Prix Total :",
           expected: "=c2*d2",
           alt: ["=d2*c2"]
@@ -502,14 +629,15 @@ const CURRICULUM = {
       },
       {
         title: "Partie 3 : Logique Décisionnelle (SI, ET, OU Imbriqués) & Listes",
-        content: `<h3>Automatisation des décisions métiers</h3>
-        <ul>
-          <li><strong>ET(Cond1;Cond2) :</strong> Vrai si toutes les conditions sont vraies.</li>
-          <li><strong>OU(Cond1;Cond2) :</strong> Vrai si au moins une condition est vraie.</li>
-          <li><strong>Validation des données :</strong> Onglet Données > Validation des données > Autoriser : Liste (ex: <code>OK;En attente</code>).</li>
-        </ul>`,
+        content: `<h3>Automatisation des alertes de recouvrement</h3>
+        <p><code>D2</code> contient l'État ('Soldé' ou 'Non soldé') et <code>C2</code> les Jours Restants.</p>`,
+        simContext: {
+          activeTab: "Données", activeCell: "E2", fxPreview: '=SI(D2="Soldé";"";SI(ET(D2="Non soldé";C2<0);"Délai dépassé";...))',
+          headers: ["A (Client)", "B (Montant)", "C (JoursRestants)", "D (État)", "E (Alerte)"],
+          rows: [["SOCO-BTP", "1 200 000", "-4", "Non soldé", "Délai dépassé"], ["AGRO-SA", "850 000", "5", "Non soldé", "Relance urgente"]]
+        },
         exercise: {
-          prompt: "Projet 3 (Recouvrement Client) : D2 contient l'État ('Soldé' ou 'Non soldé') et C2 les Jours Restants.",
+          prompt: "Projet 3 (Recouvrement Client) : Observez la structure des colonnes C (Jours) et D (État) dans Excel.",
           question: 'Saisissez la formule SI imbriquée complète d\'alerte (laissant vide "" si Soldé) :',
           expected: '=si(d2="soldé";"";si(et(d2="non soldé";c2<0);"délai dépassé";si(et(d2="non soldé";c2>=0;c2<=7);"relance urgente";"bon")))',
           alt: ['=si(etat="soldé";"";si(et(etat="non soldé";jours<0);"délai dépassé";si(et(etat="non soldé";jours>=0;jours<=7);"relance urgente";"bon")))']
@@ -517,11 +645,13 @@ const CURRICULUM = {
       },
       {
         title: "Partie 4 : SOMME.SI, Plages Nommées & Rapprochement Bancaire",
-        content: `<h3>Contrôle de trésorerie et Mise en Forme Conditionnelle</h3>
-        <ul>
-          <li><strong>SOMME.SI(Plage_critère ; Critère ; Plage_à_additionner) :</strong> Additionne uniquement les écritures pointées <code>"OK"</code>.</li>
-          <li><strong>MFC par formule comptable :</strong> <code>=ET(ESTNUM(E6);H6="En attente")</code> surligne en rouge les écritures non pointées.</li>
-        </ul>`,
+        content: `<h3>Contrôle de trésorerie par plages nommées</h3>
+        <p>Les plages nommées sont <code>Pointé</code> et <code>Débit</code>.</p>`,
+        simContext: {
+          activeTab: "Formules", activeCell: "G2", fxPreview: '=SOMME.SI(Pointé;"OK";Débit)',
+          headers: ["A (Date)", "B (Libellé)", "C (Débit)", "D (Crédit)", "E (Pointé)"],
+          rows: [["02/11/2026", "Virement Client A", "950 000", "0", "OK"], ["05/11/2026", "Chèque Fournisseur", "0", "320 000", "En attente"]]
+        },
         exercise: {
           prompt: "Projet 4 (Rapprochement Bancaire) : Additionner les recettes de la plage nommée Débit dont le statut dans Pointé est 'OK'.",
           question: "Saisissez la formule SOMME.SI exacte :",
@@ -532,13 +662,14 @@ const CURRICULUM = {
       {
         title: "Partie 5 & 6 : RECHERCHEX, Tableaux Croisés Dynamiques & Macros VBA",
         content: `<h3>Business Intelligence & Automatisation VBA (.xlsm)</h3>
-        <ul>
-          <li><strong>Couplage MAX + RECHERCHEX :</strong> <code>=RECHERCHEX(MAX(D2:D100);D2:D100;B2:B100)</code> renvoie le nom du meilleur commercial.</li>
-          <li><strong>Segments connectés :</strong> Clic droit sur le segment > Connexions de rapports > Cocher tous les TCD.</li>
-          <li><strong>VBA (Alt + F11) :</strong> Sauvegarde obligatoire en format <code>.xlsm</code>.</li>
-        </ul>`,
+        <p>Couplage <code>RECHERCHEX</code> + <code>MAX</code> sur les colonnes <code>B2:B100</code> (Commerciaux) et <code>D2:D100</code> (CA).</p>`,
+        simContext: {
+          activeTab: "Insertion", activeCell: "F2", fxPreview: "=RECHERCHEX(MAX(D2:D100);D2:D100;B2:B100)",
+          headers: ["A (Zone)", "B (Commercial)", "C (Mois)", "D (CA FCFA)", "F (Top Vendeur)"],
+          rows: [["Brazzaville", "K. MBOUNGOU", "Nov", "4 850 000", "K. MBOUNGOU"], ["Pointe-Noire", "A. LOEMBA", "Nov", "3 920 000", ""]]
+        },
         exercise: {
-          prompt: "Projet 5 (Dashboard Exécutif) : Trouver le nom du commercial (B2:B100) ayant réalisé le plus gros CA (D2:D100).",
+          prompt: "Projet 5 (Dashboard Exécutif) : Observez la grille BD_Ventes dans l'interface Excel ci-dessus.",
           question: "Saisissez la formule combinée RECHERCHEX + MAX :",
           expected: "=recherchex(max(d2:d100);d2:d100;b2:b100)",
           alt: []
@@ -546,18 +677,18 @@ const CURRICULUM = {
       }
     ],
     cases: [
-      { id: "ex1", title: "Projet 1 : Facturier Commercial Automatisé", context: "Colonnes : C=Prix Unitaire, D=Quantité, E=Prix Total, F=Avance Versée, G=Reste à Payer.", task: "Calculez le Reste à Payer en G2 et le Total général des ventes (E2:E4) en E5.", question: "Saisissez la formule du Total des ventes en E5 :", expected: "=somme(e2:e4)", alt: [] },
-      { id: "ex2", title: "Projet 2 : Suivi des Échéances & Détection Week-end", context: "B2 contient la date d'échéance (01/03/2026).", task: "Affichez le nom complet du mois avec majuscule initiale (ex: Mars).", question: "Saisissez la formule combinée NOMPROPRE + TEXTE :", expected: '=nompropre(texte(b2;"mmmm"))', alt: [] },
-      { id: "ex3", title: "Projet 3 : Alertes Automatiques de Relance Impayés", context: "Reste à payer en B2. Afficher 'Soldé' si B2<=0, sinon 'Non soldé'.", task: "Écrivez la formule de la colonne État.", question: "Saisissez la formule SI :", expected: '=si(b2<=0;"soldé";"non soldé")', alt: [] },
-      { id: "ex4", title: "Projet 4 : État de Rapprochement Bancaire Automatisé", context: "Plages nommées : Solde_Relevé_Banque, Pointé, Débit, Crédit.", task: "Écrivez la formule de contrôle de l'écart de rapprochement (qui doit tendre vers 0,00).", question: "Saisissez la formule complète de l'écart :", expected: '=solde_relevé_banque-(somme.si(pointé;"ok";débit)-somme.si(pointé;"ok";crédit))', alt: [] },
-      { id: "ex5", title: "Projet 5 : Tableau de Bord Exécutif (BD_Ventes / Synthèse / Dashboard)", context: "Vous avez inséré un Segment 'Région' sur un TCD.", task: "Quelle option du menu contextuel du Segment permet de piloter simultanément tous les TCD ?", question: "Saisissez le nom exact de la commande :", expected: "connexions de rapports", alt: [] },
-      { id: "ex6", title: "Projet 6 : Menu VBA Dynamique des Onglets (.xlsm)", context: "Éditeur Visual Basic (Alt+F11), boucle For Each ws In Worksheets dans ThisWorkbook.", task: "Sous quelle extension de fichier devez-vous impérativement enregistrer le classeur pour conserver les macros ?", question: "Saisissez l'extension exacte :", expected: ".xlsm", alt: ["xlsm"] }
+      { id: "ex1", title: "Projet 1 : Facturier Commercial Automatisé", context: "Colonnes : C=Prix Unitaire, D=Quantité, E=Prix Total (E2:E4).", task: "Calculez le Total général des ventes (E2:E4) en E5.", simContext: { activeTab: "Accueil", activeCell: "E5", fxPreview: "=SOMME(E2:E4)", headers: ["C (PU)", "D (Qté)", "E (Prix Total)"], rows: [["450 000", "2", "900 000"], ["180 000", "3", "540 000"], ["75 000", "4", "300 000"]] }, question: "Saisissez la formule du Total des ventes en E5 :", expected: "=somme(e2:e4)", alt: [] },
+      { id: "ex2", title: "Projet 2 : Suivi des Échéances & Détection Week-end", context: "B2 contient la date d'échéance (01/03/2026).", task: "Affichez le nom complet du mois avec majuscule initiale (ex: Mars).", simContext: { activeTab: "Formules", activeCell: "C2", fxPreview: '=NOMPROPRE(TEXTE(B2;"mmmm"))', headers: ["A (Facture)", "B (Échéance)", "C (Mois)"], rows: [["FAC-01", "01/03/2026", "Mars"]] }, question: "Saisissez la formule combinée NOMPROPRE + TEXTE :", expected: '=nompropre(texte(b2;"mmmm"))', alt: [] },
+      { id: "ex3", title: "Projet 3 : Alertes Automatiques de Relance Impayés", context: "Reste à payer en B2. Afficher 'Soldé' si B2<=0, sinon 'Non soldé'.", task: "Écrivez la formule de la colonne État.", simContext: { activeTab: "Données", activeCell: "C2", fxPreview: '=SI(B2<=0;"Soldé";"Non soldé")', headers: ["A (Client)", "B (Reste à payer)", "C (État)"], rows: [["Client X", "0", "Soldé"], ["Client Y", "150 000", "Non soldé"]] }, question: "Saisissez la formule SI :", expected: '=si(b2<=0;"soldé";"non soldé")', alt: [] },
+      { id: "ex4", title: "Projet 4 : État de Rapprochement Bancaire Automatisé", context: "Plages nommées : Solde_Relevé_Banque, Pointé, Débit, Crédit.", task: "Écrivez la formule de contrôle de l'écart de rapprochement.", simContext: { activeTab: "Formules", activeCell: "G6", fxPreview: '=Solde_Relevé_Banque-(SOMME.SI(Pointé;"OK";Débit)-SOMME.SI(Pointé;"OK";Crédit))', headers: ["Solde Banque", "Débit Pointé", "Crédit Pointé", "Écart"], rows: [["2 500 000", "3 000 000", "500 000", "0,00"]] }, question: "Saisissez la formule complète de l'écart :", expected: '=solde_relevé_banque-(somme.si(pointé;"ok";débit)-somme.si(pointé;"ok";crédit))', alt: [] },
+      { id: "ex5", title: "Projet 5 : Tableau de Bord Exécutif (Segments TCD)", context: "Vous avez inséré un Segment 'Région' sur un TCD.", task: "Quelle option du menu contextuel du Segment permet de piloter simultanément tous les TCD ?", simContext: { activeTab: "Insertion", activeCell: "A1", fxPreview: "Segment : Région -> Connexions de rapports", headers: ["Segment Région", "TCD Ventes", "TCD Marges"], rows: [["Brazzaville", "12 400 000", "3 100 000"]] }, question: "Saisissez le nom exact de la commande :", expected: "connexions de rapports", alt: [] },
+      { id: "ex6", title: "Projet 6 : Menu VBA Dynamique des Onglets (.xlsm)", context: "Éditeur Visual Basic (Alt+F11), boucle For Each ws In Worksheets.", task: "Sous quelle extension de fichier devez-vous enregistrer le classeur pour conserver les macros ?", simContext: { activeTab: "Développeur", activeCell: "A1", fxPreview: "Sub CreerMenu() ' Sauvegarde obligatoire .xlsm", headers: ["Code VBA", "Extension requise"], rows: [["Workbook_Open()", ".xlsm"]] }, question: "Saisissez l'extension exacte :", expected: ".xlsm", alt: ["xlsm"] }
     ],
     examTasks: [
       {
         id: "ex-excel-1",
         title: "Épreuve Intégrale Excel : Contrôle de Gestion & BI",
-        enonce: "Vous auditez les ventes trimestrielles d'une entreprise (Montants en D2:D100, Commerciaux en B2:B100, Statut Pointage en Pointé, Recettes en Débit). Calculez le meilleur commercial, le total pointé 'OK' et la règle MFC d'attente.",
+        enonce: "Vous auditez les ventes trimestrielles d'une entreprise (Montants en D2:D100, Commerciaux en B2:B100, Statut Pointage en Pointé, Recettes en Débit).",
         questions: [
           { q: "1. Formule pour extraire le nom du commercial ayant le CA maximum :", ans: "=recherchex(max(d2:d100);d2:d100;b2:b100)" },
           { q: "2. Formule additionnant les montants de Débit dont Pointé vaut 'OK' :", ans: '=somme.si(pointé;"ok";débit)' },
@@ -568,18 +699,28 @@ const CURRICULUM = {
   },
 
   ppt: {
-    name: "Microsoft PowerPoint (De Débutant à Expert + 10 Cas)",
+    name: "Microsoft PowerPoint (Interface Complète + 10 Cas)",
     color: "#d24726",
+    docTitle: "Presentation_Strategique_MasterClass.pptx — Microsoft PowerPoint",
+    ribbonTabs: ["Fichier", "Accueil", "Insertion", "Conception", "Transitions", "Animations", "Diaporama", "Affichage"],
+    ribbonGroups: {
+      "Fichier": [{ label: "Exportation", tools: ["💾 Enregistrer sous (.pptx)", "🎬 Diaporama direct (.ppsx)", "📄 Exporter PDF"] }],
+      "Accueil": [{ label: "Diapositives & Dessin", tools: ["➕ Nouvelle diapositive", "📐 Disposition", "↔️ Distribuer horizontalement"] }],
+      "Insertion": [{ label: "Visuels & Navigation", tools: ["🖼️ Images", "🔷 Formes", "🔎 Zoom de section", "🎨 Icônes SVG"] }],
+      "Conception": [{ label: "Mise en page", tools: ["🖥️ Taille des diapositives (16:9)", "🎨 Palette 60/30/10"] }],
+      "Transitions": [{ label: "Cinématique", tools: ["✨ Morphose (!!Objet)", "⏱️ Durée 1,20 s"] }],
+      "Animations": [{ label: "Mouvement", tools: ["🎬 Volet Animation", "📋 Volet Sélection (Alt+F10)"] }],
+      "Diaporama": [{ label: "Projection", tools: ["▶️ À partir du début (F5)", "🖥️ Mode Présentateur (Alt+F5)"] }],
+      "Affichage": [{ label: "Modes Masque", tools: ["👑 Masque des diapositives", "📏 Repères"] }]
+    },
     courses: [
       {
         title: "Module 1 & 2 : Règle des 3 Secondes, Format 16:9 & Masque des Diapositives",
-        content: `<h3>Architecture stratégique et Charte graphique industrialisée</h3>
-        <ul>
-          <li><strong>Règle des 3 secondes :</strong> Évitez le syndrome « Death by PowerPoint ». Maximum 35-40% d'espace négatif (vide).</li>
-          <li><strong>Masque des diapositives (Affichage > Masque) :</strong> La Diapositive Maîtresse (Niveau 1 en haut) répercute le logo, la palette (60/30/10) et les polices sur toutes les dispositions enfants.</li>
-        </ul>`,
+        content: `<h3>Charte graphique industrialisée en format 16:9</h3>
+        <p>Observez le studio PowerPoint ci-dessous : le ruban <strong>Conception</strong> affiche la taille standard <strong>16:9</strong>.</p>`,
+        simContext: { activeTab: "Conception", slideTitle: "+18,4% DE CROISSANCE CA PORTÉE PAR LE SEGMENT B2B", slideBody: "Format Grand Écran 16:9 • Charte graphique verrouillée dans le Masque des diapositives." },
         exercise: {
-          prompt: "Exercice 1 & 2 : Configuration d'une présentation d'entreprise standardisée.",
+          prompt: "Exercice 1 & 2 : Observez l'onglet Conception dans le ruban PowerPoint ci-dessus.",
           question: "Quel format d'écran standard faut-il utiliser pour les projecteurs et visioconférences modernes ?",
           expected: "16:9",
           alt: ["grand ecran 16:9", "grand écran 16:9"]
@@ -587,13 +728,11 @@ const CURRICULUM = {
       },
       {
         title: "Module 3 & 4 : Titres d'Action, Règle 6x6 & Fusion de Formes",
-        content: `<h3>Hiérarchie visuelle et découpage vectoriel</h3>
-        <ul>
-          <li><strong>Titre d'Action :</strong> Formulez la conclusion chiffrée dès le titre (ex: <em>« +18,4% de CA porté par l'offre B2B »</em>).</li>
-          <li><strong>Fusionner les formes (Intersection) :</strong> Sélectionnez d'abord l'image, maintenez <code>Ctrl</code> puis sélectionnez le texte géant, et appliquez <em>Format de forme > Fusionner les formes > Intersection</em>.</li>
-        </ul>`,
+        content: `<h3>Découpage vectoriel (Effet Magazine)</h3>
+        <p>Sélectionnez d'abord l'image, puis le texte géant, et utilisez <strong>Fusionner les formes > Intersection</strong>.</p>`,
+        simContext: { activeTab: "Insertion", slideTitle: "EFFET MAGAZINE : IMAGE DÉCOUPÉE DANS LA TYPOGRAPHIE", slideBody: "Sélection 1 : Photo HD ➔ Sélection 2 (Ctrl) : Texte ➔ Fusionner > Intersection." },
         exercise: {
-          prompt: "Exercice 4 : Effet Magazine (découper une image dans une typographie géante).",
+          prompt: "Exercice 4 : Observez la scène PowerPoint ci-dessus.",
           question: "Quelle opération de fusion de formes conserve uniquement la zone commune entre l'image et le texte ?",
           expected: "intersection",
           alt: []
@@ -601,13 +740,11 @@ const CURRICULUM = {
       },
       {
         title: "Module 5 & 6 : Transition Morphose (!!Objet) & Mode Présentateur",
-        content: `<h3>Animations cinématographiques et pilotage en direct</h3>
-        <ul>
-          <li><strong>Astuce Morphose (<code>!!NomObjet</code>) :</strong> Dans le Volet Sélection, préfixez le nom de deux objets différents sur deux diapositives consécutives par <code>!!</code> pour forcer leur métamorphose fluide.</li>
-          <li><strong>Raccourcis en direct :</strong> <code>N</code> ou <code>.</code> (Écran noir), <code>B</code> ou <code>,</code> (Écran blanc), <code>Ctrl + L</code> (Pointeur laser), <code>Ctrl + P</code> (Stylet).</li>
-        </ul>`,
+        content: `<h3>Métamorphose fluide entre deux diapositives</h3>
+        <p>Dans le Volet Sélection, préfixez le nom de deux objets différents par <code>!!</code>.</p>`,
+        simContext: { activeTab: "Transitions", slideTitle: "TRANSITION MORPHOSE AVANCÉE : !!Carte_Afrique", slideBody: "Volet Sélection : Objet renommé [!!Carte_Afrique] sur Diapo 1 et Diapo 2." },
         exercise: {
-          prompt: "Exercice 5 : Transformation géométrique avancée entre deux diapositives.",
+          prompt: "Exercice 5 : Observez l'onglet Transitions et le nom de l'objet dans la diapositive ci-dessus.",
           question: "Quel préfixe de deux caractères faut-il ajouter devant le nom d'un objet dans le Volet Sélection pour forcer la transition Morphose ?",
           expected: "!!",
           alt: []
@@ -615,22 +752,22 @@ const CURRICULUM = {
       }
     ],
     cases: [
-      { id: "p1", title: "Cas 1 : Pitch Deck de Levée de Fonds Startup FinTech", context: "10 minutes devant des investisseurs VC. Structure Problème -> Solution -> TAM/SAM/SOM -> Traction -> Business Model.", task: "Quel type de graphique financier permet d'illustrer la décomposition des flux positifs et négatifs ?", question: "Saisissez le nom du graphique financier :", expected: "waterfall", alt: ["cascade", "graphique waterfall"] },
-      { id: "p2", title: "Cas 2 : Soutenance d'Appel d'Offres Public (BTP & Infrastructures)", context: "Défense d'offre technique pour la construction d'un pont devant un jury public.", task: "Quel outil de navigation permet de sauter directement vers le lot interrogé par le jury puis revenir au sommaire ?", question: "Saisissez le nom de l'outil PowerPoint :", expected: "zoom de section", alt: ["zoom", "zoom de résumé"] },
-      { id: "p3", title: "Cas 3 : COMEX — Bilan Financier & Plan de Redressement", context: "Approche conseil McKinsey (Pyramide de Minto) : recommandation en premier, preuves chiffrées ensuite.", task: "Comment appelle-t-on un titre de diapositive qui énonce directement la conclusion chiffrée ?", question: "Saisissez le terme exact :", expected: "titre d'action", alt: ["action title"] },
-      { id: "p4", title: "Cas 4 : Keynote Lancement Produit Industriel (Capteurs IoT)", context: "Fond noir profond (#0B0F19), vue éclatée des composants devant 300 journalistes.", task: "Quelle transition PowerPoint calcule automatiquement le déplacement et l'éclatement des pièces entre deux diapos ?", question: "Saisissez le nom de la transition :", expected: "morphose", alt: ["morph"] },
-      { id: "p5", title: "Cas 5 : Soutenance de Thèse Académique ou Mémoire de Master", context: "20 minutes devant un jury universitaire exigeant, résultats statistiques p < 0,001.", task: "Quel élément visuel permanent en haut à droite indique au jury l'avancement dans la démonstration ?", question: "Saisissez le nom de cet élément :", expected: "fil conducteur", alt: ["miniature"] },
-      { id: "p6", title: "Cas 6 : Projet de Transformation Digitale & Déploiement ERP", context: "Accompagnement au changement des salariés avec comparaison Avant/Après et frise chronologique.", task: "Quel outil d'alignement répartit équitablement l'espace horizontal entre 4 étapes d'une frise ?", question: "Saisissez la commande d'alignement :", expected: "distribuer horizontalement", alt: [] },
-      { id: "p7", title: "Cas 7 : Rapport d'Impact RSE & Développement Durable", context: "Bilan carbone annuel et engagements 2030 avec palette Vert Forêt / Sable.", task: "Quel format d'icônes vectorielles permet de recolorer les pictogrammes sans aucune pixellisation ?", question: "Saisissez l'extension vectorielle :", expected: "svg", alt: [".svg"] },
-      { id: "p8", title: "Cas 8 : Audit de Cybersécurité & Gestion de Crise (Pentest)", context: "Restitution d'un test d'intrusion à la direction générale d'une banque.", task: "Quelle matrice 2x2 croise la Probabilité et l'Impact des vulnérabilités détectées ?", question: "Saisissez le nom de la matrice :", expected: "matrice de risques", alt: ["matrice des risques"] },
-      { id: "p9", title: "Cas 9 : Projet d'Urbanisme & Aménagement Éco-Quartier", context: "Mise en page type magazine d'architecture devant les élus locaux.", task: "Quelle règle d'équilibre recommande de conserver au moins 35 à 40 % de vide autour des éléments ?", question: "Saisissez le terme exact :", expected: "espace négatif", alt: ["espace negatif", "espace blanc"] },
-      { id: "p10", title: "Cas 10 : Module E-Learning Interactif & Kiosque Autonome RH", context: "Parcours d'intégration consultable en autonomie sur tablette sans intervention d'un formateur.", task: "Sous quelle extension de fichier PowerPoint lance-t-on directement le diaporama en plein écran à l'ouverture ?", question: "Saisissez l'extension exacte :", expected: ".ppsx", alt: ["ppsx"] }
+      { id: "p1", title: "Cas 1 : Pitch Deck de Levée de Fonds Startup FinTech", context: "10 minutes devant des investisseurs VC.", task: "Quel type de graphique financier illustre la décomposition des flux positifs et négatifs ?", simContext: { activeTab: "Insertion", slideTitle: "BRIDGE FINANCIER — LEVÉE SÉRIE A (2,5 M€)", slideBody: "Graphique Waterfall (Cascade) : Revenus récurrents vs Coûts d'acquisition." }, question: "Saisissez le nom du graphique financier :", expected: "waterfall", alt: ["cascade", "graphique waterfall"] },
+      { id: "p2", title: "Cas 2 : Soutenance d'Appel d'Offres Public (BTP)", context: "Défense d'offre technique devant un jury public.", task: "Quel outil de navigation permet de sauter directement vers le lot interrogé puis revenir au sommaire ?", simContext: { activeTab: "Insertion", slideTitle: "SOMMAIRE INTERACTIF — APPEL D'OFFRES PONT", slideBody: "Outil : Zoom de section (Lot 1 Génie Civil | Lot 2 Ouvrages d'Art)." }, question: "Saisissez le nom de l'outil PowerPoint :", expected: "zoom de section", alt: ["zoom", "zoom de résumé"] },
+      { id: "p3", title: "Cas 3 : COMEX — Bilan Financier & Plan de Redressement", context: "Approche conseil McKinsey (Pyramide de Minto).", task: "Comment appelle-t-on un titre de diapositive qui énonce directement la conclusion chiffrée ?", simContext: { activeTab: "Accueil", slideTitle: "LA RÉDUCTION DES DÉLAIS LOGISTIQUES GÉNÈRE +14% DE MARGE NETTE", slideBody: "Preuve 1 : Optimisation des stocks • Preuve 2 : Renégociation transport." }, question: "Saisissez le terme exact :", expected: "titre d'action", alt: ["action title"] },
+      { id: "p4", title: "Cas 4 : Keynote Lancement Produit Industriel (Capteurs IoT)", context: "Fond noir profond (#0B0F19), vue éclatée des composants.", task: "Quelle transition PowerPoint calcule automatiquement l'éclatement des pièces entre deux diapos ?", simContext: { activeTab: "Transitions", slideTitle: "ARCHITECTURE INTERNE DU CAPTEUR IoT-X1", slideBody: "Transition active : Morphose (Vue assemblée ➔ Vue éclatée)." }, question: "Saisissez le nom de la transition :", expected: "morphose", alt: ["morph"] },
+      { id: "p5", title: "Cas 5 : Soutenance de Thèse Académique ou Mémoire", context: "20 minutes devant un jury universitaire exigeant.", task: "Quel élément visuel permanent en haut à droite indique au jury l'avancement dans la démonstration ?", simContext: { activeTab: "Affichage", slideTitle: "RÉSULTATS EXPÉRIMENTAUX (p < 0,001)", slideBody: "Haut droite : [1. Contexte | 2. Méthode | > 3. Résultats < | 4. Conclusion]" }, question: "Saisissez le nom de cet élément :", expected: "fil conducteur", alt: ["miniature"] },
+      { id: "p6", title: "Cas 6 : Projet de Transformation Digitale & ERP", context: "Frise chronologique en 4 étapes.", task: "Quel outil d'alignement répartit équitablement l'espace horizontal entre 4 étapes ?", simContext: { activeTab: "Accueil", slideTitle: "FEUILLE DE ROUTE DÉPLOIEMENT ERP (T1 – T4)", slideBody: "Aligner > Distribuer horizontalement sur les 4 jalons." }, question: "Saisissez la commande d'alignement :", expected: "distribuer horizontalement", alt: [] },
+      { id: "p7", title: "Cas 7 : Rapport d'Impact RSE & Développement Durable", context: "Bilan carbone annuel avec pictogrammes recolorables.", task: "Quel format d'icônes vectorielles permet de recolorer sans aucune pixellisation ?", simContext: { activeTab: "Insertion", slideTitle: "ENGAGEMENTS CARBONE 2030 (-45% ÉMISSIONS)", slideBody: "Pictogrammes vectoriels au format .SVG haute netteté." }, question: "Saisissez l'extension vectorielle :", expected: "svg", alt: [".svg"] },
+      { id: "p8", title: "Cas 8 : Audit de Cybersécurité & Gestion de Crise", context: "Restitution d'un test d'intrusion à la direction d'une banque.", task: "Quelle matrice 2x2 croise la Probabilité et l'Impact des vulnérabilités ?", simContext: { activeTab: "Insertion", slideTitle: "CARTOGRAPHIE DES VULNÉRABILITÉS CRITIQUES", slideBody: "Matrice de risques : Axe X = Probabilité | Axe Y = Impact métier." }, question: "Saisissez le nom de la matrice :", expected: "matrice de risques", alt: ["matrice des risques"] },
+      { id: "p9", title: "Cas 9 : Projet d'Urbanisme & Aménagement Éco-Quartier", context: "Mise en page type magazine d'architecture.", task: "Quelle règle d'équilibre recommande de conserver au moins 35 à 40 % de vide ?", simContext: { activeTab: "Affichage", slideTitle: "ÉCO-QUARTIER RIVE DROITE — PLAN D'AMÉNAGEMENT", slideBody: "40% d'espace négatif pour valoriser le visuel architectural." }, question: "Saisissez le terme exact :", expected: "espace négatif", alt: ["espace negatif", "espace blanc"] },
+      { id: "p10", title: "Cas 10 : Module E-Learning Interactif & Kiosque Autonome RH", context: "Parcours consultable en autonomie sur tablette.", task: "Sous quelle extension lance-t-on directement le diaporama en plein écran à l'ouverture ?", simContext: { activeTab: "Fichier", slideTitle: "BORNE INTERACTIVE D'INTÉGRATION RH", slideBody: "Enregistrer sous > Diaporama PowerPoint (*.ppsx)." }, question: "Saisissez l'extension exacte :", expected: ".ppsx", alt: ["ppsx"] }
     ],
     examTasks: [
       {
         id: "ex-ppt-1",
         title: "Épreuve Intégrale PowerPoint : Keynote & Kiosque Interactif",
-        enonce: "Vous préparez une présentation stratégique COMEX suivie d'un module kiosque autonome. Vous devez industrialiser la charte graphique, animer un zoom fluide sur carte et exporter en mode diaporama direct.",
+        enonce: "Vous préparez une présentation stratégique COMEX suivie d'un module kiosque autonome.",
         questions: [
           { q: "1. Outil d'industrialisation de la charte graphique parent/enfant :", ans: "masque des diapositives" },
           { q: "2. Préfixe de nommage d'objet pour forcer la transition Morphose :", ans: "!!" },
@@ -641,34 +778,40 @@ const CURRICULUM = {
   },
 
   access: {
-    name: "Microsoft Access (De Débutant à Expert + 10 Cas)",
+    name: "Microsoft Access (Interface Complète + 10 Cas)",
     color: "#a4373a",
+    docTitle: "Base_Entreprise_MasterClass.accdb — Microsoft Access",
+    ribbonTabs: ["Fichier", "Accueil", "Créer", "Données externes", "Outils de base de données"],
+    ribbonGroups: {
+      "Fichier": [{ label: "Compilations", tools: ["🔒 Créer fichier frontal (.accde)", "🗜️ Compacter et réparer"] }],
+      "Accueil": [{ label: "Affichages & Filtres", tools: ["📐 Mode Création", "📊 Mode Feuille de données", "Σ Totaux"] }],
+      "Créer": [
+        { label: "Tables & Requêtes", tools: ["📋 Création de table", "🔍 Création de requête (SQL)", "📊 Analyse croisée"] },
+        { label: "Formulaires & États", tools: ["🖥️ Formulaire Père/Fils", "🖨️ État groupé PDF"] }
+      ],
+      "Données externes": [{ label: "Import / Export", tools: ["📗 Importer Excel", "📄 Exporter PDF"] }],
+      "Outils de base de données": [{ label: "Architecture", tools: ["🔗 Relations (Intégrité référentielle)", "🗄️ Fractionner la base (_be.accdb)", "💻 Visual Basic (VBA)"] }]
+    },
     courses: [
       {
         title: "Module 1 & 2 : Tables Typées, Clés (PK/FK) & Intégrité Référentielle",
-        content: `<h3>Modélisation relationnelle et élimination de la redondance</h3>
-        <ul>
-          <li><strong>Clé Primaire (PK) vs Clé Étrangère (FK) :</strong> Garantit l'unicité de chaque enregistrement et relie les tables.</li>
-          <li><strong>Relation Plusieurs à Plusieurs (N:M) :</strong> Nécessite obligatoirement une <strong>table de jonction</strong> (ex: <code>T_Inscriptions</code> entre <code>T_Etudiants</code> et <code>T_Cours</code>).</li>
-          <li><strong>Intégrité Référentielle :</strong> Interdit les enregistrements orphelins (commande sans client existant).</li>
-        </ul>`,
+        content: `<h3>Modélisation relationnelle N:M</h3>
+        <p>Observez le Volet de navigation Access à gauche et le schéma des relations à droite.</p>`,
+        simContext: { activeTab: "Outils de base de données", activeObj: "Relations (PK / FK)", objects: ["📋 T_Etudiants (PK)", "📋 T_Cours (PK)", "🔗 T_Inscriptions (Jonction)", "🔍 R_Notes_Semestre"], tablePreview: [["ID_Inscription (PK)", "ID_Etudiant (FK)", "ID_Cours (FK)", "Date_Inscription"], ["101", "ETU-01", "INFO-202", "19/11/2026"]] },
         exercise: {
-          prompt: "Exercice 2 (Centre de Formation) : Résoudre la relation N:M entre T_Etudiants et T_Cours.",
-          question: "Comment appelle-t-on la table intermédiaire (ex: T_Suivre) qui relie deux tables en relation N:M ?",
+          prompt: "Exercice 2 (Centre de Formation) : Observez les objets dans le Volet de navigation Access ci-dessus.",
+          question: "Comment appelle-t-on la table intermédiaire (ex: T_Inscriptions) qui relie deux tables en relation N:M ?",
           expected: "table de jonction",
           alt: ["table intermediaire", "table intermédiaire"]
         }
       },
       {
         title: "Module 3 & 4 : Requêtes SQL, Totaux (Σ) & Formulaires Père/Fils",
-        content: `<h3>Interrogation SQL et interfaces de saisie ergonomiques</h3>
-        <ul>
-          <li><strong>Requêtes paramétrées :</strong> Les crochets <code>[Date de début :]</code> génèrent une boîte de dialogue interactive.</li>
-          <li><strong>Formulaires Père/Fils :</strong> Synchronisés via les propriétés <em>Champs Pères</em> et <em>Champs Fils</em>.</li>
-          <li><strong>Calcul dynamique sans stockage :</strong> <code>=Somme([Quantite]*[Prix_Unitaire])</code> dans le pied du sous-formulaire.</li>
-        </ul>`,
+        content: `<h3>Calcul dynamique dans le pied d'un sous-formulaire</h3>
+        <p>Source contrôle : <code>=Somme([Quantite]*[Prix_Unitaire])</code>.</p>`,
+        simContext: { activeTab: "Créer", activeObj: "F_Commandes (Père/Fils)", objects: ["📋 T_Commandes", "📋 T_Details_Cmd", "🖥️ F_Commandes (Père/Fils)"], tablePreview: [["Sous-formulaire SF_Details", "Quantite", "Prix_Unitaire", "Total Ligne"], ["Ligne 1", "3", "150 000", "=Somme([Quantite]*[Prix_Unitaire])"]] },
         exercise: {
-          prompt: "Exercice 4 (Saisie de Commande) : Afficher le total dynamique dans le pied du sous-formulaire SF_Details_Commandes.",
+          prompt: "Exercice 4 (Saisie de Commande) : Observez la formule dans le pied du sous-formulaire ci-dessus.",
           question: "Saisissez la formule de source contrôle exacte :",
           expected: "=somme([quantite]*[prix_unitaire])",
           alt: []
@@ -676,13 +819,11 @@ const CURRICULUM = {
       },
       {
         title: "Module 5 & 6 : États Groupés PDF & Architecture Front-End / Back-End",
-        content: `<h3>Restitution professionnelle et déploiement réseau multi-utilisateurs</h3>
-        <ul>
-          <li><strong>Factures groupées :</strong> Réglez la propriété <em>Saut de page</em> du pied de groupe sur <strong>Après section</strong> pour isoler chaque facture client.</li>
-          <li><strong>Architecture Front-End / Back-End :</strong> Séparez le fichier dorsal contenant uniquement les tables (<code>_be.accdb</code>) sur le serveur et le frontal compilé (<code>.accde</code>) sur chaque poste client.</li>
-        </ul>`,
+        content: `<h3>Déploiement réseau multi-utilisateurs sécurisé</h3>
+        <p>Base dorsale (<code>_be.accdb</code>) sur serveur + Base frontale verrouillée (<code>.accde</code>) sur chaque poste.</p>`,
+        simContext: { activeTab: "Outils de base de données", activeObj: "Fractionnement Réseau", objects: ["🗄️ Serveur_be.accdb (Tables)", "🔒 PosteClient.accde (Frontal)"], tablePreview: [["Composant", "Emplacement", "Extension"], ["Frontal verrouillé", "Postes Utilisateurs", ".accde"], ["Dorsal Tables", "Serveur Réseau", "_be.accdb"]] },
         exercise: {
-          prompt: "Exercice 6 (Déploiement Multi-utilisateurs) : Sécuriser l'application Access sur un réseau d'entreprise.",
+          prompt: "Exercice 6 (Déploiement Multi-utilisateurs) : Observez l'architecture réseau Access ci-dessus.",
           question: "Quelle est l'extension du fichier frontal compilé et verrouillé distribué sur chaque poste utilisateur ?",
           expected: ".accde",
           alt: ["accde"]
@@ -690,22 +831,22 @@ const CURRICULUM = {
       }
     ],
     cases: [
-      { id: "ac1", title: "Cas 1 : Cabinet Médical & Isolation des Notes Cliniques", context: "15 000 patients, 12 praticiens. Les notes cliniques confidentielles doivent être isolées du secrétariat.", task: "Quel type de relation relie T_Consultations et T_Notes_Cliniques pour isoler ces données sensibles ?", question: "Saisissez le type de relation (ex: 1:1, 1:N, N:M) :", expected: "1:1", alt: ["1 à 1", "un à un"] },
-      { id: "ac2", title: "Cas 2 : Entrepôt Logistique & Traçabilité FIFO (DLC)", context: "Imposer la sortie des lots les plus anciens (First-In, First-Out) et bloquer les sorties supérieures au stock.", task: "Quel événement de formulaire VBA permet de bloquer une saisie invalide avant son enregistrement en table ?", question: "Saisissez le nom de l'événement VBA (en français ou anglais) :", expected: "beforeupdate", alt: ["avant maj"] },
-      { id: "ac3", title: "Cas 3 : Établissement Universitaire (Notes, Crédits ECTS & Rattrapage)", context: "2 500 étudiants. Retenir automatiquement la meilleure note entre Session_1 et Session_2.", task: "Quelle fonction Access remplace une valeur Null par 0 dans un calcul SQL ?", question: "Saisissez le nom de la fonction :", expected: "nz()", alt: ["nz"] },
-      { id: "ac4", title: "Cas 4 : Flotte Automobile BTP & Alertes Maintenance", context: "180 véhicules. Contrôler automatiquement les révisions à moins de 1 500 km dès l'ouverture de la base.", task: "Quel nom de macro spéciale s'exécute automatiquement au démarrage d'une base Access ?", question: "Saisissez le nom exact de la macro :", expected: "autoexec", alt: [] },
-      { id: "ac5", title: "Cas 5 : Association Humanitaire & 8 000 Reçus Fiscaux", context: "Exportation automatique de 8 000 reçus fiscaux PDF individuels et envoi par Outlook.", task: "Quel objet VBA permet de parcourir ligne par ligne les résultats d'une requête en mémoire ?", question: "Saisissez le nom de l'objet DAO :", expected: "dao.recordset", alt: ["recordset"] },
-      { id: "ac6", title: "Cas 6 : Atelier de Production Industrielle (Nomenclatures BOM)", context: "Décomposer un produit fini en sous-ensembles et matières premières stockés dans la même table T_Articles.", task: "Comment appelle-t-on une table de nomenclature qui relie une table à elle-même (ID_Parent -> ID_Composant) ?", question: "Saisissez le qualificatif de cette table :", expected: "table réflexive", alt: ["reflexive", "réflexive"] },
-      { id: "ac7", title: "Cas 7 : Agence Immobilière (450 Lots, Appels de Loyer & IRL)", context: "Génération mensuelle automatique des échéances de loyers pour tous les baux actifs.", task: "Quel type de requête Action permet d'insérer en masse les loyers du mois dans T_Echeances_Loyers ?", question: "Saisissez le type de requête Action :", expected: "requête ajout", alt: ["ajout"] },
-      { id: "ac8", title: "Cas 8 : Cabinet d'Audit & Rentabilité des Missions", context: "35 consultants. Comparer le Budget_Vendu_HT au coût consommé (heures x taux historique du grade).", task: "Pourquoi stocke-t-on le taux horaire du grade dans T_Feuilles_Temps au moment de la saisie ?", question: "Saisissez le motif comptable (ex: historique des tarifs) :", expected: "historique", alt: ["conserver l'historique", "historique des tarifs"] },
-      { id: "ac9", title: "Cas 9 : Service Qualité & Analyse Pareto des Défauts", context: "Ventiler les incidents par mois (colonnes) et par catégorie de défaut (lignes).", task: "Quel type de requête Access génère un tableau à double entrée (lignes + colonnes dynamiques) ?", question: "Saisissez le nom de la requête :", expected: "analyse croisée", alt: ["requête analyse croisée", "crosstab"] },
-      { id: "ac10", title: "Cas 10 : Centre de Conférences & Anti-Surbooking Salles", context: "15 salles modulables. Empêcher tout chevauchement horaire avant l'enregistrement d'une réservation.", task: "Quelle fonction de domaine Access compte le nombre de réservations existantes sur le même créneau ?", question: "Saisissez le nom de la fonction (anglais ou français) :", expected: "dcount()", alt: ["dcount", "domnb", "domnb()"] }
+      { id: "ac1", title: "Cas 1 : Cabinet Médical & Isolation des Notes Cliniques", context: "15 000 patients, 12 praticiens. Isolation des notes cliniques confidentielles.", task: "Quel type de relation relie T_Consultations et T_Notes_Cliniques ?", simContext: { activeTab: "Outils de base de données", activeObj: "Relations Cliniques", objects: ["📋 T_Consultations", "🔒 T_Notes_Cliniques"], tablePreview: [["Table 1", "Relation", "Table 2"], ["T_Consultations (PK)", "1 : 1", "T_Notes_Cliniques (PK/FK)"]] }, question: "Saisissez le type de relation (ex: 1:1, 1:N, N:M) :", expected: "1:1", alt: ["1 à 1", "un à un"] },
+      { id: "ac2", title: "Cas 2 : Entrepôt Logistique & Traçabilité FIFO (DLC)", context: "Bloquer les sorties supérieures au stock avant enregistrement.", task: "Quel événement de formulaire VBA bloque une saisie invalide avant enregistrement ?", simContext: { activeTab: "Outils de base de données", activeObj: "VBA F_Sorties_Stock", objects: ["📋 T_Lots_FIFO", "🖥️ F_Sorties_Stock"], tablePreview: [["Événement Formulaire", "Action VBA"], ["BeforeUpdate (Avant MAJ)", "Cancel = True si Qte > Stock"]] }, question: "Saisissez le nom de l'événement VBA :", expected: "beforeupdate", alt: ["avant maj"] },
+      { id: "ac3", title: "Cas 3 : Établissement Universitaire (Notes & Crédits ECTS)", context: "Retenir la meilleure note entre Session_1 et Session_2 même si Session_2 est Null.", task: "Quelle fonction Access remplace une valeur Null par 0 dans un calcul SQL ?", simContext: { activeTab: "Créer", activeObj: "R_Deliberation_ECTS", objects: ["📋 T_Notes_Examens", "🔍 R_Deliberation_ECTS"], tablePreview: [["Etudiant", "Session_1", "Session_2", "Formule SQL"], ["M. NKOUKA", "11,5", "Null", "Nz([Session_2]; 0)"]] }, question: "Saisissez le nom de la fonction :", expected: "nz()", alt: ["nz"] },
+      { id: "ac4", title: "Cas 4 : Flotte Automobile BTP & Alertes Maintenance", context: "Contrôler les révisions dès l'ouverture de la base.", task: "Quel nom de macro spéciale s'exécute automatiquement au démarrage d'une base Access ?", simContext: { activeTab: "Créer", activeObj: "Macro AutoExec", objects: ["📋 T_Vehicules", "⚡ AutoExec"], tablePreview: [["Nom Macro", "Déclenchement"], ["AutoExec", "Automatique à l'ouverture de la base"]] }, question: "Saisissez le nom exact de la macro :", expected: "autoexec", alt: [] },
+      { id: "ac5", title: "Cas 5 : Association Humanitaire & 8 000 Reçus Fiscaux", context: "Parcourir 8 000 donateurs en VBA pour exporter chaque reçu en PDF.", task: "Quel objet VBA permet de parcourir ligne par ligne les résultats d'une requête ?", simContext: { activeTab: "Outils de base de données", activeObj: "Module_ExportPDF", objects: ["🔍 R_Donateurs_2026", "💻 Module_ExportPDF"], tablePreview: [["Objet DAO", "Méthode de boucle"], ["DAO.Recordset", "Do Until rs.EOF ... rs.MoveNext"]] }, question: "Saisissez le nom de l'objet DAO :", expected: "dao.recordset", alt: ["recordset"] },
+      { id: "ac6", title: "Cas 6 : Atelier de Production Industrielle (Nomenclatures BOM)", context: "Relier une table d'articles à elle-même (ID_Parent -> ID_Composant).", task: "Comment appelle-t-on une table reliée à elle-même ?", simContext: { activeTab: "Outils de base de données", activeObj: "Nomenclature BOM", objects: ["📋 T_Articles", "📋 T_Articles_1"], tablePreview: [["ID_Parent", "ID_Composant", "Quantité"], ["PROD-A", "COMP-01", "4"]] }, question: "Saisissez le qualificatif de cette table :", expected: "table réflexive", alt: ["reflexive", "réflexive"] },
+      { id: "ac7", title: "Cas 7 : Agence Immobilière (450 Lots & Appels de Loyer)", context: "Génération mensuelle automatique des échéances de loyers.", task: "Quel type de requête Action insère en masse les loyers du mois ?", simContext: { activeTab: "Créer", activeObj: "R_Generer_Loyers", objects: ["📋 T_Baux_Actifs", "➕ R_Generer_Loyers"], tablePreview: [["Requête Action", "Table Cible"], ["Requête Ajout (INSERT INTO)", "T_Echeances_Loyers"]] }, question: "Saisissez le type de requête Action :", expected: "requête ajout", alt: ["ajout"] },
+      { id: "ac8", title: "Cas 8 : Cabinet d'Audit & Rentabilité des Missions", context: "Stocker le taux horaire du grade dans T_Feuilles_Temps lors de la saisie.", task: "Pourquoi copie-t-on le taux horaire au moment de la saisie ?", simContext: { activeTab: "Accueil", activeObj: "T_Feuilles_Temps", objects: ["📋 T_Grades", "📋 T_Feuilles_Temps"], tablePreview: [["Mission", "Heures", "Taux_Facture_Historique"], ["Audit Banque", "24", "45 000 FCFA"]] }, question: "Saisissez le motif comptable (ex: historique des tarifs) :", expected: "historique", alt: ["conserver l'historique", "historique des tarifs"] },
+      { id: "ac9", title: "Cas 9 : Service Qualité & Analyse Pareto des Défauts", context: "Ventiler les incidents par mois (colonnes) et catégorie (lignes).", task: "Quel type de requête Access génère un tableau à double entrée ?", simContext: { activeTab: "Créer", activeObj: "R_Analyse_Croisee", objects: ["📋 T_Incidents", "📊 R_Analyse_Croisee"], tablePreview: [["Catégorie", "Oct 2026", "Nov 2026"], ["Emballage", "12", "5"]] }, question: "Saisissez le nom de la requête :", expected: "analyse croisée", alt: ["requête analyse croisée", "crosstab"] },
+      { id: "ac10", title: "Cas 10 : Centre de Conférences & Anti-Surbooking Salles", context: "Empêcher tout chevauchement horaire avant enregistrement.", task: "Quelle fonction de domaine Access compte les réservations existantes sur le créneau ?", simContext: { activeTab: "Outils de base de données", activeObj: "Contrôle Surbooking", objects: ["📋 T_Reservations", "🖥️ F_Reservation_Salle"], tablePreview: [["Fonction Domaine", "Condition"], ["DCount()", "Salle & Chevauchement horaire > 0"]] }, question: "Saisissez le nom de la fonction (anglais ou français) :", expected: "dcount()", alt: ["dcount", "domnb", "domnb()"] }
     ],
     examTasks: [
       {
         id: "ex-acc-1",
         title: "Épreuve Intégrale Access : Architecture SGBDR & Anti-Surbooking",
-        enonce: "Vous concevez le système d'information d'un centre de conférences et de formation. Vous devez résoudre une relation N:M, empêcher le surbooking de salles et déployer la base sur 15 postes en réseau.",
+        enonce: "Vous concevez le système d'information d'un centre de conférences. Vous devez résoudre une relation N:M, empêcher le surbooking de salles et déployer la base en réseau.",
         questions: [
           { q: "1. Nom de la table intermédiaire requise pour une relation N:M :", ans: "table de jonction" },
           { q: "2. Fonction de domaine Access vérifiant les conflits de réservation :", ans: "dcount()" },
@@ -739,7 +880,6 @@ const SESSION_KEY = "bma_active_session_v2";
 function initSystemDB() {
   let codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY) || "null");
   if (!codes) {
-    // Seul le code fondateur 20261 est actif au démarrage pour le créateur
     codes = {
       [FOUNDER_CODE]: {
         code: FOUNDER_CODE,
@@ -838,7 +978,7 @@ function renderCodesTable() {
     <tr>
       <td><strong>${c.code}</strong> ${c.isFounder ? '👑' : ''}</td>
       <td>${c.claimedName ? c.claimedName : c.assignedTo}</td>
-      <td>${c.claimedBy ? '<span style="color:#b91c1c;font-weight:700;">🔒 Activé (1 seul titulaire)</span>' : '<span style="color:#047857;font-weight:700;">✅ Accepté / En attente</span>'}</td>
+      <td>${c.claimedBy ? '<span style="color:#b91c1c;font-weight:700;">🔒 Activé</span>' : '<span style="color:#047857;font-weight:700;">✅ Accepté</span>'}</td>
       <td>
         <button type="button" class="btn btn-sm btn-outline" onclick="navigator.clipboard?.writeText('${c.code}'); alert('Code ${c.code} copié !')">Copier</button>
         ${!c.isFounder ? `<button type="button" class="btn btn-sm btn-danger" onclick="revokeCode('${c.code}')">Retirer</button>` : ''}
@@ -860,7 +1000,6 @@ function handleStudentLogin(e) {
   const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
   const users = JSON.parse(localStorage.getItem(STORAGE_USERS_KEY));
 
-  // Vérification stricte : le code doit avoir été accepté par le créateur
   if (!codes[creatorCode]) {
     showAlert(`Accès refusé : Le code "${creatorCode}" n'a pas été accepté par le Créateur. Seuls les codes validés manuellement dans l'Espace Créateur fonctionnent.`);
     return;
@@ -869,13 +1008,11 @@ function handleStudentLogin(e) {
   const userKey = `${nom}_${prenom.toLowerCase()}_${creatorCode}`;
   const codeRecord = codes[creatorCode];
 
-  // Si le code est déjà revendiqué par un autre utilisateur
   if (codeRecord.claimedBy && codeRecord.claimedBy !== userKey) {
-    showAlert(`Sécurité : Le code ${creatorCode} est déjà exclusivement attribué à ${codeRecord.claimedName}. Une seule personne peut utiliser un code.`);
+    showAlert(`Sécurité : Le code ${creatorCode} est déjà exclusivement attribué à ${codeRecord.claimedName}.`);
     return;
   }
 
-  // Reprise de compte existant avec mot de passe personnel
   if (users[userKey]) {
     if (users[userKey].personalPwd !== personalPwd) {
       showAlert("Mot de passe personnel incorrect pour ce compte.");
@@ -888,7 +1025,6 @@ function handleStudentLogin(e) {
     users[userKey].ageGroup = ageGroup;
     CURRENT_USER = users[userKey];
   } else {
-    // Première activation du code par son titulaire légitime
     const today = new Date().toISOString().slice(0, 10);
     codeRecord.claimedBy = userKey;
     codeRecord.claimedName = `${prenom} ${nom}`;
@@ -944,11 +1080,160 @@ function exportUserBackup() {
   a.remove();
 }
 
-// ==================== INITIALISATION & RENDU APPLICATION ====================
+// ==================== RENDU DES INTERFACES LOGICIELLES INTERACTIVES ====================
 let ACTIVE_TAB = "dashboard";
 let ACTIVE_SW_SUB = { windows: "courses", word: "courses", excel: "courses", ppt: "courses", access: "courses" };
 let ACTIVE_SW_IDX = { windows: 0, word: 0, excel: 0, ppt: 0, access: 0 };
+let ACTIVE_RIBBON_TAB = { windows: null, word: null, excel: null, ppt: null, access: null };
 
+function switchRibbonTab(sw, rTab) {
+  ACTIVE_RIBBON_TAB[sw] = rTab;
+  renderSoftwareSpace(document.getElementById('main-workspace'), sw);
+}
+
+function clickRibbonTool(toolLabel) {
+  setCoachMessage(`Outil du ruban sélectionné : [ ${toolLabel} ]. Utilise maintenant ce repère ou le raccourci associé pour valider l'exercice.`);
+}
+
+function buildSoftwareSimulatorHTML(sw, simCtx) {
+  const data = CURRICULUM[sw];
+  const currentRTab = ACTIVE_RIBBON_TAB[sw] || (simCtx && simCtx.activeTab) || data.ribbonTabs[1];
+  const groups = data.ribbonGroups[currentRTab] || data.ribbonGroups[data.ribbonTabs[1]];
+
+  const ribbonTabsHTML = data.ribbonTabs.map(t => `
+    <div class="sim-rtab ${t === currentRTab ? 'active' : ''}" onclick="switchRibbonTab('${sw}', '${t.replace(/'/g, "\\'")}')">${t}</div>
+  `).join('');
+
+  const ribbonGroupsHTML = groups.map(g => `
+    <div class="sim-group">
+      <div class="sim-tools-row">
+        ${g.tools.map(tl => `<button type="button" class="sim-tool-btn" onclick="clickRibbonTool('${tl.replace(/'/g, "\\'")}')">${tl}</button>`).join('')}
+      </div>
+      <div class="sim-group-label">${g.label}</div>
+    </div>
+  `).join('');
+
+  let innerCanvasHTML = "";
+
+  if (sw === "windows") {
+    const filesList = (simCtx && simCtx.files) ? simCtx.files.map(fn => `<div style="padding:5px 8px; border-bottom:1px solid #f1f5f9; font-size:0.82rem;">📄 ${fn}</div>`).join('') : "";
+    const kbHTML = (simCtx && simCtx.showKeyboard) ? `
+      <div style="margin-top:8px;">
+        <div class="azerty-row">${["A","Z","E","R","T","Y","U","I","O","P"].map(k => `<span class="key-cap">${k}</span>`).join('')}</div>
+        <div class="azerty-row">${["Q","S","D","F","G","H","J","K","L","M"].map(k => `<span class="key-cap ${(k==='F'||k==='J')?'home-key':''}">${k}</span>`).join('')}</div>
+        <div class="azerty-row">${["W","X","C","V","B","N",",",";",":","!"].map(k => `<span class="key-cap">${k}</span>`).join('')}</div>
+        <div style="text-align:center; font-size:0.75rem; color:#1e3a8a; margin-top:4px;">Repères tactiles index : <strong>F</strong> (main gauche) et <strong>J</strong> (main droite)</div>
+      </div>` : "";
+    innerCanvasHTML = `
+      <div class="win-studio">
+        <div class="win-sidebar">
+          <div style="font-weight:700; margin-bottom:6px; color:#0284c7;">⭐ Accès rapide</div>
+          <div>🖥️ Bureau</div>
+          <div>📥 Téléchargements</div>
+          <div>📁 Documents</div>
+          <div>💿 Disque local (C:)</div>
+        </div>
+        <div class="win-main">
+          <div style="background:#f1f5f9; padding:5px 10px; border:1px solid #cbd5e1; border-radius:4px; font-family:monospace; font-size:0.8rem; margin-bottom:8px;">
+            📍 ${(simCtx && simCtx.folder) || "C:\\Entreprise\\MasterClass"}
+          </div>
+          ${filesList}
+          ${kbHTML}
+        </div>
+      </div>`;
+  } else if (sw === "word") {
+    innerCanvasHTML = `
+      <div class="word-ruler">1 · · · 2 · · · 3 · · · 4 · · · 5 · · · 6 · · · 7 · · · 8 · · · 9 · · · 10 · · · 11 · · · 12 · · · 13 · · · 14 · · · 15 cm</div>
+      <div class="word-canvas-area">
+        <div class="word-page">
+          ${(simCtx && simCtx.docHtml) || "<p>Zone de rédaction professionnelle Microsoft Word.</p>"}
+        </div>
+      </div>`;
+  } else if (sw === "excel") {
+    const hdrs = (simCtx && simCtx.headers) || ["A", "B", "C", "D", "E"];
+    const rows = (simCtx && simCtx.rows) || [["Donnée 1", "Donnée 2", "100", "2", "=C2*D2"]];
+    innerCanvasHTML = `
+      <div class="excel-fx-bar">
+        <div class="excel-name-box">${(simCtx && simCtx.activeCell) || "E2"}</div>
+        <span style="font-weight:900; color:#217346; font-family:serif; font-style:italic; font-size:1.05rem;">fx</span>
+        <input type="text" class="excel-fx-input" readonly value="${((simCtx && simCtx.fxPreview) || '=SOMME(C2:D2)').replace(/"/g, '&quot;')}">
+      </div>
+      <div class="excel-grid-wrap">
+        <table class="excel-sheet">
+          <thead>
+            <tr><th class="row-hdr"></th>${hdrs.map(h => `<th>${h}</th>`).join('')}</tr>
+          </thead>
+          <tbody>
+            ${rows.map((r, rIdx) => `
+              <tr>
+                <th class="row-hdr">${rIdx + 2}</th>
+                ${r.map((cell, cIdx) => `<td class="${(rIdx === 0 && cIdx === r.length - 1) ? 'selected-cell' : ''}">${cell}</td>`).join('')}
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  } else if (sw === "ppt") {
+    innerCanvasHTML = `
+      <div class="ppt-studio">
+        <div class="ppt-thumbs">
+          <div class="ppt-thumb active">1. Diapo Active<br><span style="color:#64748b; font-size:0.66rem;">Format 16:9</span></div>
+          <div class="ppt-thumb">2. Annexe Graphique<br><span style="color:#64748b; font-size:0.66rem;">Masque lié</span></div>
+        </div>
+        <div class="ppt-stage">
+          <div class="ppt-slide-169">
+            <div style="border-bottom:2px solid #d24726; padding-bottom:6px; font-weight:800; color:#0f172a; font-size:0.92rem;">
+              ${(simCtx && simCtx.slideTitle) || "TITRE D'ACTION DE LA DIAPOSITIVE"}
+            </div>
+            <div style="font-size:0.84rem; color:#334155; line-height:1.5;">
+              ${(simCtx && simCtx.slideBody) || "Contenu structuré de la diapositive 16:9."}
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:#64748b; border-top:1px solid #e2e8f0; padding-top:4px;">
+              <span>Master Class • Charte 16:9</span>
+              <span>Diapositive 1 / 2</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  } else if (sw === "access") {
+    const objs = (simCtx && simCtx.objects) || ["📋 T_Clients", "📋 T_Commandes", "🔍 R_Synthese"];
+    const tPrev = (simCtx && simCtx.tablePreview) || [["Champ 1", "Champ 2"], ["Valeur 1", "Valeur 2"]];
+    innerCanvasHTML = `
+      <div class="access-studio">
+        <div class="access-nav-pane">
+          <div style="font-weight:800; color:#7f1d1d; margin-bottom:8px; font-size:0.78rem;">📂 TOUS LES OBJETS ACCESS</div>
+          ${objs.map((o, i) => `<div class="access-obj-item ${i === 0 ? 'active' : ''}">${o}</div>`).join('')}
+        </div>
+        <div class="access-work-pane">
+          <div style="font-weight:700; color:#a4373a; margin-bottom:8px; font-size:0.85rem;">Objet ouvert : ${(simCtx && simCtx.activeObj) || objs[0]}</div>
+          <table class="excel-sheet">
+            <thead><tr>${tPrev[0].map(h => `<th>${h}</th>`).join('')}</tr></thead>
+            <tbody>
+              ${tPrev.slice(1).map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>`;
+  }
+
+  return `
+    <div class="sim-window">
+      <div class="sim-titlebar" style="background:${data.color};">
+        <span>🖥️ ${data.docTitle}</span>
+        <div class="sim-win-controls"><span>—</span><span>❐</span><span>✕</span></div>
+      </div>
+      <div class="sim-ribbon-tabs">${ribbonTabsHTML}</div>
+      <div class="sim-ribbon-body">${ribbonGroupsHTML}</div>
+      ${innerCanvasHTML}
+      <div class="sim-statusbar">
+        <span>Prêt • Interface Interactive ${data.name.split('(')[0].trim()}</span>
+        <span>Onglet actif : <strong>${currentRTab}</strong> | Zoom 100%</span>
+      </div>
+    </div>
+  `;
+}
+
+// ==================== NAVIGATION PRINCIPALE ====================
 function launchApp() {
   document.getElementById('auth-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'flex';
@@ -963,7 +1248,7 @@ function launchApp() {
 
   updateTopStats();
   openMainTab('dashboard', document.querySelector('.nav-item[data-tab="dashboard"]'));
-  setCoachMessage(`Bienvenue ${CURRENT_USER.prenom} ! Ton espace sécurisé (${CURRENT_USER.creatorCode}) est chargé. Toutes tes réponses validées par Entrée sont sauvegardées automatiquement.`);
+  setCoachMessage(`Bienvenue ${CURRENT_USER.prenom} ! Chaque module affiche désormais l'interface complète du logiciel (ruban, onglets et zone de travail).`);
 }
 
 function computeGlobalScore() {
@@ -1028,7 +1313,7 @@ function renderCreatorManagerTab(ws) {
                 <tr>
                   <td><strong>${c.code}</strong> ${c.isFounder ? '👑' : ''}</td>
                   <td>${c.claimedName ? c.claimedName : c.assignedTo}</td>
-                  <td>${c.claimedBy ? '<span style="color:#b91c1c;font-weight:700;">🔒 Utilisé (1 seul élève)</span>' : '<span style="color:#047857;font-weight:700;">✅ Accepté / Disponible</span>'}</td>
+                  <td>${c.claimedBy ? '<span style="color:#b91c1c;font-weight:700;">🔒 Utilisé</span>' : '<span style="color:#047857;font-weight:700;">✅ Accepté</span>'}</td>
                   <td>${u ? `${doneItems} ateliers • ${days} j` : '—'}</td>
                   <td>
                     <button type="button" class="btn btn-sm btn-outline" onclick="navigator.clipboard?.writeText('${c.code}'); alert('Code ${c.code} copié !')">Copier</button>
@@ -1093,7 +1378,7 @@ function mgrDeleteCode(codeStr) {
 // ==================== 1. TABLEAU DE BORD ====================
 function renderDashboard(ws) {
   const doneCount = Object.keys(CURRENT_USER.completedItems).length;
-  const totalExercisesAndCases = 2 + 2 + 4 + 10 + 4 + 6 + 3 + 10 + 3 + 10; // 54 ateliers
+  const totalExercisesAndCases = 54;
   const pctCourse = Math.min(100, Math.round((doneCount / totalExercisesAndCases) * 100));
   const globalExam = computeGlobalScore();
 
@@ -1112,7 +1397,7 @@ function renderDashboard(ws) {
       <div class="stat-card" style="border-color:#0284c7">
         <h3>Cours & Cas Résolus</h3>
         <div class="val">${doneCount} / ${totalExercisesAndCases} (${pctCourse}%)</div>
-        <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">Ateliers guidés validés</p>
+        <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">Ateliers avec interfaces réelles</p>
       </div>
       <div class="stat-card" style="border-color:var(--accent)">
         <h3>Note Examen & Certificat</h3>
@@ -1122,35 +1407,35 @@ function renderDashboard(ws) {
     </div>
 
     <div class="workspace-panel">
-      <h2 style="margin-bottom:10px; color:var(--primary);">📚 Architecture Complète de votre Formation</h2>
-      <p style="color:var(--muted); margin-bottom:18px;">Chaque logiciel contient ses <strong>Modules de Cours</strong>, ses <strong>Exercices Pratiques</strong> et ses <strong>Études de Cas Réels d'Entreprise</strong>. Une fois prêt, passez l'<strong>Examen Final Masterclass</strong> (sans aide pas à pas, noté sur 100 %) puis le <strong>QCM de Certification</strong>.</p>
+      <h2 style="margin-bottom:10px; color:var(--primary);">🖥️ Environnements Logiciels avec Rubans, Onglets & Zones de Travail</h2>
+      <p style="color:var(--muted); margin-bottom:18px;">Clique sur un logiciel ci-dessous pour ouvrir son interface complète (rubans cliquables, barre de formule, règle graduée, diapositives 16:9 ou tables Access) sur chaque partie et chaque étude de cas.</p>
       <div class="grid-4">
         <div class="step-card">
           <h4 style="color:var(--word);">📘 Microsoft Word</h4>
-          <p style="font-size:0.85rem; margin:6px 0;">6 Parties complètes + 4 Exercices + 10 Cas Réels d'Entreprise (Congo Distribution, AGRO-CONGO, MOUKALA, TRANS-LOG...).</p>
-          <button class="btn btn-sm btn-primary" onclick="openMainTab('word', document.querySelector('[data-tab=word]'))">Ouvrir Word</button>
+          <p style="font-size:0.84rem; margin:6px 0;">Ruban complet (Accueil, Insertion, Conception, Mise en page, Références, Publipostage, Révision) + Règle + 10 Cas.</p>
+          <button class="btn btn-sm btn-primary" onclick="openMainTab('word', document.querySelector('[data-tab=word]'))">Ouvrir Interface Word</button>
         </div>
         <div class="step-card">
           <h4 style="color:var(--excel);">📗 Microsoft Excel</h4>
-          <p style="font-size:0.85rem; margin:6px 0;">Manuel De Zéro à Expert (6 Parties, 11 Chapitres, 6 Projets Réels : Facturier, Relances, Rapprochement, RECHERCHEX, VBA).</p>
-          <button class="btn btn-sm btn-success" onclick="openMainTab('excel', document.querySelector('[data-tab=excel]'))">Ouvrir Excel</button>
+          <p style="font-size:0.84rem; margin:6px 0;">Ruban (Formules, Données, Insertion, Développeur) + Barre fx + Grille interactive + 6 Projets Réels.</p>
+          <button class="btn btn-sm btn-success" onclick="openMainTab('excel', document.querySelector('[data-tab=excel]'))">Ouvrir Interface Excel</button>
         </div>
         <div class="step-card">
           <h4 style="color:var(--ppt);">📙 Microsoft PowerPoint</h4>
-          <p style="font-size:0.85rem; margin:6px 0;">6 Modules Experts + Exercices + 10 Études de Cas (Pitch Deck FinTech, Appel d'Offres BTP, COMEX McKinsey, Morphose...).</p>
-          <button class="btn btn-sm btn-accent" onclick="openMainTab('ppt', document.querySelector('[data-tab=ppt]'))">Ouvrir PowerPoint</button>
+          <p style="font-size:0.84rem; margin:6px 0;">Ruban (Conception, Transitions Morphose, Animations, Diaporama) + Aperçu Diapo 16:9 + 10 Cas.</p>
+          <button class="btn btn-sm btn-accent" onclick="openMainTab('ppt', document.querySelector('[data-tab=ppt]'))">Ouvrir Interface PowerPoint</button>
         </div>
         <div class="step-card">
           <h4 style="color:var(--access);">📕 Microsoft Access</h4>
-          <p style="font-size:0.85rem; margin:6px 0;">6 Modules SGBDR + Exercices + 10 Études de Cas (Cabinet Médical, Entrepôt FIFO, Université ECTS, Anti-Surbooking...).</p>
-          <button class="btn btn-sm btn-danger" onclick="openMainTab('access', document.querySelector('[data-tab=access]'))">Ouvrir Access</button>
+          <p style="font-size:0.84rem; margin:6px 0;">Ruban SGBDR + Volet de navigation des objets (Tables, Requêtes, Formulaires, États) + 10 Cas.</p>
+          <button class="btn btn-sm btn-danger" onclick="openMainTab('access', document.querySelector('[data-tab=access]'))">Ouvrir Interface Access</button>
         </div>
       </div>
     </div>
   `;
 }
 
-// ==================== 2. ESPACE LOGICIEL (COURS + EXERCICES + CAS PRATIQUES) ====================
+// ==================== 2. ESPACE LOGICIEL AVEC INTERFACE COMPLÈTE SUR CHAQUE PARTIE & CAS ====================
 function renderSoftwareSpace(ws, sw) {
   const data = CURRICULUM[sw];
   const sub = ACTIVE_SW_SUB[sw];
@@ -1161,6 +1446,9 @@ function renderSoftwareSpace(ws, sw) {
   const itemKey = sub === 'courses' ? `${sw}-course-${idx}` : item.id;
   const isDone = !!CURRENT_USER.completedItems[itemKey];
 
+  // Interface visuelle du logiciel injectée sur CHAQUE partie et CHAQUE cas
+  const simulatorHTML = buildSoftwareSimulatorHTML(sw, item.simContext);
+
   let rightHTML = "";
   if (sub === 'courses') {
     rightHTML = `
@@ -1169,18 +1457,18 @@ function renderSoftwareSpace(ws, sw) {
           <h2 style="color:${data.color};">${item.title}</h2>
           ${isDone ? '<span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:99px;font-weight:700;font-size:0.82rem;">✅ Validé & Sauvegardé</span>' : ''}
         </div>
-        <hr style="margin:12px 0; border:none; border-top:1px solid #e2e8f0;">
         ${item.content}
+        ${simulatorHTML}
         <div class="step-card" style="border-left:4px solid ${data.color};">
-          <h4>🛠️ Exercice Pratique d'Application (Validation par touche Entrée)</h4>
-          <p style="margin:6px 0; font-size:0.9rem;">${item.exercise.prompt}</p>
-          <p style="font-weight:700; margin:8px 0;">${item.exercise.question}</p>
+          <h4>🛠️ Exercice Pratique sur l'Interface (Validation par touche Entrée)</h4>
+          <p style="margin:6px 0; font-size:0.88rem;">${item.exercise.prompt}</p>
+          <p style="font-weight:700; margin:6px 0;">${item.exercise.question}</p>
           <div class="formula-bar">
             <span>fx / Saisie</span>
             <input type="text" id="practice-input" placeholder="Tapez votre réponse complète puis appuyez sur ENTRÉE..." onkeydown="if(event.key==='Enter') validatePractice('${sw}', '${itemKey}')">
             <button class="btn btn-primary btn-sm" onclick="validatePractice('${sw}', '${itemKey}')">Valider (Entrée)</button>
           </div>
-          <div id="practice-feedback" style="margin-top:8px; font-weight:700; font-size:0.9rem;"></div>
+          <div id="practice-feedback" style="margin-top:8px; font-weight:700; font-size:0.88rem;"></div>
         </div>
       </div>
     `;
@@ -1191,19 +1479,20 @@ function renderSoftwareSpace(ws, sw) {
           <h2 style="color:${data.color};">${item.title}</h2>
           ${isDone ? '<span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:99px;font-weight:700;font-size:0.82rem;">✅ Cas Résolu</span>' : ''}
         </div>
-        <div style="background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #cbd5e1; margin:12px 0;">
+        <div style="background:#f8fafc; padding:12px 14px; border-radius:8px; border:1px solid #cbd5e1; margin:10px 0;">
           <p><strong>🏢 Contexte Entreprise :</strong> ${item.context}</p>
-          <p style="margin-top:8px;"><strong>🎯 Travail demandé :</strong> ${item.task}</p>
+          <p style="margin-top:6px;"><strong>🎯 Travail demandé :</strong> ${item.task}</p>
         </div>
+        ${simulatorHTML}
         <div class="step-card" style="border-left:4px solid var(--accent);">
-          <h4>⚡ Résolution Technique (Saisissez la solution exacte puis appuyez sur Entrée)</h4>
-          <p style="font-weight:700; margin:8px 0;">${item.question}</p>
+          <h4>⚡ Résolution Technique sur l'Interface (Appuyez sur Entrée)</h4>
+          <p style="font-weight:700; margin:6px 0;">${item.question}</p>
           <div class="formula-bar">
             <span>Réponse</span>
             <input type="text" id="practice-input" placeholder="Saisissez votre solution complète puis appuyez sur ENTRÉE..." onkeydown="if(event.key==='Enter') validatePractice('${sw}', '${itemKey}')">
             <button class="btn btn-success btn-sm" onclick="validatePractice('${sw}', '${itemKey}')">Valider le Cas</button>
           </div>
-          <div id="practice-feedback" style="margin-top:8px; font-weight:700; font-size:0.9rem;"></div>
+          <div id="practice-feedback" style="margin-top:8px; font-weight:700; font-size:0.88rem;"></div>
         </div>
       </div>
     `;
@@ -1213,7 +1502,7 @@ function renderSoftwareSpace(ws, sw) {
     <div class="software-header" style="border-top:5px solid ${data.color};">
       <div>
         <h2 style="color:${data.color};">${data.name}</h2>
-        <p style="font-size:0.85rem; color:var(--muted);">Cours théoriques, exercices guidés et études de cas réels d'entreprise.</p>
+        <p style="font-size:0.84rem; color:var(--muted);">Cliquez sur les onglets du ruban de l'interface pour explorer les outils de chaque partie.</p>
       </div>
       <div class="sub-tabs">
         <button class="sub-btn ${sub==='courses'?'active':''}" onclick="switchSwSub('${sw}', 'courses')">📖 Cours & Exercices (${data.courses.length})</button>
@@ -1223,14 +1512,14 @@ function renderSoftwareSpace(ws, sw) {
 
     <div class="module-grid">
       <div class="sidebar-list">
-        <h4 style="margin-bottom:10px; font-size:0.85rem; text-transform:uppercase; color:var(--muted);">
+        <h4 style="margin-bottom:10px; font-size:0.82rem; text-transform:uppercase; color:var(--muted);">
           ${sub === 'courses' ? 'Chapitres du Manuel' : 'Liste des Cas Pratiques'}
         </h4>
         ${list.map((it, i) => {
           const k = sub === 'courses' ? `${sw}-course-${i}` : it.id;
           const done = !!CURRENT_USER.completedItems[k];
           return `<div class="list-item ${i===idx?'active':''} ${done?'done':''}" onclick="selectSwItem('${sw}', ${i})">
-            <div style="font-size:0.86rem; font-weight:700;">${done ? '✅ ' : '📌 '}${it.title}</div>
+            <div style="font-size:0.84rem; font-weight:700;">${done ? '✅ ' : '📌 '}${it.title}</div>
           </div>`;
         }).join('')}
       </div>
@@ -1242,11 +1531,13 @@ function renderSoftwareSpace(ws, sw) {
 function switchSwSub(sw, sub) {
   ACTIVE_SW_SUB[sw] = sub;
   ACTIVE_SW_IDX[sw] = 0;
+  ACTIVE_RIBBON_TAB[sw] = null;
   renderSoftwareSpace(document.getElementById('main-workspace'), sw);
 }
 
 function selectSwItem(sw, i) {
   ACTIVE_SW_IDX[sw] = i;
+  ACTIVE_RIBBON_TAB[sw] = null;
   renderSoftwareSpace(document.getElementById('main-workspace'), sw);
 }
 
@@ -1280,7 +1571,7 @@ function validatePractice(sw, itemKey) {
     setTimeout(() => renderSoftwareSpace(document.getElementById('main-workspace'), sw), 900);
   } else {
     fb.style.color = "var(--danger)";
-    fb.textContent = `❌ Réponse incorrecte ou incomplète. Vérifiez la syntaxe exacte (ex: signe =, guillemets, raccourci) et appuyez de nouveau sur Entrée.`;
+    fb.textContent = `❌ Réponse incorrecte ou incomplète. Vérifiez les onglets du ruban et la syntaxe exacte puis appuyez de nouveau sur Entrée.`;
   }
 }
 
@@ -1303,7 +1594,7 @@ function renderFinalExamSpace(ws) {
     <div class="software-header" style="border-top:5px solid var(--accent);">
       <div>
         <h2>🎯 MASTER CLASS — EXAMEN FINAL (Évaluation Autonome sur 100 %)</h2>
-        <p style="font-size:0.86rem; color:var(--muted);">Ici, <strong>aucune démarche pas à pas n'est affichée</strong>. À gauche : l'énoncé et les données de l'entreprise. À droite : votre banc d'essai de résolution. Le système corrige et note automatiquement sur 100 %.</p>
+        <p style="font-size:0.85rem; color:var(--muted);">Aucune démarche pas à pas n'est affichée. À gauche : l'énoncé. À droite : votre banc d'essai noté sur 100 %.</p>
       </div>
       <div class="sub-tabs">
         ${swList.map(item => `
@@ -1315,27 +1606,24 @@ function renderFinalExamSpace(ws) {
     </div>
 
     <div class="exam-split">
-      <!-- CÔTÉ GAUCHE : ÉNONCÉ & DONNÉES SANS GUIDAGE -->
       <div class="exam-enonce">
         <span class="badge-gold" style="background:#fef3c7; color:#92400e;">ÉPREUVE OFFICIELLE — ${CURRICULUM[EXAM_SW].name.toUpperCase()}</span>
         <h3 style="margin:10px 0; color:#78350f;">${examData.title}</h3>
-        <p style="line-height:1.6; font-size:0.93rem; margin-bottom:14px;"><strong>Situation professionnelle :</strong><br>${examData.enonce}</p>
-        <div style="background:white; padding:12px; border-radius:8px; border:1px solid #fde68a; font-size:0.85rem;">
+        <p style="line-height:1.6; font-size:0.92rem; margin-bottom:14px;"><strong>Situation professionnelle :</strong><br>${examData.enonce}</p>
+        <div style="background:white; padding:12px; border-radius:8px; border:1px solid #fde68a; font-size:0.84rem;">
           <strong>⚠️ Règles d'examen :</strong>
           <ul style="margin-left:18px; margin-top:6px;">
             <li>Aucune aide pas à pas disponible.</li>
             <li>Saisissez vos formules, raccourcis ou commandes techniques exactes à droite.</li>
-            <li>Chaque bonne réponse rapporte des points sur 100 % pour ce logiciel.</li>
           </ul>
         </div>
       </div>
 
-      <!-- CÔTÉ DROIT : BANC D'ESSAI & CORRECTION AUTOMATIQUE -->
       <div class="exam-work">
         <h3 style="margin-bottom:12px; color:var(--primary);">✍️ Votre Copie d'Examen (Note actuelle : ${s[EXAM_SW]} / 100%)</h3>
         ${examData.questions.map((qObj, idx) => `
           <div class="form-group" style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid #e2e8f0;">
-            <label style="font-size:0.9rem; color:#0f172a;">${qObj.q}</label>
+            <label style="font-size:0.88rem; color:#0f172a;">${qObj.q}</label>
             <input type="text" class="exam-input" id="exam-ans-${idx}" placeholder="Saisissez votre réponse technique exacte...">
           </div>
         `).join('')}
@@ -1364,7 +1652,7 @@ function gradeExamSoftware(sw) {
   setCoachMessage(`Copie ${CURRICULUM[sw].name} corrigée : ${pct}% ! Ton score est sauvegardé.`);
 }
 
-// ==================== 4. QCM DE VÉRIFICATION & CERTIFICAT OFFICIEL (QR AIRTEL 05 044 71 63) ====================
+// ==================== 4. QCM DE VÉRIFICATION & CERTIFICAT OFFICIEL ====================
 function renderQcmAndCertificate(ws) {
   const globalScore = computeGlobalScore();
   const s = CURRENT_USER.examScores;
@@ -1391,7 +1679,6 @@ function renderQcmAndCertificate(ws) {
       </form>
     </div>
 
-    <!-- CERTIFICAT OFFICIEL IMPRIMABLE -->
     <div id="printable-cert" class="cert-wrapper">
       <div class="cert-header">
         <div style="font-size:0.85rem; font-weight:700; color:#64748b; letter-spacing:2px;">RÉPUBLIQUE DU CONGO • FORMATION PROFESSIONNELLE SUPÉRIEURE</div>
