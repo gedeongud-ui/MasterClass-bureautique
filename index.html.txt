@@ -1,0 +1,1522 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bureautique Master Academy — Portail Officiel & Certification</title>
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --accent: #f59e0b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --dark: #0f172a;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --word: #2b579a;
+    --excel: #217346;
+    --ppt: #d24726;
+    --access: #a4373a;
+    --win: #0284c7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+  body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+
+  /* LOGIN & ADMIN PORTAL */
+  #auth-screen {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #0f172a 100%);
+    padding: 20px;
+  }
+  .auth-container {
+    background: var(--card); border-radius: 16px; max-width: 980px; width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); overflow: hidden; display: grid; grid-template-columns: 1.1fr 1fr;
+  }
+  @media(max-width: 820px){ .auth-container { grid-template-columns: 1fr; } }
+  .auth-left {
+    background: linear-gradient(160deg, #1e3a8a, #0f172a); color: white; padding: 36px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .auth-left h1 { font-size: 1.85rem; line-height: 1.2; margin-bottom: 12px; }
+  .badge-gold { display: inline-block; background: rgba(245,158,11,0.2); border: 1px solid #f59e0b; color: #fcd34d; padding: 4px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px; }
+  .feature-list { list-style: none; margin: 20px 0; }
+  .feature-list li { margin-bottom: 10px; font-size: 0.92rem; display: flex; align-items: flex-start; gap: 8px; color: #e2e8f0; }
+  .auth-right { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+  .tabs-auth { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+  .tab-btn { background: none; border: none; padding: 8px 14px; font-weight: 700; color: var(--muted); cursor: pointer; border-radius: 8px; font-size: 0.9rem; }
+  .tab-btn.active { background: #eff6ff; color: var(--primary); }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: #334155; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s;
+  }
+  .form-group input:focus { outline: none; border-color: var(--primary-light); }
+  .btn {
+    padding: 11px 18px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;
+    font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-primary { background: var(--primary); color: white; width: 100%; }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-accent { background: var(--accent); color: #0f172a; }
+  .btn-success { background: var(--success); color: white; }
+  .btn-danger { background: var(--danger); color: white; }
+  .btn-outline { background: white; border: 1.5px solid #cbd5e1; color: var(--text); }
+  .btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+  .alert { padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 12px; display: none; }
+  .alert-error { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+  .alert-success { background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; }
+
+  /* MAIN APP */
+  #app-screen { display: none; flex-direction: column; min-height: 100vh; }
+  header.topbar {
+    background: var(--dark); color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: sticky; top: 0; z-index: 100;
+  }
+  .brand { font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
+  .user-pill { background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  nav.main-nav {
+    background: white; border-bottom: 1px solid #e2e8f0; padding: 8px 24px; display: flex; gap: 8px; overflow-x: auto;
+  }
+  .nav-item {
+    padding: 9px 15px; border-radius: 8px; border: none; background: transparent; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; font-size: 0.9rem;
+  }
+  .nav-item:hover { background: #f1f5f9; color: var(--text); }
+  .nav-item.active { background: var(--primary); color: white; }
+  .nav-item.exam-tab { border: 1.5px solid var(--accent); color: #b45309; }
+  .nav-item.exam-tab.active { background: var(--accent); color: #0f172a; }
+
+  main.content { flex: 1; padding: 24px; max-width: 1440px; width: 100%; margin: 0 auto; }
+
+  /* CARDS & GRIDS */
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid var(--primary); }
+  .stat-card h3 { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-card .val { font-size: 1.8rem; font-weight: 800; margin-top: 6px; color: var(--dark); }
+
+  /* COURSE + LAB SPLIT */
+  .software-header {
+    background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .sub-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .sub-btn { padding: 8px 14px; border-radius: 8px; border: 1.5px solid #cbd5e1; background: white; font-weight: 700; cursor: pointer; font-size: 0.85rem; }
+  .sub-btn.active { background: var(--dark); color: white; border-color: var(--dark); }
+
+  .module-grid { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+  @media(max-width: 960px){ .module-grid { grid-template-columns: 1fr; } }
+  .sidebar-list { background: white; border-radius: 12px; padding: 14px; max-height: 75vh; overflow-y: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .list-item {
+    padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 8px; cursor: pointer; transition: all 0.15s;
+  }
+  .list-item:hover { border-color: var(--primary-light); background: #f8fafc; }
+  .list-item.active { border-color: var(--primary); background: #eff6ff; }
+  .list-item.done { border-left: 4px solid var(--success); }
+  .workspace-panel { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+
+  .lesson-box { line-height: 1.65; font-size: 0.95rem; }
+  .lesson-box h3 { color: var(--primary); margin: 16px 0 8px; font-size: 1.15rem; }
+  .lesson-box ul { margin-left: 20px; margin-bottom: 12px; }
+  .lesson-box li { margin-bottom: 6px; }
+  .step-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; margin-top: 16px; }
+
+  .formula-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .formula-bar span { background: #e2e8f0; padding: 6px 10px; border-radius: 6px; font-weight: 800; font-family: monospace; }
+  .formula-bar input, .exam-input {
+    flex: 1; min-width: 200px; padding: 9px 12px; border: 1.5px solid #94a3b8; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.92rem; width: 100%;
+  }
+
+  /* EXAMEN FINAL MASTERCLASS SPLIT (GAUCHE ENONCE / DROITE TRAVAIL) */
+  .exam-split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 20px; }
+  @media(max-width: 980px){ .exam-split { grid-template-columns: 1fr; } }
+  .exam-enonce { background: #fffbeb; border: 1.5px solid #fcd34d; border-radius: 12px; padding: 20px; }
+  .exam-work { background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 20px; }
+
+  /* QCM & CERTIFICAT */
+  .qcm-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .qcm-opt { display: block; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 8px; margin-top: 8px; cursor: pointer; }
+  .qcm-opt:hover { background: #f8fafc; }
+
+  /* CERTIFICATE DESIGN */
+  .cert-wrapper {
+    background: #fff; border: 12px double #1e3a8a; padding: 36px; max-width: 900px; margin: 20px auto;
+    position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.15); color: #0f172a;
+  }
+  .cert-header { text-align: center; border-bottom: 2px solid #f59e0b; padding-bottom: 18px; margin-bottom: 22px; }
+  .cert-title { font-size: 2rem; font-weight: 900; color: #1e3a8a; letter-spacing: 1px; text-transform: uppercase; }
+  .cert-name { font-size: 1.9rem; font-weight: 800; color: #0f172a; border-bottom: 2px solid #cbd5e1; display: inline-block; padding: 4px 28px; margin: 14px 0; }
+  .cert-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 20px 0; text-align: center; }
+  .cert-score-box { background: #f8fafc; border: 1px solid #cbd5e1; padding: 10px 6px; border-radius: 8px; }
+  .cert-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 28px; padding-top: 16px; border-top: 1px dashed #94a3b8; flex-wrap: wrap; gap: 16px; }
+  .qr-box { text-align: center; }
+  .sig-box { text-align: center; min-width: 220px; }
+
+  /* COACH BLESSING FLOATING */
+  #coach-widget {
+    position: fixed; bottom: 20px; right: 20px; width: 320px; background: white; border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 2px solid var(--primary); z-index: 999; overflow: hidden;
+  }
+  .coach-head { background: var(--primary); color: white; padding: 10px 14px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .coach-body { padding: 12px; font-size: 0.86rem; max-height: 240px; overflow-y: auto; }
+
+  /* ADMIN TABLE */
+  table.admin-tbl { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85rem; }
+  table.admin-tbl th, table.admin-tbl td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; }
+  table.admin-tbl th { background: #1e3a8a; color: white; }
+
+  @media print {
+    body * { visibility: hidden; }
+    #printable-cert, #printable-cert * { visibility: visible; }
+    #printable-cert { position: absolute; left: 0; top: 0; width: 100%; border: 10px double #1e3a8a; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== 1. PORTAIL D'AUTHENTIFICATION & GÉNÉRATEUR CRÉATEUR ==================== -->
+<div id="auth-screen">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div>
+        <span class="badge-gold">ACADÉMIE OFFICIELLE • ÉDITION 2026</span>
+        <h1>Bureautique Master Academy</h1>
+        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.5;">
+          Plateforme professionnelle de formation complète et certification sur <strong>Windows, Word, Excel, PowerPoint et Access</strong> (De Débutant Absolu à Expert).
+        </p>
+        <ul class="feature-list">
+          <li>🔐 <strong>Code Fondateur Exclusif (20261) :</strong> Votre code créateur personnel est actif dès l'ouverture, et seul vous pouvez autoriser de nouveaux codes pour vos élèves.</li>
+          <li>✋ <strong>Validation Manuelle Stricte :</strong> Aucun code tiers ne fonctionne tant que vous ne l'avez pas saisi et accepté explicitement dans l'espace Créateur.</li>
+          <li>💾 <strong>Sauvegarde Automatique Permanente :</strong> Chaque utilisateur conserve son propre espace, son mot de passe, ses jours de connexion, ses cas résolus et ses notes.</li>
+          <li>🎓 <strong>Examen Final Masterclass & Certificat QR :</strong> Évaluation autonome notée sur 100 %, QCM final et Certificat officiel vérifiable (05 044 71 63).</li>
+        </ul>
+      </div>
+      <div style="font-size:0.8rem; color:#94a3b8; border-top:1px solid rgba(255,255,255,0.15); padding-top:12px;">
+        Direction Pédagogique : <strong>Coach Blessing</strong> • Vérification Officielle Airtel : <strong>05 044 71 63</strong>
+      </div>
+    </div>
+
+    <div class="auth-right">
+      <div class="tabs-auth">
+        <button class="tab-btn active" id="tab-btn-student" onclick="switchAuthTab('student')">🎓 Connexion / Inscription</button>
+        <button class="tab-btn" id="tab-btn-creator" onclick="switchAuthTab('creator')">🔑 Espace Créateur & Codes</button>
+      </div>
+
+      <div id="auth-alert" class="alert"></div>
+
+      <!-- FORMULAIRE APPRENANT / FONDATEUR (INSCRIPTION / REPRISE AUTOMATIQUE) -->
+      <form id="student-form" onsubmit="handleStudentLogin(event)">
+        <div class="form-group">
+          <label>Nom de famille *</label>
+          <input type="text" id="st-nom" placeholder="Ex: TSIOBINDA" required>
+        </div>
+        <div class="form-group">
+          <label>Prénom(s) *</label>
+          <input type="text" id="st-prenom" placeholder="Ex: Blessing" required>
+        </div>
+        <div class="form-group">
+          <label>Votre Mot de Passe Personnel (choisi par vous) *</label>
+          <input type="password" id="st-personal-pwd" placeholder="Créez ou saisissez votre mot de passe" required>
+        </div>
+        <div class="form-group">
+          <label>Code d'Autorisation Unique *</label>
+          <input type="text" id="st-creator-code" placeholder="Votre code (ex: 20261 pour le Fondateur)" required>
+          <small style="color:var(--muted); font-size:0.78rem;">Le code <strong>20261</strong> est réservé au Créateur. Tout autre code doit d'abord être accepté par le Créateur.</small>
+        </div>
+        <div class="form-group">
+          <label>Tranche d'Âge / Parcours</label>
+          <select id="st-age">
+            <option value="pro">💼 Pro & Expert (18 ans et +) — Cursus Complet</option>
+            <option value="ado">🎓 Collège & Lycée (12 – 17 ans)</option>
+            <option value="junior">🧒 Juniors (8 – 11 ans)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">🚀 Entrer & Sauvegarder Automatiquement</button>
+      </form>
+
+      <!-- ESPACE CRÉATEUR / ACCEPTATION & GÉNÉRATION MANUELLE DE CODES -->
+      <div id="creator-panel" style="display:none;">
+        <div class="form-group">
+          <label>Mot de Passe Maître du Créateur *</label>
+          <input type="password" id="creator-master-pwd" placeholder="Saisissez BLESSING2026">
+        </div>
+        <button type="button" class="btn btn-accent" style="width:100%; margin-bottom:14px;" onclick="unlockCreator()">🔓 Déverrouiller la Gestion des Codes</button>
+
+        <div id="creator-tools" style="display:none;">
+          <div style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid #cbd5e1; margin-bottom:12px;">
+            <p style="font-size:0.85rem; margin-bottom:8px;"><strong>Accepter / Autoriser un code manuel (ex: 20262, 20263...) :</strong></p>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <input type="text" id="manual-code-input" placeholder="Tapez le code exact à accepter (ex: 20262)" style="padding:8px; border:1px solid #cbd5e1; border-radius:6px;">
+              <input type="text" id="new-code-assignee" placeholder="Nom ou rôle de l'élève destinataire (ex: Élève 1 - Jean)" style="padding:8px; border:1px solid #cbd5e1; border-radius:6px;">
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button type="button" class="btn btn-success btn-sm" style="flex:1;" onclick="acceptManualCode()">✅ Accepter & Autoriser ce Code</button>
+                <button type="button" class="btn btn-outline btn-sm" onclick="generateSequentialCode()">⚡ Générer suivant</button>
+              </div>
+            </div>
+          </div>
+          <div style="max-height:210px; overflow-y:auto;">
+            <table class="admin-tbl">
+              <thead>
+                <tr><th>Code</th><th>Destinataire / Titulaire</th><th>État</th><th>Action</th></tr>
+              </thead>
+              <tbody id="codes-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 2. APPLICATION PRINCIPALE ==================== -->
+<div id="app-screen">
+  <header class="topbar">
+    <div class="brand">
+      <span>🎓 BUREAUTIQUE MASTER ACADEMY</span>
+      <span id="active-age-badge" style="background:#f59e0b; color:#0f172a; padding:2px 10px; border-radius:99px; font-size:0.75rem;">PRO 18+</span>
+      <span id="founder-badge" style="display:none; background:#10b981; color:white; padding:2px 10px; border-radius:99px; font-size:0.75rem;">👑 FONDATEUR (20261)</span>
+    </div>
+    <div class="user-pill">
+      <span id="hdr-user-name">Apprenant</span>
+      <span>•</span>
+      <span title="Jours de connexion enregistrés">📅 <strong id="hdr-days">1</strong> j</span>
+      <span>•</span>
+      <span title="Score Global">🏆 <strong id="hdr-global-pct">0%</strong></span>
+      <button class="btn btn-sm btn-accent" onclick="exportUserBackup()" title="Télécharger sauvegarde JSON">💾 Sauvegarde</button>
+      <button class="btn btn-sm btn-danger" onclick="logoutUser()">Déconnexion</button>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <button class="nav-item active" data-tab="dashboard" onclick="openMainTab('dashboard', this)">🏠 Tableau de Bord</button>
+    <button class="nav-item" data-tab="windows" onclick="openMainTab('windows', this)">🪟 Windows & Dactylo</button>
+    <button class="nav-item" data-tab="word" onclick="openMainTab('word', this)">📘 Word (Cours + 10 Cas)</button>
+    <button class="nav-item" data-tab="excel" onclick="openMainTab('excel', this)">📗 Excel (Cours + 6 Projets)</button>
+    <button class="nav-item" data-tab="ppt" onclick="openMainTab('ppt', this)">📙 PowerPoint (Cours + 10 Cas)</button>
+    <button class="nav-item" data-tab="access" onclick="openMainTab('access', this)">📕 Access (Cours + 10 Cas)</button>
+    <button class="nav-item exam-tab" data-tab="exam" onclick="openMainTab('exam', this)">🎯 Examen Final Masterclass (/100%)</button>
+    <button class="nav-item exam-tab" data-tab="qcm" onclick="openMainTab('qcm', this)">📝 QCM & Certificat Officiel</button>
+    <button class="nav-item" id="nav-creator-mgr" style="display:none; background:#fef3c7; color:#78350f;" data-tab="creator_mgr" onclick="openMainTab('creator_mgr', this)">🔑 Gestion des Codes Créateur</button>
+  </nav>
+
+  <main class="content" id="main-workspace">
+    <!-- Contenu injecté dynamiquement -->
+  </main>
+</div>
+
+<!-- COACH BLESSING WIDGET -->
+<div id="coach-widget" style="display:none;">
+  <div class="coach-head" onclick="toggleCoach()">
+    <span>🎙️ Coach Blessing (Assistant IA)</span>
+    <span id="coach-toggle-icon">▼</span>
+  </div>
+  <div class="coach-body" id="coach-body">
+    <p id="coach-msg" style="margin-bottom:10px; color:#1e293b;">Bienvenue ! Toutes tes actions sont automatiquement sauvegardées sous ton compte personnel.</p>
+    <div style="display:flex; gap:6px;">
+      <button class="btn btn-sm btn-primary" onclick="speakCoach()">🔊 Écouter</button>
+      <button class="btn btn-sm btn-outline" onclick="coachTip()">💡 Conseil Pro</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== BASE DE DONNÉES PÉDAGOGIQUE COMPLÈTE ====================
+const CURRICULUM = {
+  windows: {
+    name: "Windows & Dactylographie",
+    color: "#0284c7",
+    courses: [
+      {
+        title: "Module 1 : Architecture Windows, Bureau & Gestionnaire des tâches",
+        content: `<h3>Maîtrise de l'environnement professionnel Windows</h3>
+        <p>Un professionnel maîtrise l'arborescence des fichiers, les raccourcis système et le diagnostic des processus.</p>
+        <ul>
+          <li><strong>Explorateur de fichiers (Win + E) :</strong> Organisation hiérarchique stricte (Année > Département > Projet).</li>
+          <li><strong>Gestionnaire des tâches (Ctrl + Maj + Échap) :</strong> Permet d'identifier et d'arrêter une application bloquée sans redémarrer le PC.</li>
+          <li><strong>Corbeille & Restauration :</strong> Tout fichier supprimé normalement transite par la Corbeille avant suppression définitive (Maj + Suppr).</li>
+        </ul>`,
+        exercise: {
+          prompt: "Mission Windows : Vous devez créer un dossier nommé Compta_2026 puis ouvrir le Gestionnaire des tâches via son raccourci clavier exact.",
+          question: "Saisissez le raccourci clavier exact pour ouvrir directement le Gestionnaire des tâches sous Windows :",
+          expected: "ctrl+maj+echap",
+          alt: ["ctrl+shift+esc", "ctrl+maj+esc"]
+        }
+      },
+      {
+        title: "Module 2 : Dactylographie Professionnelle AZERTY (Position des 10 doigts)",
+        content: `<h3>Positionnement ergonomique sur clavier AZERTY</h3>
+        <p>La frappe rapide sans regarder le clavier repose sur la <strong>ligne de base (QSDF - JKLM)</strong> :</p>
+        <ul>
+          <li><strong>Main gauche :</strong> Auriculaire sur <code>Q</code>, Annulaire sur <code>S</code>, Majeur sur <code>D</code>, Index sur <code>F</code> (repère tactile).</li>
+          <li><strong>Main droite :</strong> Index sur <code>J</code> (repère tactile), Majeur sur <code>K</code>, Annulaire sur <code>L</code>, Auriculaire sur <code>M</code>.</li>
+          <li><strong>Pouces :</strong> Exclusivement dédiés à la barre d'espace.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Test de frappe AZERTY : Saisissez exactement la phrase de référence sans faute de majuscule ni de ponctuation.",
+          question: "Tapez exactement : L'expertise bureautique exige rigueur et rapidite en 2026.",
+          expected: "l'expertise bureautique exige rigueur et rapidite en 2026.",
+          alt: ["l'expertise bureautique exige rigueur et rapidité en 2026."]
+        }
+      }
+    ],
+    cases: [
+      {
+        id: "win-c1",
+        title: "Cas 1 : Audit & Nettoyage Poste Comptable",
+        context: "Le poste de la comptabilité est ralenti par un processus bloqué et des fichiers temporaires dans C:\Temp.",
+        task: "Quelle commande exécuter dans Win + R pour ouvrir directement l'éditeur de configuration système ou nettoyer les fichiers temporaires ?",
+        question: "Saisissez la commande exacte pour ouvrir le dossier des fichiers temporaires dans Exécuter (Win+R) :",
+        expected: "%temp%",
+        alt: ["temp"]
+      },
+      {
+        id: "win-c2",
+        title: "Cas 2 : Sécurisation rapide de poste en entreprise",
+        context: "Vous quittez votre bureau en open-space avec des bilans financiers ouverts à l'écran.",
+        task: "Appliquez le réflexe de sécurité immédiat pour verrouiller la session Windows.",
+        question: "Saisissez le raccourci clavier Windows de verrouillage instantané de session :",
+        expected: "win+l",
+        alt: ["windows+l"]
+      }
+    ],
+    examTasks: [
+      {
+        id: "ex-win-1",
+        title: "Épreuve Pratique Windows : Diagnostic & Arborescence",
+        enonce: "L'entreprise Congo Distribution vous confie la préparation d'un poste neuf. Vous devez : 1) Verrouiller le poste lors de vos pauses, 2) Ouvrir l'explorateur par raccourci, 3) Tuer un processus bloqué sans passer par le menu Démarrer.",
+        questions: [
+          { q: "1. Raccourci pour ouvrir l'Explorateur de fichiers :", ans: "win+e" },
+          { q: "2. Raccourci pour ouvrir directement le Gestionnaire des tâches :", ans: "ctrl+maj+echap" }
+        ]
+      }
+    ]
+  },
+
+  word: {
+    name: "Microsoft Word (De Zéro à Expert + 10 Cas)",
+    color: "#2b579a",
+    courses: [
+      {
+        title: "Partie 1 : Interface, Règle & Formats (.docx / .pdf)",
+        content: `<h3>Anatomie de Word et gestion professionnelle des fichiers</h3>
+        <ul>
+          <li><strong>Règle graduée :</strong> Onglet Affichage > cocher Règle pour contrôler les marges et tabulations.</li>
+          <li><strong>Enregistrer sous (F12) :</strong> Permet d'exporter un document modifiable <code>.docx</code> en format figé <code>.pdf</code> avant envoi officiel.</li>
+          <li><strong>Espace insécable (Ctrl + Maj + Espace) :</strong> Empêche la séparation entre un nombre et son unité (ex: <code>350 000 FCFA</code>).</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 1 : Configuration et typographie officielle.",
+          question: "Quel raccourci clavier insère un espace insécable entre 350 000 et FCFA ?",
+          expected: "ctrl+maj+espace",
+          alt: ["ctrl+shift+space"]
+        }
+      },
+      {
+        title: "Partie 2 & 3 : Bordures, Gomme Magique & Tabulations",
+        content: `<h3>Encadrements précis et taquets de tabulation</h3>
+        <ul>
+          <li><strong>Appliquer à Texte vs Paragraphe :</strong> Pour encadrer un titre au plus près des lettres, choisissez <em>Appliquer à : Texte</em>.</li>
+          <li><strong>Gomme magique :</strong> Le bouton <em>Effacer toute la mise en forme</em> supprime les styles hérités indésirables.</li>
+          <li><strong>Tabulations avec points de suite :</strong> Double-cliquez sur le taquet dans la règle (ex: 14 cm) et activez les pointillés (option 2). Dans un tableau, utilisez <code>Ctrl + Tab</code>.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 2 : Alignement dans un tableau Word.",
+          question: "Quelle combinaison de touches active un taquet de tabulation à l'intérieur d'une cellule de tableau Word ?",
+          expected: "ctrl+tab",
+          alt: []
+        }
+      },
+      {
+        title: "Partie 4 & 5 : Styles Hiérarchiques, Sommaire & Sauts de Section",
+        content: `<h3>Structuration de longs documents et mise en page mixte</h3>
+        <ul>
+          <li><strong>Styles Titre 1, Titre 2, Titre 3 :</strong> Indispensables pour générer une Table des matières automatique (Onglet Références).</li>
+          <li><strong>Saut de section (Page suivante) :</strong> Permet d'orienter la page 3 en <strong>Paysage</strong> tout en gardant les pages 1, 2 et 4 en <strong>Portrait</strong>.</li>
+          <li><strong>Pagination ciblée :</strong> Désactivez <em>Lier au précédent</em> dans le pied de page de la Section 3 et démarrez la numérotation à 1.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 3 : Pagination à partir de l'Introduction.",
+          question: "Quelle option du ruban En-tête et pied de page faut-il impérativement désactiver avant de numéroter la Section 3 à partir de 1 ?",
+          expected: "lier au precedent",
+          alt: ["lier au précédent"]
+        }
+      },
+      {
+        title: "Partie 6 : Publipostage Automatisé (Excel vers Word)",
+        content: `<h3>Fusion et Publipostage conditionnel</h3>
+        <ul>
+          <li><strong>Commutateur numérique :</strong> Ajoutez <code>\# "# ##0"</code> dans le code du champ <code>{ MERGEFIELD MontantDû }</code> (affiché via <code>Maj + F9</code>).</li>
+          <li><strong>Règle Si... Alors... Sinon :</strong> Permet d'adapter automatiquement le paragraphe de relance selon que <code>JoursRetard > 30</code>.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 4 : Raccourci des codes de champs Word.",
+          question: "Quel raccourci clavier affiche ou masque le code d'un champ sélectionné dans Word ?",
+          expected: "maj+f9",
+          alt: ["shift+f9"]
+        }
+      }
+    ],
+    cases: [
+      { id: "w1", title: "Cas 1 (RH) : Promesse d'embauche Mlle Clarisse MAMPOUYA", context: "Congo Distribution SA (Brazzaville). Marges 2 cm, bloc destinataire et date alignés à droite (Ctrl+R), Objet en Gras+Italique, espace insécable dans 350 000 FCFA, espacement après 6 pt.", task: "Rédigez la formule d'objet exacte mise en forme ou indiquez le commutateur d'alignement droite.", question: "Saisissez le raccourci d'alignement à droite appliqué au bloc destinataire :", expected: "ctrl+r", alt: [] },
+      { id: "w2", title: "Cas 2 (Direction) : Rapport d'Inspection AGRO-CONGO Loudima", context: "M. Bienvenu TSONDE. Page 1 Garde, Page 2 Sommaire auto, Page 3 Corps (Section 3 déliée) avec champ SECTIONPAGES.", task: "Quel champ Word affiche le nombre total de pages de la section en cours uniquement ?", question: "Saisissez le nom exact du champ Word (en majuscules) :", expected: "sectionpages", alt: [] },
+      { id: "w3", title: "Cas 3 (Commercial) : Publipostage Relances MOUKALA Prestations", context: "Base Clients_Retard.xlsx. Commutateur monétaire sur MontantDû et règle IF si JoursRetard > 30.", task: "Saisissez le commutateur de format monétaire appliqué au champ MontantDû :", question: "Tapez exactement : \# "# ##0"", expected: "\# "# ##0"", alt: ["# ##0"] },
+      { id: "w4", title: "Cas 4 (Logistique) : Fiche d'Inventaire Dépôt TRANS-LOG (50 lignes)", context: "Arsène BADINGA. Tableau de 5 colonnes sur 3 pages. L'en-tête Bleu Nuit (#1A365D) doit se répéter et aucune ligne ne doit être coupée.", task: "Quelle case faut-il décocher dans Propriétés du tableau > Onglet Ligne ?", question: "Saisissez l'option à décocher :", expected: "autoriser le fractionnement des lignes sur plusieurs pages", alt: ["fractionnement des lignes"] },
+      { id: "w5", title: "Cas 5 (RH) : Organigramme Société KIBOSSA Services", context: "Orientation Paysage, SmartArt Hiérarchie. Mme Patricia MIKALA (Secrétariat) doit être placée en poste d'Assistant sous M. Dieudonné KIBOSSA.", task: "Quelle option de disposition SmartArt permet d'insérer le Secrétariat de Direction sous le DG ?", question: "Saisissez l'action SmartArt exacte :", expected: "ajouter un assistant", alt: ["assistant"] },
+      { id: "w6", title: "Cas 6 (Finance) : Note de Cadrage avec Page 3 en Paysage", context: "Pages 1, 2 et 4 en Portrait ; Page 3 (tableau matriciel 7 colonnes) en Paysage avec numérotation continue 1 à 4.", task: "Quel type de saut faut-il insérer à la fin de la page 2 et à la fin de la page 3 ?", question: "Saisissez le type de saut exact :", expected: "saut de section page suivante", alt: ["saut de section"] },
+      { id: "w7", title: "Cas 7 (Marketing) : Dépliant 3 Volets La Marmite de Bacongo", context: "Paysage, marges étroites (1,27 cm), 3 colonnes avec ligne de séparation et habillage d'image Carré (0,2 cm).", task: "Quel raccourci clavier force le passage au volet (colonne) suivant sans sauts de ligne manuels ?", question: "Saisissez le raccourci de saut de colonne :", expected: "ctrl+maj+entree", alt: ["ctrl+maj+entrée", "ctrl+shift+enter"] },
+      { id: "w8", title: "Cas 8 (Secrétariat) : Attestation de Travail SOTRA-CONGO", context: "M. Anselme MBAMA. Filigrane image estompé (100%) et encadrement de page double ligne fine.", task: "Dans quel onglet du ruban Word configure-t-on le Filigrane et les Bordures de page ?", question: "Saisissez le nom de l'onglet :", expected: "conception", alt: ["création"] },
+      { id: "w9", title: "Cas 9 (Juridique) : Contrat de Bail Cabinet MOUKOKO & Associés", context: "Remplacer '20% chaque année sans préavis' par '5% tous les trois ans conformément à la législation en vigueur' avec suivi actif et commentaire marginal.", task: "Quel raccourci clavier active immédiatement le Suivi des modifications ?", question: "Saisissez le raccourci clavier :", expected: "ctrl+maj+e", alt: ["ctrl+shift+e"] },
+      { id: "w10", title: "Cas 10 (Académique) : Mémoire d'Ingénieur Simplice BASSINGA", context: "Mémoire 60 pages sur la rivière Loufoulou. Notes de bas de page automatiques, légendes Figure 1 & 2, renvois croisés et Table des illustrations.", task: "Quel raccourci clavier insère une Note de bas de page automatique ?", question: "Saisissez le raccourci clavier :", expected: "alt+ctrl+f", alt: ["ctrl+alt+f"] }
+    ],
+    examTasks: [
+      {
+        id: "ex-word-1",
+        title: "Épreuve Intégrale Word : Dossier Officiel & Publipostage",
+        enonce: "Vous devez produire un rapport officiel de 4 pages dont la page 3 est en Paysage (annexe financière), la numérotation commence à 1 à la page 3, et une campagne de publipostage relance les clients ayant plus de 30 jours de retard.",
+        questions: [
+          { q: "1. Type de saut requis avant et après la page 3 Paysage :", ans: "saut de section page suivante" },
+          { q: "2. Champ Word affichant le total de pages de la section uniquement :", ans: "sectionpages" },
+          { q: "3. Raccourci clavier pour insérer un espace insécable :", ans: "ctrl+maj+espace" }
+        ]
+      }
+    ]
+  },
+
+  excel: {
+    name: "Microsoft Excel (De Zéro à Expert + 6 Projets)",
+    color: "#217346",
+    courses: [
+      {
+        title: "Partie 1 & 2 : Fondations, Poignée de Recopie, Formats & Dates",
+        content: `<h3>Calculs dynamiques et fonctions temporelles</h3>
+        <ul>
+          <li><strong>Règle d'or :</strong> Toute formule commence obligatoirement par le signe <code>=</code>.</li>
+          <li><strong>Tableaux structurés (Ctrl + T) :</strong> Recopie automatique des formules et extension dynamique.</li>
+          <li><strong>Fonctions de date :</strong> <code>=AUJOURDHUI()</code>, <code>=JOURSEM(B2;2)</code> (1=Lundi à 7=Dimanche), <code>=NOMPROPRE(TEXTE(B2;"mmmm"))</code>.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Projet 1 (Facturier Commercial) : L'article ART-1 coûte 450 000 FCFA (C2) pour une quantité de 2 (D2).",
+          question: "Saisissez la formule Excel exacte en E2 pour calculer le Prix Total :",
+          expected: "=c2*d2",
+          alt: ["=d2*c2"]
+        }
+      },
+      {
+        title: "Partie 3 : Logique Décisionnelle (SI, ET, OU Imbriqués) & Listes",
+        content: `<h3>Automatisation des décisions métiers</h3>
+        <ul>
+          <li><strong>ET(Cond1;Cond2) :</strong> Vrai si toutes les conditions sont vraies.</li>
+          <li><strong>OU(Cond1;Cond2) :</strong> Vrai si au moins une condition est vraie.</li>
+          <li><strong>Validation des données :</strong> Onglet Données > Validation des données > Autoriser : Liste (ex: <code>OK;En attente</code>).</li>
+        </ul>`,
+        exercise: {
+          prompt: "Projet 3 (Recouvrement Client) : D2 contient l'État ('Soldé' ou 'Non soldé') et C2 les Jours Restants.",
+          question: "Saisissez la formule SI imbriquée complète d'alerte (laissant vide "" si Soldé) :",
+          expected: '=si(d2="soldé";"";si(et(d2="non soldé";c2<0);"délai dépassé";si(et(d2="non soldé";c2>=0;c2<=7);"relance urgente";"bon")))',
+          alt: ['=si(etat="soldé";"";si(et(etat="non soldé";jours<0);"délai dépassé";si(et(etat="non soldé";jours>=0;jours<=7);"relance urgente";"bon")))']
+        }
+      },
+      {
+        title: "Partie 4 : SOMME.SI, Plages Nommées & Rapprochement Bancaire",
+        content: `<h3>Contrôle de trésorerie et Mise en Forme Conditionnelle</h3>
+        <ul>
+          <li><strong>SOMME.SI(Plage_critère ; Critère ; Plage_à_additionner) :</strong> Additionne uniquement les écritures pointées <code>"OK"</code>.</li>
+          <li><strong>MFC par formule comptable :</strong> <code>=ET(ESTNUM(E6);H6="En attente")</code> surligne en rouge les écritures non pointées.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Projet 4 (Rapprochement Bancaire) : Additionner les recettes de la plage nommée Débit dont le statut dans Pointé est 'OK'.",
+          question: "Saisissez la formule SOMME.SI exacte :",
+          expected: '=somme.si(pointé;"ok";débit)',
+          alt: ['=somme.si(f2:f5;"ok";c2:c5)']
+        }
+      },
+      {
+        title: "Partie 5 & 6 : RECHERCHEX, Tableaux Croisés Dynamiques & Macros VBA",
+        content: `<h3>Business Intelligence & Automatisation VBA (.xlsm)</h3>
+        <ul>
+          <li><strong>Couplage MAX + RECHERCHEX :</strong> <code>=RECHERCHEX(MAX(D2:D100);D2:D100;B2:B100)</code> renvoie le nom du meilleur commercial.</li>
+          <li><strong>Segments connectés :</strong> Clic droit sur le segment > Connexions de rapports > Cocher tous les TCD.</li>
+          <li><strong>VBA (Alt + F11) :</strong> Sauvegarde obligatoire en format <code>.xlsm</code>.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Projet 5 (Dashboard Exécutif) : Trouver le nom du commercial (B2:B100) ayant réalisé le plus gros CA (D2:D100).",
+          question: "Saisissez la formule combinée RECHERCHEX + MAX :",
+          expected: "=recherchex(max(d2:d100);d2:d100;b2:b100)",
+          alt: []
+        }
+      }
+    ],
+    cases: [
+      { id: "ex1", title: "Projet 1 : Facturier Commercial Automatisé", context: "Colonnes : C=Prix Unitaire, D=Quantité, E=Prix Total, F=Avance Versée, G=Reste à Payer.", task: "Calculez le Reste à Payer en G2 et le Total général des ventes (E2:E4) en E5.", question: "Saisissez la formule du Total des ventes en E5 :", expected: "=somme(e2:e4)", alt: [] },
+      { id: "ex2", title: "Projet 2 : Suivi des Échéances & Détection Week-end", context: "B2 contient la date d'échéance (01/03/2026).", task: "Affichez le nom complet du mois avec majuscule initiale (ex: Mars).", question: "Saisissez la formule combinée NOMPROPRE + TEXTE :", expected: '=nompropre(texte(b2;"mmmm"))', alt: [] },
+      { id: "ex3", title: "Projet 3 : Alertes Automatiques de Relance Impayés", context: "Reste à payer en B2. Afficher 'Soldé' si B2<=0, sinon 'Non soldé'.", task: "Écrivez la formule de la colonne État.", question: "Saisissez la formule SI :", expected: '=si(b2<=0;"soldé";"non soldé")', alt: [] },
+      { id: "ex4", title: "Projet 4 : État de Rapprochement Bancaire Automatisé", context: "Plages nommées : Solde_Relevé_Banque, Pointé, Débit, Crédit.", task: "Écrivez la formule de contrôle de l'écart de rapprochement (qui doit tendre vers 0,00).", question: "Saisissez la formule complète de l'écart :", expected: '=solde_relevé_banque-(somme.si(pointé;"ok";débit)-somme.si(pointé;"ok";crédit))', alt: [] },
+      { id: "ex5", title: "Projet 5 : Tableau de Bord Exécutif (BD_Ventes / Synthèse / Dashboard)", context: "Vous avez inséré un Segment 'Région' sur un TCD.", task: "Quelle option du menu contextuel du Segment permet de piloter simultanément tous les TCD ?", question: "Saisissez le nom exact de la commande :", expected: "connexions de rapports", alt: [] },
+      { id: "ex6", title: "Projet 6 : Menu VBA Dynamique des Onglets (.xlsm)", context: "Éditeur Visual Basic (Alt+F11), boucle For Each ws In Worksheets dans ThisWorkbook.", task: "Sous quelle extension de fichier devez-vous impérativement enregistrer le classeur pour conserver les macros ?", question: "Saisissez l'extension exacte :", expected: ".xlsm", alt: ["xlsm"] }
+    ],
+    examTasks: [
+      {
+        id: "ex-excel-1",
+        title: "Épreuve Intégrale Excel : Contrôle de Gestion & BI",
+        enonce: "Vous auditez les ventes trimestrielles d'une entreprise (Montants en D2:D100, Commerciaux en B2:B100, Statut Pointage en Pointé, Recettes en Débit). Calculez le meilleur commercial, le total pointé 'OK' et la règle MFC d'attente.",
+        questions: [
+          { q: "1. Formule pour extraire le nom du commercial ayant le CA maximum :", ans: "=recherchex(max(d2:d100);d2:d100;b2:b100)" },
+          { q: "2. Formule additionnant les montants de Débit dont Pointé vaut 'OK' :", ans: '=somme.si(pointé;"ok";débit)' },
+          { q: "3. Formule MFC vérifiant que E6 est numérique et H6 vaut 'En attente' :", ans: '=et(estnum(e6);h6="en attente")' }
+        ]
+      }
+    ]
+  },
+
+  ppt: {
+    name: "Microsoft PowerPoint (De Débutant à Expert + 10 Cas)",
+    color: "#d24726",
+    courses: [
+      {
+        title: "Module 1 & 2 : Règle des 3 Secondes, Format 16:9 & Masque des Diapositives",
+        content: `<h3>Architecture stratégique et Charte graphique industrialisée</h3>
+        <ul>
+          <li><strong>Règle des 3 secondes :</strong> Évitez le syndrome « Death by PowerPoint ». Maximum 35-40% d'espace négatif (vide).</li>
+          <li><strong>Masque des diapositives (Affichage > Masque) :</strong> La Diapositive Maîtresse (Niveau 1 en haut) répercute le logo, la palette (60/30/10) et les polices sur toutes les dispositions enfants.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 1 & 2 : Configuration d'une présentation d'entreprise standardisée.",
+          question: "Quel format d'écran standard faut-il utiliser pour les projecteurs et visioconférences modernes ?",
+          expected: "16:9",
+          alt: ["grand ecran 16:9", "grand écran 16:9"]
+        }
+      },
+      {
+        title: "Module 3 & 4 : Titres d'Action, Règle 6x6 & Fusion de Formes",
+        content: `<h3>Hiérarchie visuelle et découpage vectoriel</h3>
+        <ul>
+          <li><strong>Titre d'Action :</strong> Formulez la conclusion chiffrée dès le titre (ex: <em>« +18,4% de CA porté par l'offre B2B »</em>).</li>
+          <li><strong>Fusionner les formes (Intersection) :</strong> Sélectionnez d'abord l'image, maintenez <code>Ctrl</code> puis sélectionnez le texte géant, et appliquez <em>Format de forme > Fusionner les formes > Intersection</em>.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 4 : Effet Magazine (découper une image dans une typographie géante).",
+          question: "Quelle opération de fusion de formes conserve uniquement la zone commune entre l'image et le texte ?",
+          expected: "intersection",
+          alt: []
+        }
+      },
+      {
+        title: "Module 5 & 6 : Transition Morphose (!!Objet) & Mode Présentateur",
+        content: `<h3>Animations cinématographiques et pilotage en direct</h3>
+        <ul>
+          <li><strong>Astuce Morphose (<code>!!NomObjet</code>) :</strong> Dans le Volet Sélection, préfixez le nom de deux objets différents sur deux diapositives consécutives par <code>!!</code> pour forcer leur métamorphose fluide.</li>
+          <li><strong>Raccourcis en direct :</strong> <code>N</code> ou <code>.</code> (Écran noir), <code>B</code> ou <code>,</code> (Écran blanc), <code>Ctrl + L</code> (Pointeur laser), <code>Ctrl + P</code> (Stylet).</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 5 : Transformation géométrique avancée entre deux diapositives.",
+          question: "Quel préfixe de deux caractères faut-il ajouter devant le nom d'un objet dans le Volet Sélection pour forcer la transition Morphose ?",
+          expected: "!!",
+          alt: []
+        }
+      }
+    ],
+    cases: [
+      { id: "p1", title: "Cas 1 : Pitch Deck de Levée de Fonds Startup FinTech", context: "10 minutes devant des investisseurs VC. Structure Problème -> Solution -> TAM/SAM/SOM -> Traction -> Business Model.", task: "Quel type de graphique financier permet d'illustrer la décomposition des flux positifs et négatifs ?", question: "Saisissez le nom du graphique financier :", expected: "waterfall", alt: ["cascade", "graphique waterfall"] },
+      { id: "p2", title: "Cas 2 : Soutenance d'Appel d'Offres Public (BTP & Infrastructures)", context: "Défense d'offre technique pour la construction d'un pont devant un jury public.", task: "Quel outil de navigation permet de sauter directement vers le lot interrogé par le jury puis revenir au sommaire ?", question: "Saisissez le nom de l'outil PowerPoint :", expected: "zoom de section", alt: ["zoom", "zoom de résumé"] },
+      { id: "p3", title: "Cas 3 : COMEX — Bilan Financier & Plan de Redressement", context: "Approche conseil McKinsey (Pyramide de Minto) : recommandation en premier, preuves chiffrées ensuite.", task: "Comment appelle-t-on un titre de diapositive qui énonce directement la conclusion chiffrée ?", question: "Saisissez le terme exact :", expected: "titre d'action", alt: ["action title"] },
+      { id: "p4", title: "Cas 4 : Keynote Lancement Produit Industriel (Capteurs IoT)", context: "Fond noir profond (#0B0F19), vue éclatée des composants devant 300 journalistes.", task: "Quelle transition PowerPoint calcule automatiquement le déplacement et l'éclatement des pièces entre deux diapos ?", question: "Saisissez le nom de la transition :", expected: "morphose", alt: ["morph"] },
+      { id: "p5", title: "Cas 5 : Soutenance de Thèse Académique ou Mémoire de Master", context: "20 minutes devant un jury universitaire exigeant, résultats statistiques p < 0,001.", task: "Quel élément visuel permanent en haut à droite indique au jury l'avancement dans la démonstration ?", question: "Saisissez le nom de cet élément :", expected: "fil conducteur", alt: ["miniature"] },
+      { id: "p6", title: "Cas 6 : Projet de Transformation Digitale & Déploiement ERP", context: "Accompagnement au changement des salariés avec comparaison Avant/Après et frise chronologique.", task: "Quel outil d'alignement répartit équitablement l'espace horizontal entre 4 étapes d'une frise ?", question: "Saisissez la commande d'alignement :", expected: "distribuer horizontalement", alt: [] },
+      { id: "p7", title: "Cas 7 : Rapport d'Impact RSE & Développement Durable", context: "Bilan carbone annuel et engagements 2030 avec palette Vert Forêt / Sable.", task: "Quel format d'icônes vectorielles permet de recolorer les pictogrammes sans aucune pixellisation ?", question: "Saisissez l'extension vectorielle :", expected: "svg", alt: [".svg"] },
+      { id: "p8", title: "Cas 8 : Audit de Cybersécurité & Gestion de Crise (Pentest)", context: "Restitution d'un test d'intrusion à la direction générale d'une banque.", task: "Quelle matrice 2x2 croise la Probabilité et l'Impact des vulnérabilités détectées ?", question: "Saisissez le nom de la matrice :", expected: "matrice de risques", alt: ["matrice des risques"] },
+      { id: "p9", title: "Cas 9 : Projet d'Urbanisme & Aménagement Éco-Quartier", context: "Mise en page type magazine d'architecture devant les élus locaux.", task: "Quelle règle d'équilibre recommande de conserver au moins 35 à 40 % de vide autour des éléments ?", question: "Saisissez le terme exact :", expected: "espace négatif", alt: ["espace negatif", "espace blanc"] },
+      { id: "p10", title: "Cas 10 : Module E-Learning Interactif & Kiosque Autonome RH", context: "Parcours d'intégration consultable en autonomie sur tablette sans intervention d'un formateur.", task: "Sous quelle extension de fichier PowerPoint lance-t-on directement le diaporama en plein écran à l'ouverture ?", question: "Saisissez l'extension exacte :", expected: ".ppsx", alt: ["ppsx"] }
+    ],
+    examTasks: [
+      {
+        id: "ex-ppt-1",
+        title: "Épreuve Intégrale PowerPoint : Keynote & Kiosque Interactif",
+        enonce: "Vous préparez une présentation stratégique COMEX suivie d'un module kiosque autonome. Vous devez industrialiser la charte graphique, animer un zoom fluide sur carte et exporter en mode diaporama direct.",
+        questions: [
+          { q: "1. Outil d'industrialisation de la charte graphique parent/enfant :", ans: "masque des diapositives" },
+          { q: "2. Préfixe de nommage d'objet pour forcer la transition Morphose :", ans: "!!" },
+          { q: "3. Extension de fichier pour lancement direct en Diaporama autonome :", ans: ".ppsx" }
+        ]
+      }
+    ]
+  },
+
+  access: {
+    name: "Microsoft Access (De Débutant à Expert + 10 Cas)",
+    color: "#a4373a",
+    courses: [
+      {
+        title: "Module 1 & 2 : Tables Typées, Clés (PK/FK) & Intégrité Référentielle",
+        content: `<h3>Modélisation relationnelle et élimination de la redondance</h3>
+        <ul>
+          <li><strong>Clé Primaire (PK) vs Clé Étrangère (FK) :</strong> Garantit l'unicité de chaque enregistrement et relie les tables.</li>
+          <li><strong>Relation Plusieurs à Plusieurs (N:M) :</strong> Nécessite obligatoirement une <strong>table de jonction</strong> (ex: <code>T_Inscriptions</code> entre <code>T_Etudiants</code> et <code>T_Cours</code>).</li>
+          <li><strong>Intégrité Référentielle :</strong> Interdit les enregistrements orphelins (commande sans client existant).</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 2 (Centre de Formation) : Résoudre la relation N:M entre T_Etudiants et T_Cours.",
+          question: "Comment appelle-t-on la table intermédiaire (ex: T_Suivre) qui relie deux tables en relation N:M ?",
+          expected: "table de jonction",
+          alt: ["table intermediaire", "table intermédiaire"]
+        }
+      },
+      {
+        title: "Module 3 & 4 : Requêtes SQL, Totaux (Σ) & Formulaires Père/Fils",
+        content: `<h3>Interrogation SQL et interfaces de saisie ergonomiques</h3>
+        <ul>
+          <li><strong>Requêtes paramétrées :</strong> Les crochets <code>[Date de début :]</code> génèrent une boîte de dialogue interactive.</li>
+          <li><strong>Formulaires Père/Fils :</strong> Synchronisés via les propriétés <em>Champs Pères</em> et <em>Champs Fils</em>.</li>
+          <li><strong>Calcul dynamique sans stockage :</strong> <code>=Somme([Quantite]*[Prix_Unitaire])</code> dans le pied du sous-formulaire.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 4 (Saisie de Commande) : Afficher le total dynamique dans le pied du sous-formulaire SF_Details_Commandes.",
+          question: "Saisissez la formule de source contrôle exacte :",
+          expected: "=somme([quantite]*[prix_unitaire])",
+          alt: []
+        }
+      },
+      {
+        title: "Module 5 & 6 : États Groupés PDF & Architecture Front-End / Back-End",
+        content: `<h3>Restitution professionnelle et déploiement réseau multi-utilisateurs</h3>
+        <ul>
+          <li><strong>Factures groupées :</strong> Réglez la propriété <em>Saut de page</em> du pied de groupe sur <strong>Après section</strong> pour isoler chaque facture client.</li>
+          <li><strong>Architecture Front-End / Back-End :</strong> Séparez le fichier dorsal contenant uniquement les tables (<code>_be.accdb</code>) sur le serveur et le frontal compilé (<code>.accde</code>) sur chaque poste client.</li>
+        </ul>`,
+        exercise: {
+          prompt: "Exercice 6 (Déploiement Multi-utilisateurs) : Sécuriser l'application Access sur un réseau d'entreprise.",
+          question: "Quelle est l'extension du fichier frontal compilé et verrouillé distribué sur chaque poste utilisateur ?",
+          expected: ".accde",
+          alt: ["accde"]
+        }
+      }
+    ],
+    cases: [
+      { id: "ac1", title: "Cas 1 : Cabinet Médical & Isolation des Notes Cliniques", context: "15 000 patients, 12 praticiens. Les notes cliniques confidentielles doivent être isolées du secrétariat.", task: "Quel type de relation relie T_Consultations et T_Notes_Cliniques pour isoler ces données sensibles ?", question: "Saisissez le type de relation (ex: 1:1, 1:N, N:M) :", expected: "1:1", alt: ["1 à 1", "un à un"] },
+      { id: "ac2", title: "Cas 2 : Entrepôt Logistique & Traçabilité FIFO (DLC)", context: "Imposer la sortie des lots les plus anciens (First-In, First-Out) et bloquer les sorties supérieures au stock.", task: "Quel événement de formulaire VBA permet de bloquer une saisie invalide avant son enregistrement en table ?", question: "Saisissez le nom de l'événement VBA (en français ou anglais) :", expected: "beforeupdate", alt: ["avant maj"] },
+      { id: "ac3", title: "Cas 3 : Établissement Universitaire (Notes, Crédits ECTS & Rattrapage)", context: "2 500 étudiants. Retenir automatiquement la meilleure note entre Session_1 et Session_2.", task: "Quelle fonction Access remplace une valeur Null par 0 dans un calcul SQL ?", question: "Saisissez le nom de la fonction :", expected: "nz()", alt: ["nz"] },
+      { id: "ac4", title: "Cas 4 : Flotte Automobile BTP & Alertes Maintenance", context: "180 véhicules. Contrôler automatiquement les révisions à moins de 1 500 km dès l'ouverture de la base.", task: "Quel nom de macro spéciale s'exécute automatiquement au démarrage d'une base Access ?", question: "Saisissez le nom exact de la macro :", expected: "autoexec", alt: [] },
+      { id: "ac5", title: "Cas 5 : Association Humanitaire & 8 000 Reçus Fiscaux", context: "Exportation automatique de 8 000 reçus fiscaux PDF individuels et envoi par Outlook.", task: "Quel objet VBA permet de parcourir ligne par ligne les résultats d'une requête en mémoire ?", question: "Saisissez le nom de l'objet DAO :", expected: "dao.recordset", alt: ["recordset"] },
+      { id: "ac6", title: "Cas 6 : Atelier de Production Industrielle (Nomenclatures BOM)", context: "Décomposer un produit fini en sous-ensembles et matières premières stockés dans la même table T_Articles.", task: "Comment appelle-t-on une table de nomenclature qui relie une table à elle-même (ID_Parent -> ID_Composant) ?", question: "Saisissez le qualificatif de cette table :", expected: "table réflexive", alt: ["reflexive", "réflexive"] },
+      { id: "ac7", title: "Cas 7 : Agence Immobilière (450 Lots, Appels de Loyer & IRL)", context: "Génération mensuelle automatique des échéances de loyers pour tous les baux actifs.", task: "Quel type de requête Action permet d'insérer en masse les loyers du mois dans T_Echeances_Loyers ?", question: "Saisissez le type de requête Action :", expected: "requête ajout", alt: ["ajout"] },
+      { id: "ac8", title: "Cas 8 : Cabinet d'Audit & Rentabilité des Missions", context: "35 consultants. Comparer le Budget_Vendu_HT au coût consommé (heures x taux historique du grade).", task: "Pourquoi stocke-t-on le taux horaire du grade dans T_Feuilles_Temps au moment de la saisie ?", question: "Saisissez le motif comptable (ex: historique des tarifs) :", expected: "historique", alt: ["conserver l'historique", "historique des tarifs"] },
+      { id: "ac9", title: "Cas 9 : Service Qualité & Analyse Pareto des Défauts", context: "Ventiler les incidents par mois (colonnes) et par catégorie de défaut (lignes).", task: "Quel type de requête Access génère un tableau à double entrée (lignes + colonnes dynamiques) ?", question: "Saisissez le nom de la requête :", expected: "analyse croisée", alt: ["requête analyse croisée", "crosstab"] },
+      { id: "ac10", title: "Cas 10 : Centre de Conférences & Anti-Surbooking Salles", context: "15 salles modulables. Empêcher tout chevauchement horaire avant l'enregistrement d'une réservation.", task: "Quelle fonction de domaine Access compte le nombre de réservations existantes sur le même créneau ?", question: "Saisissez le nom de la fonction (anglais ou français) :", expected: "dcount()", alt: ["dcount", "domnb", "domnb()"] }
+    ],
+    examTasks: [
+      {
+        id: "ex-acc-1",
+        title: "Épreuve Intégrale Access : Architecture SGBDR & Anti-Surbooking",
+        enonce: "Vous concevez le système d'information d'un centre de conférences et de formation. Vous devez résoudre une relation N:M, empêcher le surbooking de salles et déployer la base sur 15 postes en réseau.",
+        questions: [
+          { q: "1. Nom de la table intermédiaire requise pour une relation N:M :", ans: "table de jonction" },
+          { q: "2. Fonction de domaine Access vérifiant les conflits de réservation :", ans: "dcount()" },
+          { q: "3. Suffixe du fichier dorsal contenant uniquement les tables partagées :", ans: "_be.accdb" }
+        ]
+      }
+    ]
+  }
+};
+
+const FINAL_QCM = [
+  { id: "q1", sw: "Windows", q: "Quel raccourci clavier ouvre directement le Gestionnaire des tâches sous Windows ?", opts: ["Ctrl + Alt + Suppr", "Ctrl + Maj + Échap", "Win + E", "Alt + F4"], ans: 1 },
+  { id: "q2", sw: "Word", q: "Pour orienter uniquement la page 3 en Paysage et démarrer la pagination à 1 sur cette page, que faut-il faire ?", opts: ["Insérer un saut de page Ctrl+Entrée", "Insérer un Saut de section (Page suivante) et désactiver 'Lier au précédent'", "Utiliser la règle graduée", "Modifier les marges normales"], ans: 1 },
+  { id: "q3", sw: "Word", q: "Dans un publipostage Word, quel commutateur formate un montant avec séparateur de milliers ?", opts: ["\@ "dd/MM/yyyy"", "\# "# ##0"", "\* Upper", "Ctrl + Maj + Espace"], ans: 1 },
+  { id: "q4", sw: "Excel", q: "Quelle formule renvoie le nom du commercial (B2:B100) ayant le plus grand chiffre d'affaires (D2:D100) ?", opts: ["=MAX(B2:B100;D2:D100)", "=RECHERCHEV(MAX(D2:D100);B2:D100;1;FAUX)", "=RECHERCHEX(MAX(D2:D100);D2:D100;B2:B100)", "=SOMME.SI(D2:D100;MAX(D2:D100);B2:B100)"], ans: 2 },
+  { id: "q5", sw: "Excel", q: "Sous quelle extension doit-on enregistrer un classeur Excel contenant une macro VBA ?", opts: [".xlsx", ".xltx", ".xlsm", ".csv"], ans: 2 },
+  { id: "q6", sw: "PowerPoint", q: "Quel préfixe dans le Volet Sélection force la transition Morphose entre deux formes différentes ?", opts: ["##", "!!", "$$", "@@"], ans: 1 },
+  { id: "q7", sw: "PowerPoint", q: "Dans quel ordre sélectionner les objets pour découper une photo dans un texte avec Fusionner > Intersection ?", opts: ["Le texte d'abord, puis l'image", "L'image d'abord, puis le texte", "Grouper les deux objets avant", "Peu importe l'ordre"], ans: 1 },
+  { id: "q8", sw: "Access", q: "Comment modélise-t-on une relation Plusieurs à Plusieurs (N:M) dans Access ?", opts: ["En cochant Intégrité référentielle sur 1:N", "En créant une table de jonction contenant les deux clés étrangères", "En utilisant une requête Analyse croisée", "En fusionnant les deux tables"], ans: 1 },
+  { id: "q9", sw: "Access", q: "Quelle architecture garantit la sécurité d'une base Access multi-utilisateurs en réseau ?", opts: ["Un seul fichier .accdb partagé", "Fractionnement Dorsal (_be.accdb) sur serveur + Frontal (.accde) sur chaque poste", "Exportation en CSV chaque soir", "Protection par mot de passe simple"], ans: 1 },
+  { id: "q10", sw: "Dactylo", q: "Sur un clavier AZERTY, sur quelles touches reposent les deux index en position de base ?", opts: ["Q et M", "S et L", "F et J", "D et K"], ans: 2 }
+];
+
+// ==================== GESTION SÉCURITÉ, CODE FONDATEUR 20261 & CODES MANUELS ====================
+const CREATOR_PIN = "BLESSING2026";
+const FOUNDER_CODE = "20261";
+const STORAGE_CODES_KEY = "bma_creator_codes_v2";
+const STORAGE_USERS_KEY = "bma_users_db_v2";
+const SESSION_KEY = "bma_active_session_v2";
+
+function initSystemDB() {
+  let codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY) || "null");
+  if (!codes) {
+    // Seul le code fondateur 20261 est actif au démarrage pour le créateur
+    codes = {
+      [FOUNDER_CODE]: {
+        code: FOUNDER_CODE,
+        assignedTo: "Créateur / Fondateur (Accès Exclusif)",
+        claimedBy: null,
+        claimedName: null,
+        isFounder: true
+      }
+    };
+    localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  }
+  if (!localStorage.getItem(STORAGE_USERS_KEY)) {
+    localStorage.setItem(STORAGE_USERS_KEY, JSON.stringify({}));
+  }
+}
+
+function switchAuthTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tab === 'student' ? 'tab-btn-student' : 'tab-btn-creator').classList.add('active');
+  document.getElementById('student-form').style.display = tab === 'student' ? 'block' : 'none';
+  document.getElementById('creator-panel').style.display = tab === 'creator' ? 'block' : 'none';
+  hideAlert();
+}
+
+function showAlert(msg, type = 'error') {
+  const el = document.getElementById('auth-alert');
+  el.textContent = msg;
+  el.className = 'alert ' + (type === 'error' ? 'alert-error' : 'alert-success');
+  el.style.display = 'block';
+}
+function hideAlert() { document.getElementById('auth-alert').style.display = 'none'; }
+
+function unlockCreator() {
+  const pin = document.getElementById('creator-master-pwd').value.trim();
+  if (pin !== CREATOR_PIN) {
+    showAlert("Mot de passe maître du Créateur incorrect.");
+    return;
+  }
+  hideAlert();
+  document.getElementById('creator-tools').style.display = 'block';
+  renderCodesTable();
+}
+
+function acceptManualCode() {
+  const rawCode = document.getElementById('manual-code-input').value.trim();
+  if (!rawCode) {
+    showAlert("Veuillez saisir le code que vous souhaitez accepter (ex: 20262).");
+    return;
+  }
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  if (codes[rawCode]) {
+    showAlert(`Le code ${rawCode} est déjà enregistré dans la liste.`);
+    return;
+  }
+  const assignee = document.getElementById('new-code-assignee').value.trim() || "Élève autorisé par le Créateur";
+  codes[rawCode] = { code: rawCode, assignedTo: assignee, claimedBy: null, claimedName: null, isFounder: false };
+  localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  document.getElementById('manual-code-input').value = "";
+  document.getElementById('new-code-assignee').value = "";
+  renderCodesTable();
+  showAlert(`✅ Code ${rawCode} accepté et activé pour : ${assignee}`, 'success');
+}
+
+function generateSequentialCode() {
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  let maxN = 1;
+  Object.keys(codes).forEach(k => {
+    const n = parseInt(k.replace("2026", ""), 10);
+    if (!isNaN(n) && n > maxN) maxN = n;
+  });
+  const nextCode = "2026" + (maxN + 1);
+  const assignee = document.getElementById('new-code-assignee').value.trim() || `Élève ${maxN}`;
+  codes[nextCode] = { code: nextCode, assignedTo: assignee, claimedBy: null, claimedName: null, isFounder: false };
+  localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  document.getElementById('new-code-assignee').value = "";
+  renderCodesTable();
+  showAlert(`✅ Nouveau code unique ${nextCode} généré et accepté pour : ${assignee}`, 'success');
+}
+
+function revokeCode(codeStr) {
+  if (codeStr === FOUNDER_CODE) {
+    alert("Le code fondateur 20261 ne peut pas être révoqué.");
+    return;
+  }
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  delete codes[codeStr];
+  localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  renderCodesTable();
+}
+
+function renderCodesTable() {
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  const tbody = document.getElementById('codes-table-body');
+  if (!tbody) return;
+  tbody.innerHTML = Object.values(codes).map(c => `
+    <tr>
+      <td><strong>${c.code}</strong> ${c.isFounder ? '👑' : ''}</td>
+      <td>${c.claimedName ? c.claimedName : c.assignedTo}</td>
+      <td>${c.claimedBy ? '<span style="color:#b91c1c;font-weight:700;">🔒 Activé (1 seul titulaire)</span>' : '<span style="color:#047857;font-weight:700;">✅ Accepté / En attente</span>'}</td>
+      <td>
+        <button type="button" class="btn btn-sm btn-outline" onclick="navigator.clipboard?.writeText('${c.code}'); alert('Code ${c.code} copié !')">Copier</button>
+        ${!c.isFounder ? `<button type="button" class="btn btn-sm btn-danger" onclick="revokeCode('${c.code}')">Retirer</button>` : ''}
+      </td>
+    </tr>
+  `).join('');
+}
+
+let CURRENT_USER = null;
+
+function handleStudentLogin(e) {
+  e.preventDefault();
+  const nom = document.getElementById('st-nom').value.trim().toUpperCase();
+  const prenom = document.getElementById('st-prenom').value.trim();
+  const personalPwd = document.getElementById('st-personal-pwd').value.trim();
+  const creatorCode = document.getElementById('st-creator-code').value.trim();
+  const ageGroup = document.getElementById('st-age').value;
+
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  const users = JSON.parse(localStorage.getItem(STORAGE_USERS_KEY));
+
+  // Vérification stricte : le code doit avoir été accepté par le créateur
+  if (!codes[creatorCode]) {
+    showAlert(`Accès refusé : Le code "${creatorCode}" n'a pas été accepté par le Créateur. Seuls les codes validés manuellement dans l'Espace Créateur fonctionnent.`);
+    return;
+  }
+
+  const userKey = `${nom}_${prenom.toLowerCase()}_${creatorCode}`;
+  const codeRecord = codes[creatorCode];
+
+  // Si le code est déjà revendiqué par un autre utilisateur
+  if (codeRecord.claimedBy && codeRecord.claimedBy !== userKey) {
+    showAlert(`Sécurité : Le code ${creatorCode} est déjà exclusivement attribué à ${codeRecord.claimedName}. Une seule personne peut utiliser un code.`);
+    return;
+  }
+
+  // Reprise de compte existant avec mot de passe personnel
+  if (users[userKey]) {
+    if (users[userKey].personalPwd !== personalPwd) {
+      showAlert("Mot de passe personnel incorrect pour ce compte.");
+      return;
+    }
+    const today = new Date().toISOString().slice(0, 10);
+    if (!users[userKey].studyDates.includes(today)) {
+      users[userKey].studyDates.push(today);
+    }
+    users[userKey].ageGroup = ageGroup;
+    CURRENT_USER = users[userKey];
+  } else {
+    // Première activation du code par son titulaire légitime
+    const today = new Date().toISOString().slice(0, 10);
+    codeRecord.claimedBy = userKey;
+    codeRecord.claimedName = `${prenom} ${nom}`;
+    localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+
+    CURRENT_USER = {
+      userKey,
+      nom,
+      prenom,
+      personalPwd,
+      creatorCode,
+      isFounder: creatorCode === FOUNDER_CODE,
+      ageGroup,
+      studyDates: [today],
+      completedItems: {},
+      examScores: { windows: 0, word: 0, excel: 0, ppt: 0, access: 0 },
+      qcmScore: 0,
+      qcmDone: false,
+      founderSig: "Blessing TSIOBINDA"
+    };
+    users[userKey] = CURRENT_USER;
+  }
+
+  localStorage.setItem(STORAGE_USERS_KEY, JSON.stringify(users));
+  localStorage.setItem(SESSION_KEY, userKey);
+  launchApp();
+}
+
+function saveUserProgress() {
+  if (!CURRENT_USER) return;
+  const users = JSON.parse(localStorage.getItem(STORAGE_USERS_KEY));
+  users[CURRENT_USER.userKey] = CURRENT_USER;
+  localStorage.setItem(STORAGE_USERS_KEY, JSON.stringify(users));
+  updateTopStats();
+}
+
+function logoutUser() {
+  localStorage.removeItem(SESSION_KEY);
+  CURRENT_USER = null;
+  document.getElementById('app-screen').style.display = 'none';
+  document.getElementById('coach-widget').style.display = 'none';
+  document.getElementById('auth-screen').style.display = 'flex';
+}
+
+function exportUserBackup() {
+  if (!CURRENT_USER) return;
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(CURRENT_USER, null, 2));
+  const a = document.createElement('a');
+  a.setAttribute("href", dataStr);
+  a.setAttribute("download", `Sauvegarde_${CURRENT_USER.nom}_${CURRENT_USER.creatorCode}.json`);
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+// ==================== INITIALISATION & RENDU APPLICATION ====================
+let ACTIVE_TAB = "dashboard";
+let ACTIVE_SW_SUB = { windows: "courses", word: "courses", excel: "courses", ppt: "courses", access: "courses" };
+let ACTIVE_SW_IDX = { windows: 0, word: 0, excel: 0, ppt: 0, access: 0 };
+
+function launchApp() {
+  document.getElementById('auth-screen').style.display = 'none';
+  document.getElementById('app-screen').style.display = 'flex';
+  document.getElementById('coach-widget').style.display = 'block';
+  document.getElementById('hdr-user-name').textContent = `${CURRENT_USER.prenom} ${CURRENT_USER.nom} (${CURRENT_USER.creatorCode})`;
+  const ageLabels = { pro: "PRO & EXPERT 18+", ado: "COLLÈGE & LYCÉE 12-17", junior: "JUNIORS 8-11" };
+  document.getElementById('active-age-badge').textContent = ageLabels[CURRENT_USER.ageGroup] || "PRO 18+";
+
+  const isFounder = CURRENT_USER.creatorCode === FOUNDER_CODE || CURRENT_USER.isFounder;
+  document.getElementById('founder-badge').style.display = isFounder ? 'inline-block' : 'none';
+  document.getElementById('nav-creator-mgr').style.display = isFounder ? 'inline-block' : 'none';
+
+  updateTopStats();
+  openMainTab('dashboard', document.querySelector('.nav-item[data-tab="dashboard"]'));
+  setCoachMessage(`Bienvenue ${CURRENT_USER.prenom} ! Ton espace sécurisé (${CURRENT_USER.creatorCode}) est chargé. Toutes tes réponses validées par Entrée sont sauvegardées automatiquement.`);
+}
+
+function computeGlobalScore() {
+  if (!CURRENT_USER) return 0;
+  const s = CURRENT_USER.examScores;
+  const examAvg = (s.windows + s.word + s.excel + s.ppt + s.access) / 5;
+  return Math.round((examAvg * 0.7) + (CURRENT_USER.qcmScore * 0.3));
+}
+
+function updateTopStats() {
+  if (!CURRENT_USER) return;
+  document.getElementById('hdr-days').textContent = CURRENT_USER.studyDates.length;
+  document.getElementById('hdr-global-pct').textContent = computeGlobalScore() + "%";
+}
+
+function openMainTab(tab, btnEl) {
+  ACTIVE_TAB = tab;
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  const ws = document.getElementById('main-workspace');
+
+  if (tab === 'dashboard') renderDashboard(ws);
+  else if (['windows', 'word', 'excel', 'ppt', 'access'].includes(tab)) renderSoftwareSpace(ws, tab);
+  else if (tab === 'exam') renderFinalExamSpace(ws);
+  else if (tab === 'qcm') renderQcmAndCertificate(ws);
+  else if (tab === 'creator_mgr') renderCreatorManagerTab(ws);
+}
+
+// ==================== GESTION DES CODES DANS L'APPLICATION (FONDATEUR) ====================
+function renderCreatorManagerTab(ws) {
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  const users = JSON.parse(localStorage.getItem(STORAGE_USERS_KEY));
+
+  ws.innerHTML = `
+    <div class="workspace-panel">
+      <h2 style="color:var(--primary); margin-bottom:8px;">🔑 Gestion des Codes d'Autorisation & Suivi des Apprenants</h2>
+      <p style="color:var(--muted); margin-bottom:18px;">En tant que Créateur (Code <strong>20261</strong>), saisissez ici les codes que vous acceptez pour vos élèves. Aucun code externe ne peut fonctionner sans votre validation.</p>
+
+      <div class="step-card" style="margin-bottom:20px;">
+        <h4 style="margin-bottom:10px;">➕ Accepter / Créer un Code Unique pour un Élève</h4>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <input type="text" id="mgr-code-input" placeholder="Code à accepter (ex: 20262)" style="padding:10px; border:1.5px solid #cbd5e1; border-radius:8px; flex:1; min-width:180px;">
+          <input type="text" id="mgr-assignee-input" placeholder="Nom de l'élève destinataire" style="padding:10px; border:1.5px solid #cbd5e1; border-radius:8px; flex:1.5; min-width:220px;">
+          <button type="button" class="btn btn-success" onclick="mgrAcceptCode()">✅ Accepter ce Code</button>
+          <button type="button" class="btn btn-accent" onclick="mgrGenerateNext()">⚡ Générer Code Suivant</button>
+        </div>
+        <div id="mgr-feedback" style="margin-top:10px; font-weight:700;"></div>
+      </div>
+
+      <h3 style="margin-bottom:10px;">📋 Registre des Codes Autorisés</h3>
+      <div style="overflow-x:auto;">
+        <table class="admin-tbl">
+          <thead>
+            <tr><th>Code</th><th>Destinataire / Titulaire</th><th>Statut</th><th>Progression & Score</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            ${Object.values(codes).map(c => {
+              const u = c.claimedBy ? users[c.claimedBy] : null;
+              const doneItems = u ? Object.keys(u.completedItems).length : 0;
+              const days = u ? u.studyDates.length : 0;
+              return `
+                <tr>
+                  <td><strong>${c.code}</strong> ${c.isFounder ? '👑' : ''}</td>
+                  <td>${c.claimedName ? c.claimedName : c.assignedTo}</td>
+                  <td>${c.claimedBy ? '<span style="color:#b91c1c;font-weight:700;">🔒 Utilisé (1 seul élève)</span>' : '<span style="color:#047857;font-weight:700;">✅ Accepté / Disponible</span>'}</td>
+                  <td>${u ? `${doneItems} ateliers • ${days} j` : '—'}</td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-outline" onclick="navigator.clipboard?.writeText('${c.code}'); alert('Code ${c.code} copié !')">Copier</button>
+                    ${!c.isFounder ? `<button type="button" class="btn btn-sm btn-danger" onclick="mgrDeleteCode('${c.code}')">Supprimer</button>` : ''}
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function mgrAcceptCode() {
+  const codeVal = document.getElementById('mgr-code-input').value.trim();
+  const assignee = document.getElementById('mgr-assignee-input').value.trim() || "Élève autorisé";
+  const fb = document.getElementById('mgr-feedback');
+  if (!codeVal) {
+    fb.style.color = "var(--danger)";
+    fb.textContent = "⚠️ Saisissez d'abord un code (ex: 20262).";
+    return;
+  }
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  if (codes[codeVal]) {
+    fb.style.color = "var(--danger)";
+    fb.textContent = `⚠️ Le code ${codeVal} existe déjà.`;
+    return;
+  }
+  codes[codeVal] = { code: codeVal, assignedTo: assignee, claimedBy: null, claimedName: null, isFounder: false };
+  localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  renderCreatorManagerTab(document.getElementById('main-workspace'));
+  document.getElementById('mgr-feedback').style.color = "var(--success)";
+  document.getElementById('mgr-feedback').textContent = `✅ Code ${codeVal} accepté et activé pour ${assignee}.`;
+}
+
+function mgrGenerateNext() {
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  let maxN = 1;
+  Object.keys(codes).forEach(k => {
+    const n = parseInt(k.replace("2026", ""), 10);
+    if (!isNaN(n) && n > maxN) maxN = n;
+  });
+  const nextCode = "2026" + (maxN + 1);
+  const assignee = document.getElementById('mgr-assignee-input').value.trim() || `Élève ${maxN}`;
+  codes[nextCode] = { code: nextCode, assignedTo: assignee, claimedBy: null, claimedName: null, isFounder: false };
+  localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  renderCreatorManagerTab(document.getElementById('main-workspace'));
+  document.getElementById('mgr-feedback').style.color = "var(--success)";
+  document.getElementById('mgr-feedback').textContent = `✅ Code ${nextCode} généré et accepté pour ${assignee}.`;
+}
+
+function mgrDeleteCode(codeStr) {
+  if (codeStr === FOUNDER_CODE) return;
+  const codes = JSON.parse(localStorage.getItem(STORAGE_CODES_KEY));
+  delete codes[codeStr];
+  localStorage.setItem(STORAGE_CODES_KEY, JSON.stringify(codes));
+  renderCreatorManagerTab(document.getElementById('main-workspace'));
+}
+
+// ==================== 1. TABLEAU DE BORD ====================
+function renderDashboard(ws) {
+  const doneCount = Object.keys(CURRENT_USER.completedItems).length;
+  const totalExercisesAndCases = 2 + 2 + 4 + 10 + 4 + 6 + 3 + 10 + 3 + 10; // 54 ateliers
+  const pctCourse = Math.min(100, Math.round((doneCount / totalExercisesAndCases) * 100));
+  const globalExam = computeGlobalScore();
+
+  ws.innerHTML = `
+    <div class="grid-4">
+      <div class="stat-card" style="border-color:var(--primary)">
+        <h3>Compte & Code Autorisé</h3>
+        <div class="val" style="font-size:1.3rem;">${CURRENT_USER.prenom} ${CURRENT_USER.nom}</div>
+        <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">Code : <strong>${CURRENT_USER.creatorCode}</strong> ${CURRENT_USER.creatorCode === FOUNDER_CODE ? '(Fondateur)' : ''}</p>
+      </div>
+      <div class="stat-card" style="border-color:var(--success)">
+        <h3>Assiduité & Sauvegarde</h3>
+        <div class="val">${CURRENT_USER.studyDates.length} Jour(s)</div>
+        <p style="font-size:0.82rem; color:var(--success); margin-top:4px;">● Sauvegarde automatique active</p>
+      </div>
+      <div class="stat-card" style="border-color:#0284c7">
+        <h3>Cours & Cas Résolus</h3>
+        <div class="val">${doneCount} / ${totalExercisesAndCases} (${pctCourse}%)</div>
+        <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">Ateliers guidés validés</p>
+      </div>
+      <div class="stat-card" style="border-color:var(--accent)">
+        <h3>Note Examen & Certificat</h3>
+        <div class="val">${globalExam} / 100%</div>
+        <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">Seuil certification : 70%</p>
+      </div>
+    </div>
+
+    <div class="workspace-panel">
+      <h2 style="margin-bottom:10px; color:var(--primary);">📚 Architecture Complète de votre Formation</h2>
+      <p style="color:var(--muted); margin-bottom:18px;">Chaque logiciel contient ses <strong>Modules de Cours</strong>, ses <strong>Exercices Pratiques</strong> et ses <strong>Études de Cas Réels d'Entreprise</strong>. Une fois prêt, passez l'<strong>Examen Final Masterclass</strong> (sans aide pas à pas, noté sur 100 %) puis le <strong>QCM de Certification</strong>.</p>
+      <div class="grid-4">
+        <div class="step-card">
+          <h4 style="color:var(--word);">📘 Microsoft Word</h4>
+          <p style="font-size:0.85rem; margin:6px 0;">6 Parties complètes + 4 Exercices + 10 Cas Réels d'Entreprise (Congo Distribution, AGRO-CONGO, MOUKALA, TRANS-LOG...).</p>
+          <button class="btn btn-sm btn-primary" onclick="openMainTab('word', document.querySelector('[data-tab=word]'))">Ouvrir Word</button>
+        </div>
+        <div class="step-card">
+          <h4 style="color:var(--excel);">📗 Microsoft Excel</h4>
+          <p style="font-size:0.85rem; margin:6px 0;">Manuel De Zéro à Expert (6 Parties, 11 Chapitres, 6 Projets Réels : Facturier, Relances, Rapprochement, RECHERCHEX, VBA).</p>
+          <button class="btn btn-sm btn-success" onclick="openMainTab('excel', document.querySelector('[data-tab=excel]'))">Ouvrir Excel</button>
+        </div>
+        <div class="step-card">
+          <h4 style="color:var(--ppt);">📙 Microsoft PowerPoint</h4>
+          <p style="font-size:0.85rem; margin:6px 0;">6 Modules Experts + Exercices + 10 Études de Cas (Pitch Deck FinTech, Appel d'Offres BTP, COMEX McKinsey, Morphose...).</p>
+          <button class="btn btn-sm btn-accent" onclick="openMainTab('ppt', document.querySelector('[data-tab=ppt]'))">Ouvrir PowerPoint</button>
+        </div>
+        <div class="step-card">
+          <h4 style="color:var(--access);">📕 Microsoft Access</h4>
+          <p style="font-size:0.85rem; margin:6px 0;">6 Modules SGBDR + Exercices + 10 Études de Cas (Cabinet Médical, Entrepôt FIFO, Université ECTS, Anti-Surbooking...).</p>
+          <button class="btn btn-sm btn-danger" onclick="openMainTab('access', document.querySelector('[data-tab=access]'))">Ouvrir Access</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ==================== 2. ESPACE LOGICIEL (COURS + EXERCICES + CAS PRATIQUES) ====================
+function renderSoftwareSpace(ws, sw) {
+  const data = CURRICULUM[sw];
+  const sub = ACTIVE_SW_SUB[sw];
+  const list = sub === 'courses' ? data.courses : data.cases;
+  const idx = Math.min(ACTIVE_SW_IDX[sw], list.length - 1);
+  const item = list[idx];
+
+  const itemKey = sub === 'courses' ? `${sw}-course-${idx}` : item.id;
+  const isDone = !!CURRENT_USER.completedItems[itemKey];
+
+  let rightHTML = "";
+  if (sub === 'courses') {
+    rightHTML = `
+      <div class="lesson-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h2 style="color:${data.color};">${item.title}</h2>
+          ${isDone ? '<span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:99px;font-weight:700;font-size:0.82rem;">✅ Validé & Sauvegardé</span>' : ''}
+        </div>
+        <hr style="margin:12px 0; border:none; border-top:1px solid #e2e8f0;">
+        ${item.content}
+        <div class="step-card" style="border-left:4px solid ${data.color};">
+          <h4>🛠️ Exercice Pratique d'Application (Validation par touche Entrée)</h4>
+          <p style="margin:6px 0; font-size:0.9rem;">${item.exercise.prompt}</p>
+          <p style="font-weight:700; margin:8px 0;">${item.exercise.question}</p>
+          <div class="formula-bar">
+            <span>fx / Saisie</span>
+            <input type="text" id="practice-input" placeholder="Tapez votre réponse complète puis appuyez sur ENTRÉE..." onkeydown="if(event.key==='Enter') validatePractice('${sw}', '${itemKey}')">
+            <button class="btn btn-primary btn-sm" onclick="validatePractice('${sw}', '${itemKey}')">Valider (Entrée)</button>
+          </div>
+          <div id="practice-feedback" style="margin-top:8px; font-weight:700; font-size:0.9rem;"></div>
+        </div>
+      </div>
+    `;
+  } else {
+    rightHTML = `
+      <div class="lesson-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h2 style="color:${data.color};">${item.title}</h2>
+          ${isDone ? '<span style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:99px;font-weight:700;font-size:0.82rem;">✅ Cas Résolu</span>' : ''}
+        </div>
+        <div style="background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #cbd5e1; margin:12px 0;">
+          <p><strong>🏢 Contexte Entreprise :</strong> ${item.context}</p>
+          <p style="margin-top:8px;"><strong>🎯 Travail demandé :</strong> ${item.task}</p>
+        </div>
+        <div class="step-card" style="border-left:4px solid var(--accent);">
+          <h4>⚡ Résolution Technique (Saisissez la solution exacte puis appuyez sur Entrée)</h4>
+          <p style="font-weight:700; margin:8px 0;">${item.question}</p>
+          <div class="formula-bar">
+            <span>Réponse</span>
+            <input type="text" id="practice-input" placeholder="Saisissez votre solution complète puis appuyez sur ENTRÉE..." onkeydown="if(event.key==='Enter') validatePractice('${sw}', '${itemKey}')">
+            <button class="btn btn-success btn-sm" onclick="validatePractice('${sw}', '${itemKey}')">Valider le Cas</button>
+          </div>
+          <div id="practice-feedback" style="margin-top:8px; font-weight:700; font-size:0.9rem;"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  ws.innerHTML = `
+    <div class="software-header" style="border-top:5px solid ${data.color};">
+      <div>
+        <h2 style="color:${data.color};">${data.name}</h2>
+        <p style="font-size:0.85rem; color:var(--muted);">Cours théoriques, exercices guidés et études de cas réels d'entreprise.</p>
+      </div>
+      <div class="sub-tabs">
+        <button class="sub-btn ${sub==='courses'?'active':''}" onclick="switchSwSub('${sw}', 'courses')">📖 Cours & Exercices (${data.courses.length})</button>
+        <button class="sub-btn ${sub==='cases'?'active':''}" onclick="switchSwSub('${sw}', 'cases')">💼 Études de Cas Entreprise (${data.cases.length})</button>
+      </div>
+    </div>
+
+    <div class="module-grid">
+      <div class="sidebar-list">
+        <h4 style="margin-bottom:10px; font-size:0.85rem; text-transform:uppercase; color:var(--muted);">
+          ${sub === 'courses' ? 'Chapitres du Manuel' : 'Liste des Cas Pratiques'}
+        </h4>
+        ${list.map((it, i) => {
+          const k = sub === 'courses' ? `${sw}-course-${i}` : it.id;
+          const done = !!CURRENT_USER.completedItems[k];
+          return `<div class="list-item ${i===idx?'active':''} ${done?'done':''}" onclick="selectSwItem('${sw}', ${i})">
+            <div style="font-size:0.86rem; font-weight:700;">${done ? '✅ ' : '📌 '}${it.title}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="workspace-panel">${rightHTML}</div>
+    </div>
+  `;
+}
+
+function switchSwSub(sw, sub) {
+  ACTIVE_SW_SUB[sw] = sub;
+  ACTIVE_SW_IDX[sw] = 0;
+  renderSoftwareSpace(document.getElementById('main-workspace'), sw);
+}
+
+function selectSwItem(sw, i) {
+  ACTIVE_SW_IDX[sw] = i;
+  renderSoftwareSpace(document.getElementById('main-workspace'), sw);
+}
+
+function normalizeStr(s) {
+  return s.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function validatePractice(sw, itemKey) {
+  const input = document.getElementById('practice-input').value;
+  const fb = document.getElementById('practice-feedback');
+  if (!input.trim()) {
+    fb.style.color = "var(--danger)";
+    fb.textContent = "⚠️ Veuillez saisir votre réponse complète avant d'appuyer sur Entrée.";
+    return;
+  }
+
+  const data = CURRICULUM[sw];
+  const sub = ACTIVE_SW_SUB[sw];
+  const idx = ACTIVE_SW_IDX[sw];
+  const obj = sub === 'courses' ? data.courses[idx].exercise : data.cases[idx];
+
+  const userClean = normalizeStr(input);
+  const validList = [normalizeStr(obj.expected), ...(obj.alt || []).map(normalizeStr)];
+
+  if (validList.includes(userClean)) {
+    CURRENT_USER.completedItems[itemKey] = true;
+    saveUserProgress();
+    fb.style.color = "var(--success)";
+    fb.textContent = "🎉 EXCELLENT ! Réponse exacte validée et sauvegardée automatiquement dans votre dossier.";
+    setCoachMessage(`Bravo ${CURRENT_USER.prenom} ! Tu as validé "${sub === 'courses' ? data.courses[idx].title : data.cases[idx].title}".`);
+    setTimeout(() => renderSoftwareSpace(document.getElementById('main-workspace'), sw), 900);
+  } else {
+    fb.style.color = "var(--danger)";
+    fb.textContent = `❌ Réponse incorrecte ou incomplète. Vérifiez la syntaxe exacte (ex: signe =, guillemets, raccourci) et appuyez de nouveau sur Entrée.`;
+  }
+}
+
+// ==================== 3. EXAMEN FINAL MASTERCLASS (AUTONOMIE TOTALE / 100%) ====================
+let EXAM_SW = "word";
+
+function renderFinalExamSpace(ws) {
+  const s = CURRENT_USER.examScores;
+  const swList = [
+    { id: "windows", label: "🪟 Windows", score: s.windows },
+    { id: "word", label: "📘 Word", score: s.word },
+    { id: "excel", label: "📗 Excel", score: s.excel },
+    { id: "ppt", label: "📙 PowerPoint", score: s.ppt },
+    { id: "access", label: "📕 Access", score: s.access }
+  ];
+
+  const examData = CURRICULUM[EXAM_SW].examTasks[0];
+
+  ws.innerHTML = `
+    <div class="software-header" style="border-top:5px solid var(--accent);">
+      <div>
+        <h2>🎯 EXAMEN FINAL MASTERCLASS (Évaluation Autonome sur 100 %)</h2>
+        <p style="font-size:0.86rem; color:var(--muted);">Ici, <strong>aucune démarche pas à pas n'est affichée</strong>. À gauche : l'énoncé et les données de l'entreprise. À droite : votre banc d'essai de résolution. Le système corrige et note automatiquement sur 100 %.</p>
+      </div>
+      <div class="sub-tabs">
+        ${swList.map(item => `
+          <button class="sub-btn ${EXAM_SW===item.id?'active':''}" onclick="EXAM_SW='${item.id}'; renderFinalExamSpace(document.getElementById('main-workspace'))">
+            ${item.label} (${item.score}%)
+          </button>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="exam-split">
+      <!-- CÔTÉ GAUCHE : ÉNONCÉ & DONNÉES SANS GUIDAGE -->
+      <div class="exam-enonce">
+        <span class="badge-gold" style="background:#fef3c7; color:#92400e;">ÉPREUVE OFFICIELLE — ${CURRICULUM[EXAM_SW].name.toUpperCase()}</span>
+        <h3 style="margin:10px 0; color:#78350f;">${examData.title}</h3>
+        <p style="line-height:1.6; font-size:0.93rem; margin-bottom:14px;"><strong>Situation professionnelle :</strong><br>${examData.enonce}</p>
+        <div style="background:white; padding:12px; border-radius:8px; border:1px solid #fde68a; font-size:0.85rem;">
+          <strong>⚠️ Règles d'examen :</strong>
+          <ul style="margin-left:18px; margin-top:6px;">
+            <li>Aucune aide pas à pas disponible.</li>
+            <li>Saisissez vos formules, raccourcis ou commandes techniques exactes à droite.</li>
+            <li>Chaque bonne réponse rapporte des points sur 100 % pour ce logiciel.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CÔTÉ DROIT : BANC D'ESSAI & CORRECTION AUTOMATIQUE -->
+      <div class="exam-work">
+        <h3 style="margin-bottom:12px; color:var(--primary);">✍️ Votre Copie d'Examen (Note actuelle : ${s[EXAM_SW]} / 100%)</h3>
+        ${examData.questions.map((qObj, idx) => `
+          <div class="form-group" style="background:#f8fafc; padding:12px; border-radius:8px; border:1px solid #e2e8f0;">
+            <label style="font-size:0.9rem; color:#0f172a;">${qObj.q}</label>
+            <input type="text" class="exam-input" id="exam-ans-${idx}" placeholder="Saisissez votre réponse technique exacte...">
+          </div>
+        `).join('')}
+        <button class="btn btn-primary" onclick="gradeExamSoftware('${EXAM_SW}')">✅ Soumettre ma copie et calculer ma note (/100%)</button>
+        <div id="exam-result-box" style="margin-top:14px; font-weight:700;"></div>
+      </div>
+    </div>
+  `;
+}
+
+function gradeExamSoftware(sw) {
+  const examData = CURRICULUM[sw].examTasks[0];
+  let correct = 0;
+  examData.questions.forEach((qObj, idx) => {
+    const val = normalizeStr(document.getElementById(`exam-ans-${idx}`).value);
+    if (val === normalizeStr(qObj.ans)) correct++;
+  });
+  const pct = Math.round((correct / examData.questions.length) * 100);
+  CURRENT_USER.examScores[sw] = Math.max(CURRENT_USER.examScores[sw], pct);
+  saveUserProgress();
+
+  const resBox = document.getElementById('exam-result-box');
+  resBox.innerHTML = `<div class="alert ${pct>=70?'alert-success':'alert-error'}" style="display:block;">
+    Résultat de l'épreuve ${CURRICULUM[sw].name} : <strong>${correct} / ${examData.questions.length} bonnes réponses — Score : ${pct}%</strong> (Meilleur score sauvegardé : ${CURRENT_USER.examScores[sw]}%).
+  </div>`;
+  setCoachMessage(`Copie ${CURRICULUM[sw].name} corrigée : ${pct}% ! Ton score est sauvegardé.`);
+}
+
+// ==================== 4. QCM DE VÉRIFICATION & CERTIFICAT OFFICIEL (QR AIRTEL 05 044 71 63) ====================
+function renderQcmAndCertificate(ws) {
+  const globalScore = computeGlobalScore();
+  const s = CURRENT_USER.examScores;
+  const qrData = encodeURIComponent(`CERTIFICAT BUREAUTIQUE MASTER ACADEMY | Apprenant: ${CURRENT_USER.prenom} ${CURRENT_USER.nom} | Code: ${CURRENT_USER.creatorCode} | Score: ${globalScore}% | Verification Airtel: 05 044 71 63`);
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${qrData}`;
+
+  ws.innerHTML = `
+    <div class="workspace-panel" style="margin-bottom:24px;">
+      <h2 style="color:var(--primary); margin-bottom:8px;">📝 Étape Finale : QCM de Vérification des Connaissances</h2>
+      <p style="color:var(--muted); margin-bottom:16px;">Répondez aux 10 questions multi-logiciels ci-dessous. Votre note QCM (30%) combinée à vos notes d'Examen Pratique (70%) génère votre <strong>Certificat Officiel avec Code QR</strong>.</p>
+      
+      <form id="qcm-form" onsubmit="submitFinalQcm(event)">
+        ${FINAL_QCM.map((item, idx) => `
+          <div class="qcm-card">
+            <div style="font-weight:700; margin-bottom:6px;"><span style="color:var(--primary);">[${item.sw}]</span> ${idx+1}. ${item.q}</div>
+            ${item.opts.map((opt, oIdx) => `
+              <label class="qcm-opt">
+                <input type="radio" name="qcm_${idx}" value="${oIdx}" required> ${opt}
+              </label>
+            `).join('')}
+          </div>
+        `).join('')}
+        <button type="submit" class="btn btn-success">🎓 Valider le QCM & Générer mon Certificat Officiel</button>
+      </form>
+    </div>
+
+    <!-- CERTIFICAT OFFICIEL IMPRIMABLE -->
+    <div id="printable-cert" class="cert-wrapper">
+      <div class="cert-header">
+        <div style="font-size:0.85rem; font-weight:700; color:#64748b; letter-spacing:2px;">RÉPUBLIQUE DU CONGO • FORMATION PROFESSIONNELLE SUPÉRIEURE</div>
+        <div class="cert-title">Certificat de Maîtrise Bureautique</div>
+        <div style="font-size:0.95rem; color:#b45309; font-weight:700; margin-top:4px;">BUREAUTIQUE MASTER ACADEMY — CURSUS DE ZÉRO À EXPERT</div>
+      </div>
+
+      <div style="text-align:center;">
+        <p style="font-size:1rem; color:#334155;">La Direction Pédagogique certifie que l'apprenant(e) :</p>
+        <div class="cert-name">${CURRENT_USER.prenom} ${CURRENT_USER.nom}</div>
+        <p style="font-size:0.92rem; color:#475569;">
+          Matricule d'Autorisation : <strong>${CURRENT_USER.creatorCode}</strong> • Assiduité enregistrée : <strong>${CURRENT_USER.studyDates.length} jour(s) d'étude</strong> • Ateliers validés : <strong>${Object.keys(CURRENT_USER.completedItems).length}</strong>
+        </p>
+        <p style="margin-top:10px; font-size:0.95rem;">A suivi avec succès le programme intensif et validé les épreuves pratiques et théoriques sur les 5 environnements :</p>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-score-box"><div style="font-size:0.78rem;color:#64748b;">WINDOWS</div><strong style="font-size:1.15rem;color:#0284c7;">${s.windows}%</strong></div>
+        <div class="cert-score-box"><div style="font-size:0.78rem;color:#64748b;">WORD</div><strong style="font-size:1.15rem;color:#2b579a;">${s.word}%</strong></div>
+        <div class="cert-score-box"><div style="font-size:0.78rem;color:#64748b;">EXCEL</div><strong style="font-size:1.15rem;color:#217346;">${s.excel}%</strong></div>
+        <div class="cert-score-box"><div style="font-size:0.78rem;color:#64748b;">POWERPOINT</div><strong style="font-size:1.15rem;color:#d24726;">${s.ppt}%</strong></div>
+        <div class="cert-score-box"><div style="font-size:0.78rem;color:#64748b;">ACCESS</div><strong style="font-size:1.15rem;color:#a4373a;">${s.access}%</strong></div>
+      </div>
+
+      <div style="text-align:center; background:#eff6ff; padding:12px; border-radius:8px; border:1px solid #bfdbfe;">
+        <span style="font-size:0.95rem;">Score QCM : <strong>${CURRENT_USER.qcmScore}%</strong> &nbsp;|&nbsp; </span>
+        <span style="font-size:1.15rem; color:#1e3a8a; font-weight:900;">MOYENNE GÉNÉRALE DE CERTIFICATION : ${globalScore} / 100%</span>
+      </div>
+
+      <div class="cert-footer">
+        <div class="qr-box">
+          <img src="${qrUrl}" alt="Code QR Vérification" style="border:2px solid #0f172a; padding:4px; border-radius:6px; background:white;">
+          <div style="font-size:0.75rem; font-weight:700; margin-top:4px;">Vérification Officielle Airtel :</div>
+          <div style="font-size:0.85rem; font-weight:900; color:#b91c1c;">📞 05 044 71 63</div>
+        </div>
+
+        <div style="text-align:center; font-size:0.82rem; color:#64748b;">
+          Délivré à Brazzaville, le ${new Date().toLocaleDateString('fr-FR')}<br>
+          Document authentifié numériquement
+        </div>
+
+        <div class="sig-box">
+          <div style="font-size:0.82rem; font-weight:700; margin-bottom:6px;">Signature du Fondateur & Formateur :</div>
+          <div id="cert-sig-display" style="font-family:'Brush Script MT', cursive; font-size:1.6rem; color:#1e3a8a; border-bottom:1.5px solid #0f172a; padding:4px 12px;">
+            ${CURRENT_USER.founderSig || "Blessing TSIOBINDA"}
+          </div>
+          <div style="margin-top:6px;" class="no-print">
+            <input type="text" id="sig-custom-input" placeholder="Personnaliser signature..." style="font-size:0.78rem; padding:4px 6px; border:1px solid #cbd5e1; border-radius:4px; width:150px;">
+            <button type="button" class="btn btn-sm btn-outline" onclick="updateCertSignature()">Signer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-bottom:30px;">
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimer / Enregistrer le Certificat en PDF</button>
+    </div>
+  `;
+}
+
+function submitFinalQcm(e) {
+  e.preventDefault();
+  let good = 0;
+  FINAL_QCM.forEach((item, idx) => {
+    const checked = document.querySelector(`input[name="qcm_${idx}"]:checked`);
+    if (checked && parseInt(checked.value, 10) === item.ans) good++;
+  });
+  CURRENT_USER.qcmScore = Math.round((good / FINAL_QCM.length) * 100);
+  CURRENT_USER.qcmDone = true;
+  saveUserProgress();
+  renderQcmAndCertificate(document.getElementById('main-workspace'));
+  setCoachMessage(`Félicitations ${CURRENT_USER.prenom} ! Tu as obtenu ${CURRENT_USER.qcmScore}% au QCM. Ton certificat avec Code QR (05 044 71 63) est prêt !`);
+}
+
+function updateCertSignature() {
+  const val = document.getElementById('sig-custom-input').value.trim();
+  if (!val) return;
+  CURRENT_USER.founderSig = val;
+  saveUserProgress();
+  document.getElementById('cert-sig-display').textContent = val;
+}
+
+// ==================== COACH VOCAL ACTIF BLESSING ====================
+let coachOpen = true;
+function toggleCoach() {
+  coachOpen = !coachOpen;
+  document.getElementById('coach-body').style.display = coachOpen ? 'block' : 'none';
+  document.getElementById('coach-toggle-icon').textContent = coachOpen ? '▼' : '▲';
+}
+
+function setCoachMessage(txt) {
+  document.getElementById('coach-msg').textContent = txt;
+}
+
+function speakCoach() {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(document.getElementById('coach-msg').textContent);
+  u.lang = 'fr-FR';
+  window.speechSynthesis.speak(u);
+}
+
+function coachTip() {
+  const tips = [
+    "Astuce Excel : Commence toujours tes formules par = et utilise RECHERCHEX plutôt que RECHERCHEV.",
+    "Astuce Word : Utilise Ctrl + Maj + Espace pour insérer un espace insécable devant FCFA.",
+    "Astuce PowerPoint : Préfixe tes objets par !! dans le Volet Sélection pour réussir une transition Morphose parfaite.",
+    "Astuce Access : Fractionne toujours ta base en Dorsal (_be.accdb) et Frontal (.accde) avant de la partager en réseau."
+  ];
+  const pick = tips[Math.floor(Math.random() * tips.length)];
+  setCoachMessage(pick);
+  speakCoach();
+}
+
+// ==================== DÉMARRAGE ====================
+window.addEventListener('DOMContentLoaded', () => {
+  initSystemDB();
+  const savedSession = localStorage.getItem(SESSION_KEY);
+  const users = JSON.parse(localStorage.getItem(STORAGE_USERS_KEY) || "{}");
+  if (savedSession && users[savedSession]) {
+    CURRENT_USER = users[savedSession];
+    launchApp();
+  }
+});
+</script>
+</body>
+</html>
