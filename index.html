@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bureautique Master Academy — Portail Officiel & Certification</title>
+<title>Master Class — Formation Bureautique de Master Class</title>
 <style>
   :root {
     --primary: #1e3a8a;
@@ -178,8 +178,8 @@
   <div class="auth-container">
     <div class="auth-left">
       <div>
-        <span class="badge-gold">ACADÉMIE OFFICIELLE • ÉDITION 2026</span>
-        <h1>Bureautique Master Academy</h1>
+        <span class="badge-gold">FORMATION BUREAUTIQUE DE MASTER CLASS • ÉDITION 2026</span>
+        <h1>Master Class</h1>
         <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.5;">
           Plateforme professionnelle de formation complète et certification sur <strong>Windows, Word, Excel, PowerPoint et Access</strong> (De Débutant Absolu à Expert).
         </p>
@@ -191,7 +191,7 @@
         </ul>
       </div>
       <div style="font-size:0.8rem; color:#94a3b8; border-top:1px solid rgba(255,255,255,0.15); padding-top:12px;">
-        Direction Pédagogique : <strong>Coach Blessing</strong> • Vérification Officielle Airtel : <strong>05 044 71 63</strong>
+        Direction Pédagogique : <strong>Professeur Blessing</strong> • <strong>Coach Blessing</strong> • Vérification Officielle Airtel : <strong>05 044 71 63</strong>
       </div>
     </div>
 
@@ -271,7 +271,7 @@
 <div id="app-screen">
   <header class="topbar">
     <div class="brand">
-      <span>🎓 BUREAUTIQUE MASTER ACADEMY</span>
+      <span>🎓 MASTER CLASS — FORMATION BUREAUTIQUE</span>
       <span id="active-age-badge" style="background:#f59e0b; color:#0f172a; padding:2px 10px; border-radius:99px; font-size:0.75rem;">PRO 18+</span>
       <span id="founder-badge" style="display:none; background:#10b981; color:white; padding:2px 10px; border-radius:99px; font-size:0.75rem;">👑 FONDATEUR (20261)</span>
     </div>
@@ -293,7 +293,7 @@
     <button class="nav-item" data-tab="excel" onclick="openMainTab('excel', this)">📗 Excel (Cours + 6 Projets)</button>
     <button class="nav-item" data-tab="ppt" onclick="openMainTab('ppt', this)">📙 PowerPoint (Cours + 10 Cas)</button>
     <button class="nav-item" data-tab="access" onclick="openMainTab('access', this)">📕 Access (Cours + 10 Cas)</button>
-    <button class="nav-item exam-tab" data-tab="exam" onclick="openMainTab('exam', this)">🎯 Examen Final Masterclass (/100%)</button>
+    <button class="nav-item exam-tab" data-tab="exam" onclick="openMainTab('exam', this)">🎯 Master Class — Examen Final (/100%)</button>
     <button class="nav-item exam-tab" data-tab="qcm" onclick="openMainTab('qcm', this)">📝 QCM & Certificat Officiel</button>
     <button class="nav-item" id="nav-creator-mgr" style="display:none; background:#fef3c7; color:#78350f;" data-tab="creator_mgr" onclick="openMainTab('creator_mgr', this)">🔑 Gestion des Codes Créateur</button>
   </nav>
@@ -306,7 +306,7 @@
 <!-- COACH BLESSING WIDGET -->
 <div id="coach-widget" style="display:none;">
   <div class="coach-head" onclick="toggleCoach()">
-    <span>🎙️ Coach Blessing (Assistant IA)</span>
+    <span>🎙️ Coach Blessing • Professeur Blessing</span>
     <span id="coach-toggle-icon">▼</span>
   </div>
   <div class="coach-body" id="coach-body">
@@ -458,7 +458,7 @@ const CURRICULUM = {
     cases: [
       { id: "w1", title: "Cas 1 (RH) : Promesse d'embauche Mlle Clarisse MAMPOUYA", context: "Congo Distribution SA (Brazzaville). Marges 2 cm, bloc destinataire et date alignés à droite (Ctrl+R), Objet en Gras+Italique, espace insécable dans 350 000 FCFA, espacement après 6 pt.", task: "Rédigez la formule d'objet exacte mise en forme ou indiquez le commutateur d'alignement droite.", question: "Saisissez le raccourci d'alignement à droite appliqué au bloc destinataire :", expected: "ctrl+r", alt: [] },
       { id: "w2", title: "Cas 2 (Direction) : Rapport d'Inspection AGRO-CONGO Loudima", context: "M. Bienvenu TSONDE. Page 1 Garde, Page 2 Sommaire auto, Page 3 Corps (Section 3 déliée) avec champ SECTIONPAGES.", task: "Quel champ Word affiche le nombre total de pages de la section en cours uniquement ?", question: "Saisissez le nom exact du champ Word (en majuscules) :", expected: "sectionpages", alt: [] },
-      { id: "w3", title: "Cas 3 (Commercial) : Publipostage Relances MOUKALA Prestations", context: "Base Clients_Retard.xlsx. Commutateur monétaire sur MontantDû et règle IF si JoursRetard > 30.", task: "Saisissez le commutateur de format monétaire appliqué au champ MontantDû :", question: "Tapez exactement : \# "# ##0"", expected: "\# "# ##0"", alt: ["# ##0"] },
+      { id: "w3", title: "Cas 3 (Commercial) : Publipostage Relances MOUKALA Prestations", context: "Base Clients_Retard.xlsx. Commutateur monétaire sur MontantDû et règle IF si JoursRetard > 30.", task: "Saisissez le commutateur de format monétaire appliqué au champ MontantDû :", question: 'Tapez exactement : \\# "# ##0"', expected: '\\# "# ##0"', alt: ['# ##0'] },
       { id: "w4", title: "Cas 4 (Logistique) : Fiche d'Inventaire Dépôt TRANS-LOG (50 lignes)", context: "Arsène BADINGA. Tableau de 5 colonnes sur 3 pages. L'en-tête Bleu Nuit (#1A365D) doit se répéter et aucune ligne ne doit être coupée.", task: "Quelle case faut-il décocher dans Propriétés du tableau > Onglet Ligne ?", question: "Saisissez l'option à décocher :", expected: "autoriser le fractionnement des lignes sur plusieurs pages", alt: ["fractionnement des lignes"] },
       { id: "w5", title: "Cas 5 (RH) : Organigramme Société KIBOSSA Services", context: "Orientation Paysage, SmartArt Hiérarchie. Mme Patricia MIKALA (Secrétariat) doit être placée en poste d'Assistant sous M. Dieudonné KIBOSSA.", task: "Quelle option de disposition SmartArt permet d'insérer le Secrétariat de Direction sous le DG ?", question: "Saisissez l'action SmartArt exacte :", expected: "ajouter un assistant", alt: ["assistant"] },
       { id: "w6", title: "Cas 6 (Finance) : Note de Cadrage avec Page 3 en Paysage", context: "Pages 1, 2 et 4 en Portrait ; Page 3 (tableau matriciel 7 colonnes) en Paysage avec numérotation continue 1 à 4.", task: "Quel type de saut faut-il insérer à la fin de la page 2 et à la fin de la page 3 ?", question: "Saisissez le type de saut exact :", expected: "saut de section page suivante", alt: ["saut de section"] },
@@ -510,7 +510,7 @@ const CURRICULUM = {
         </ul>`,
         exercise: {
           prompt: "Projet 3 (Recouvrement Client) : D2 contient l'État ('Soldé' ou 'Non soldé') et C2 les Jours Restants.",
-          question: "Saisissez la formule SI imbriquée complète d'alerte (laissant vide "" si Soldé) :",
+          question: 'Saisissez la formule SI imbriquée complète d\'alerte (laissant vide "" si Soldé) :',
           expected: '=si(d2="soldé";"";si(et(d2="non soldé";c2<0);"délai dépassé";si(et(d2="non soldé";c2>=0;c2<=7);"relance urgente";"bon")))',
           alt: ['=si(etat="soldé";"";si(et(etat="non soldé";jours<0);"délai dépassé";si(et(etat="non soldé";jours>=0;jours<=7);"relance urgente";"bon")))']
         }
@@ -719,7 +719,7 @@ const CURRICULUM = {
 const FINAL_QCM = [
   { id: "q1", sw: "Windows", q: "Quel raccourci clavier ouvre directement le Gestionnaire des tâches sous Windows ?", opts: ["Ctrl + Alt + Suppr", "Ctrl + Maj + Échap", "Win + E", "Alt + F4"], ans: 1 },
   { id: "q2", sw: "Word", q: "Pour orienter uniquement la page 3 en Paysage et démarrer la pagination à 1 sur cette page, que faut-il faire ?", opts: ["Insérer un saut de page Ctrl+Entrée", "Insérer un Saut de section (Page suivante) et désactiver 'Lier au précédent'", "Utiliser la règle graduée", "Modifier les marges normales"], ans: 1 },
-  { id: "q3", sw: "Word", q: "Dans un publipostage Word, quel commutateur formate un montant avec séparateur de milliers ?", opts: ["\@ "dd/MM/yyyy"", "\# "# ##0"", "\* Upper", "Ctrl + Maj + Espace"], ans: 1 },
+  { id: "q3", sw: "Word", q: "Dans un publipostage Word, quel commutateur formate un montant avec séparateur de milliers ?", opts: ['\\@ "dd/MM/yyyy"', '\\# "# ##0"', '\\* Upper', 'Ctrl + Maj + Espace'], ans: 1 },
   { id: "q4", sw: "Excel", q: "Quelle formule renvoie le nom du commercial (B2:B100) ayant le plus grand chiffre d'affaires (D2:D100) ?", opts: ["=MAX(B2:B100;D2:D100)", "=RECHERCHEV(MAX(D2:D100);B2:D100;1;FAUX)", "=RECHERCHEX(MAX(D2:D100);D2:D100;B2:B100)", "=SOMME.SI(D2:D100;MAX(D2:D100);B2:B100)"], ans: 2 },
   { id: "q5", sw: "Excel", q: "Sous quelle extension doit-on enregistrer un classeur Excel contenant une macro VBA ?", opts: [".xlsx", ".xltx", ".xlsm", ".csv"], ans: 2 },
   { id: "q6", sw: "PowerPoint", q: "Quel préfixe dans le Volet Sélection force la transition Morphose entre deux formes différentes ?", opts: ["##", "!!", "$$", "@@"], ans: 1 },
@@ -1302,7 +1302,7 @@ function renderFinalExamSpace(ws) {
   ws.innerHTML = `
     <div class="software-header" style="border-top:5px solid var(--accent);">
       <div>
-        <h2>🎯 EXAMEN FINAL MASTERCLASS (Évaluation Autonome sur 100 %)</h2>
+        <h2>🎯 MASTER CLASS — EXAMEN FINAL (Évaluation Autonome sur 100 %)</h2>
         <p style="font-size:0.86rem; color:var(--muted);">Ici, <strong>aucune démarche pas à pas n'est affichée</strong>. À gauche : l'énoncé et les données de l'entreprise. À droite : votre banc d'essai de résolution. Le système corrige et note automatiquement sur 100 %.</p>
       </div>
       <div class="sub-tabs">
@@ -1368,7 +1368,7 @@ function gradeExamSoftware(sw) {
 function renderQcmAndCertificate(ws) {
   const globalScore = computeGlobalScore();
   const s = CURRENT_USER.examScores;
-  const qrData = encodeURIComponent(`CERTIFICAT BUREAUTIQUE MASTER ACADEMY | Apprenant: ${CURRENT_USER.prenom} ${CURRENT_USER.nom} | Code: ${CURRENT_USER.creatorCode} | Score: ${globalScore}% | Verification Airtel: 05 044 71 63`);
+  const qrData = encodeURIComponent(`CERTIFICAT FORMATION BUREAUTIQUE DE MASTER CLASS | Apprenant: ${CURRENT_USER.prenom} ${CURRENT_USER.nom} | Code: ${CURRENT_USER.creatorCode} | Score: ${globalScore}% | Verification Airtel: 05 044 71 63`);
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${qrData}`;
 
   ws.innerHTML = `
@@ -1396,7 +1396,7 @@ function renderQcmAndCertificate(ws) {
       <div class="cert-header">
         <div style="font-size:0.85rem; font-weight:700; color:#64748b; letter-spacing:2px;">RÉPUBLIQUE DU CONGO • FORMATION PROFESSIONNELLE SUPÉRIEURE</div>
         <div class="cert-title">Certificat de Maîtrise Bureautique</div>
-        <div style="font-size:0.95rem; color:#b45309; font-weight:700; margin-top:4px;">BUREAUTIQUE MASTER ACADEMY — CURSUS DE ZÉRO À EXPERT</div>
+        <div style="font-size:0.95rem; color:#b45309; font-weight:700; margin-top:4px;">FORMATION BUREAUTIQUE DE MASTER CLASS — CURSUS DE ZÉRO À EXPERT</div>
       </div>
 
       <div style="text-align:center;">
@@ -1434,7 +1434,7 @@ function renderQcmAndCertificate(ws) {
         </div>
 
         <div class="sig-box">
-          <div style="font-size:0.82rem; font-weight:700; margin-bottom:6px;">Signature du Fondateur & Formateur :</div>
+          <div style="font-size:0.82rem; font-weight:700; margin-bottom:6px;">Signature du Professeur Blessing (Fondateur & Formateur) :</div>
           <div id="cert-sig-display" style="font-family:'Brush Script MT', cursive; font-size:1.6rem; color:#1e3a8a; border-bottom:1.5px solid #0f172a; padding:4px 12px;">
             ${CURRENT_USER.founderSig || "Blessing TSIOBINDA"}
           </div>
